@@ -3,207 +3,552 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>NicklasBahre | Calcio e Satira</title>
-
+  <title>NicklasBahre — Calcio. Satira. Meme.</title>
+  <meta name="description" content="NicklasBahre — account satirico sul calcio. Meme, opinioni e calcio senza filtri.">
+  <meta name="theme-color" content="#05070b">
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #050505;
-      color: white;
-      min-height: 100vh;
+      background:
+        radial-gradient(circle at 80% 10%, rgba(0, 102, 255, 0.20), transparent 30%),
+        radial-gradient(circle at 10% 40%, rgba(0, 55, 255, 0.12), transparent 25%),
+        #05070b;
+      color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
-
-    header {
-      background: linear-gradient(135deg, #000000, #061c2d);
-      border-bottom: 2px solid #008cff;
-      padding: 22px 20px;
-      text-align: center;
-    }
-
-    .logo {
-      font-size: 32px;
-      font-weight: 900;
-      letter-spacing: -1px;
-    }
-
-    .logo span {
-      color: #008cff;
-    }
-
-    .subtitle {
-      color: #aaa;
-      margin-top: 6px;
-      font-size: 14px;
-    }
-
-    main {
-      max-width: 850px;
-      margin: auto;
-      padding: 35px 18px;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 45px 20px;
-    }
-
-    .hero h1 {
-      font-size: 42px;
-      margin-bottom: 15px;
-    }
-
-    .hero h1 span {
-      color: #008cff;
-    }
-
-    .hero p {
-      color: #bbb;
-      font-size: 18px;
-      line-height: 1.5;
-      max-width: 600px;
-      margin: auto;
-    }
-
-    .button {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 14px 28px;
-      background: #008cff;
-      color: white;
+    a {
+      color: inherit;
       text-decoration: none;
-      font-weight: bold;
-      border-radius: 8px;
-      transition: 0.2s;
     }
-
-    .button:hover {
-      transform: scale(1.04);
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
     }
-
-    section {
+    /* NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      background: rgba(5, 7, 11, 0.82);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    nav {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 21px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+    .logo span {
+      color: #1683ff;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      font-size: 14px;
+      color: #b9c0ca;
+    }
+    .nav-links a:hover {
+      color: white;
+    }
+    .nav-button {
+      background: #1683ff;
+      padding: 10px 17px;
+      border-radius: 9px;
+      color: white !important;
+      font-weight: 700;
+    }
+    /* HERO */
+    .hero {
+      min-height: 720px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    .hero-content {
+      max-width: 850px;
+      padding: 90px 0;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(22,131,255,0.45);
+      background: rgba(22,131,255,0.08);
+      color: #58a8ff;
+      padding: 8px 13px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+    .hero h1 {
+      font-size: clamp(58px, 10vw, 120px);
+      line-height: 0.88;
+      letter-spacing: -6px;
+      font-weight: 950;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+    .hero h1 span {
+      color: #1683ff;
+    }
+    .hero p {
+      max-width: 650px;
+      color: #aeb6c2;
+      font-size: 19px;
+      margin-bottom: 35px;
+    }
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 14px;
+      transition: 0.2s ease;
+    }
+    .button-primary {
+      background: #1683ff;
+    }
+    .button-primary:hover {
+      transform: translateY(-2px);
+      background: #3695ff;
+    }
+    .button-secondary {
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      color: #dce1e8;
+    }
+    .button-secondary:hover {
+      background: rgba(255,255,255,0.08);
+    }
+    /* STATS */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
       margin-top: 35px;
     }
-
-    h2 {
-      border-left: 4px solid #008cff;
-      padding-left: 12px;
+    .stat {
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.035);
+      border-radius: 14px;
+    }
+    .stat strong {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 3px;
+    }
+    .stat span {
+      color: #858e9c;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    /* SECTIONS */
+    section {
+      padding: 100px 0;
+    }
+    .section-label {
+      color: #1683ff;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(35px, 5vw, 58px);
+      line-height: 1;
+      letter-spacing: -2px;
+      margin-bottom: 45px;
+    }
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+    .card {
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.055),
+        rgba(255,255,255,0.018)
+      );
+      border-radius: 18px;
+      padding: 32px;
+    }
+    .card h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    .card p {
+      color: #9fa8b5;
+      font-size: 16px;
+    }
+    .quote {
+      border-left: 3px solid #1683ff;
+      padding-left: 20px;
+      margin-top: 25px;
+      color: #dce1e8;
+      font-weight: 700;
+    }
+    /* POSTS */
+    .posts {
+      background: rgba(255,255,255,0.018);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .posts-intro {
+      color: #8993a1;
+      max-width: 650px;
+      margin-top: -25px;
+      margin-bottom: 40px;
+    }
+    .tweets {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      align-items: start;
+    }
+    .tweet-card {
+      min-height: 220px;
+      padding: 25px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #090c12;
+    }
+    .tweet-number {
+      color: #1683ff;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 2px;
       margin-bottom: 18px;
     }
-
-    .card {
-      background: #101010;
-      border: 1px solid #222;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 15px;
+    .tweet-card p {
+      color: #aab2be;
+      margin-bottom: 25px;
     }
-
-    .card p {
-      color: #ccc;
-      line-height: 1.5;
+    .tweet-link {
+      display: inline-block;
+      color: #1683ff;
+      font-weight: 800;
+      font-size: 14px;
     }
-
-    .post {
-      border-left: 3px solid #008cff;
+    .tweet-link:hover {
+      text-decoration: underline;
     }
-
-    .post small {
-      color: #008cff;
-      font-weight: bold;
-    }
-
-    footer {
+    /* CTA */
+    .cta {
       text-align: center;
-      color: #666;
-      border-top: 1px solid #222;
-      padding: 25px;
-      margin-top: 50px;
+      padding: 120px 0;
+    }
+    .cta-box {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(22,131,255,0.25);
+      border-radius: 24px;
+      padding: 75px 30px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(22,131,255,0.22), transparent 50%),
+        rgba(255,255,255,0.025);
+    }
+    .cta h2 {
+      font-size: clamp(38px, 6vw, 70px);
+      line-height: 0.95;
+      letter-spacing: -3px;
+      margin-bottom: 22px;
+    }
+    .cta p {
+      color: #929ba8;
+      margin-bottom: 30px;
+    }
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 30px 0;
+      color: #697382;
       font-size: 13px;
+    }
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    footer strong {
+      color: #aab2be;
+    }
+    /* MOBILE */
+    @media (max-width: 800px) {
+      .nav-links a:not(.nav-button) {
+        display: none;
+      }
+      .hero {
+        min-height: auto;
+      }
+      .hero-content {
+        padding: 80px 0 60px;
+      }
+      .hero h1 {
+        font-size: clamp(55px, 18vw, 90px);
+        letter-spacing: -4px;
+      }
+      .hero p {
+        font-size: 17px;
+      }
+      .stats {
+        grid-template-columns: 1fr;
+      }
+      .about-grid,
+      .tweets {
+        grid-template-columns: 1fr;
+      }
+      section {
+        padding: 75px 0;
+      }
+      .cta {
+        padding: 80px 0;
+      }
+      footer .container {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
-
 <body>
-
+  <!-- NAVBAR -->
   <header>
-    <div class="logo">NICKLAS<span>BAHRE</span></div>
-    <div class="subtitle">Calcio • Satira • Meme</div>
-  </header>
-
-  <main>
-
-    <div class="hero">
-      <h1>Il calcio, ma visto <span>male.</span></h1>
-
-      <p>
-        Account satirico dedicato al calcio italiano,
-        ai meme e a tutto ciò che succede dentro e fuori dal campo.
-      </p>
-
-      <a class="button"
-         href="https://x.com/NicklasBahre"
-         target="_blank">
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">
+          NICKLAS<span>BAHRE</span>
+        </a>
+    <div class="nav-links">
+      <a href="#about">Chi sono</a>
+      <a href="#posts">Post</a>
+      <a
+        href="https://x.com/nicklasbahre"
+        target="_blank"
+        class="nav-button"
+      >
         Seguimi su X
       </a>
     </div>
-
-    <section>
-      <h2>Chi è NicklasBahre</h2>
-
+  </nav>
+</div>
+  </header>
+  <!-- HERO -->
+  <main>
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="badge">
+        ⚽ Account satirico sul calcio
+      </div>
+      <h1>
+        CALCIO.<br>
+        SATIRA.<br>
+        <span>MEME.</span>
+      </h1>
+      <p>
+        Il calcio raccontato senza filtri.
+        Meme, provocazioni, opinioni e tutto quello
+        che succede dentro e fuori dal campo.
+      </p>
+      <div class="buttons">
+        <a
+          href="https://x.com/nicklasbahre"
+          target="_blank"
+          class="button button-primary"
+        >
+          𝕏 Seguimi su X
+        </a>
+        <a
+          href="#posts"
+          class="button button-secondary"
+        >
+          Guarda gli ultimi post
+        </a>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <strong>⚽ CALCIO</strong>
+          <span>La mia ossessione</span>
+        </div>
+        <div class="stat">
+          <strong>🔥 SATIRA</strong>
+          <span>Niente filtri</span>
+        </div>
+        <div class="stat">
+          <strong>😂 MEME</strong>
+          <span>Quando il calcio chiama</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-label">
+      / CHI SONO
+    </div>
+    <h2 class="section-title">
+      Benvenuto<br>
+      nel mondo NicklasBahre.
+    </h2>
+    <div class="about-grid">
       <div class="card">
+        <h3>Un account satirico.</h3>
         <p>
-          Un account satirico sul calcio italiano.
-          Opinioni, meme, provocazioni e tutto quello che
-          normalmente non dovrebbe essere preso troppo sul serio.
+          NicklasBahre nasce per parlare di calcio
+          in modo diverso: ironia, meme, provocazioni
+          e pensieri senza troppi giri di parole.
+        </p>
+        <div class="quote">
+          “Se non fa discutere, probabilmente non è
+          un buon post.”
+        </div>
+      </div>
+      <div class="card">
+        <h3>Calcio e altro.</h3>
+        <p>
+          Dalle partite ai giocatori, dagli allenatori
+          alle polemiche: tutto può diventare materiale
+          per un meme.
+        </p>
+        <br>
+        <p>
+          Seguimi su X per non perderti i prossimi post.
         </p>
       </div>
-    </section>
-
-    <section>
-      <h2>Ultimi post</h2>
-
-      <div class="card post">
-        <small>POST #01</small>
+    </div>
+  </div>
+</section>
+<!-- POSTS -->
+<section id="posts" class="posts">
+  <div class="container">
+    <div class="section-label">
+      / ULTIMI POST
+    </div>
+    <h2 class="section-title">
+      Direttamente da X.
+    </h2>
+    <p class="posts-intro">
+      Una selezione degli ultimi post pubblicati
+      sull'account ufficiale NicklasBahre.
+    </p>
+    <div class="tweets">
+      <article class="tweet-card">
+        <div class="tweet-number">
+          POST #01
+        </div>
         <p>
-          Il calcio italiano non è mai stato così divertente.
+          Visualizza il post originale
+          direttamente su X.
         </p>
-      </div>
-
-      <div class="card post">
-        <small>POST #02</small>
+        <a
+          href="https://x.com/nicklasbahre/status/2096616103849906235"
+          target="_blank"
+          class="tweet-link"
+        >
+          Apri il post →
+        </a>
+      </article>
+      <article class="tweet-card">
+        <div class="tweet-number">
+          POST #02
+        </div>
         <p>
-          90 minuti di calcio per 3 ore di polemiche.
+          Visualizza il post originale
+          direttamente su X.
         </p>
-      </div>
-
-      <div class="card post">
-        <small>POST #03</small>
+        <a
+          href="https://x.com/nicklasbahre/status/2088699009502183468"
+          target="_blank"
+          class="tweet-link"
+        >
+          Apri il post →
+        </a>
+      </article>
+      <article class="tweet-card">
+        <div class="tweet-number">
+          POST #03
+        </div>
         <p>
-          Qui si parla di calcio. Il buon senso è facoltativo.
+          Visualizza il post originale
+          direttamente su X.
         </p>
-      </div>
-    </section>
-
-    <section style="text-align:center;">
-      <a class="button"
-         href="https://x.com/NicklasBahre"
-         target="_blank">
-        @NicklasBahre su X
+        <a
+          href="https://x.com/nicklasbahre/status/2084228103887319178"
+          target="_blank"
+          class="tweet-link"
+        >
+          Apri il post →
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+<!-- CTA -->
+<section class="cta">
+  <div class="container">
+    <div class="cta-box">
+      <h2>
+        SE TI PIACE<br>
+        IL CALCIO,<br>
+        <span style="color:#1683ff;">SEGUIMI.</span>
+      </h2>
+      <p>
+        Trovi meme, satira e calcio ogni giorno su X.
+      </p>
+      <a
+        href="https://x.com/nicklasbahre"
+        target="_blank"
+        class="button button-primary"
+      >
+        𝕏 @NicklasBahre
       </a>
-    </section>
-
+    </div>
+  </div>
+</section>
   </main>
-
+  <!-- FOOTER -->
   <footer>
-    © 2026 NicklasBahre — Account satirico sul calcio
+<div class="container">
+  <div>
+    © 2026 <strong>NicklasBahre</strong>
+  </div>
+  <div>
+    Account satirico sul calcio · Calcio e altro.
+  </div>
+</div>
   </footer>
-
 </body>
 </html>
