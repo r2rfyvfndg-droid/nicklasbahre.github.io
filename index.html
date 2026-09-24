@@ -13,638 +13,726 @@
 
 <style>
 :root{
---bg:#050a11;
---panel:#0b131e;
---line:#213247;
---text:#f4f8fc;
---muted:#9aabba;
---blue:#087ff5;
---blue2:#1ba4ff;
---cyan:#8bdcff;
+  --bg:#050a11;
+  --panel:#0b131e;
+  --line:#213247;
+  --text:#f4f8fc;
+  --muted:#9aabba;
+  --blue:#087ff5;
+  --blue2:#1ba4ff;
+  --cyan:#8bdcff;
 }
 
 *{box-sizing:border-box}
+
 html{scroll-behavior:smooth}
 
 body{
-margin:0;
-background:radial-gradient(circle at 40% 0,#0b2037 0,transparent 25%),var(--bg);
-color:var(--text);
-font-family:'DM Sans',Arial,sans-serif;
+  margin:0;
+  background:
+    radial-gradient(circle at 40% 0,#0b2037 0,transparent 25%),
+    var(--bg);
+  color:var(--text);
+  font-family:'DM Sans',Arial,sans-serif;
 }
 
-a{color:inherit;text-decoration:none}
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
 button{font:inherit}
 
-/* ULTIM'ORA */
+/* =========================
+   ULTIM'ORA
+========================= */
 
 .breaking{
-height:44px;
-display:flex;
-align-items:center;
-background:#030810;
-border-bottom:1px solid #1478d4;
-overflow:hidden;
+  height:44px;
+  display:flex;
+  align-items:center;
+  background:#030810;
+  border-bottom:1px solid #1478d4;
+  overflow:hidden;
 }
 
 .breaking-label{
-height:44px;
-display:flex;
-align-items:center;
-padding:0 22px;
-background:var(--blue);
-font-family:'Barlow Condensed',sans-serif;
-font-size:21px;
-font-weight:900;
-white-space:nowrap;
+  height:44px;
+  display:flex;
+  align-items:center;
+  padding:0 22px;
+  background:var(--blue);
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:21px;
+  font-weight:900;
+  white-space:nowrap;
+  z-index:2;
 }
 
 .breaking-track{
-overflow:hidden;
-flex:1;
+  overflow:hidden;
+  flex:1;
 }
 
 .breaking-move{
-display:flex;
-align-items:center;
-gap:22px;
-white-space:nowrap;
-width:max-content;
-animation:ticker 30s linear infinite;
-font-size:13px;
+  display:flex;
+  align-items:center;
+  gap:22px;
+  white-space:nowrap;
+  width:max-content;
+  animation:ticker 30s linear infinite;
+  font-size:13px;
 }
 
 .breaking-move span:after{
-content:"•";
-margin-left:22px;
-color:#536579;
+  content:"•";
+  margin-left:22px;
+  color:#536579;
 }
 
 @keyframes ticker{
-from{transform:translateX(20px)}
-to{transform:translateX(-50%)}
+  from{transform:translateX(20px)}
+  to{transform:translateX(-50%)}
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 .header{
-background:#050a11f4;
-backdrop-filter:blur(12px);
-border-bottom:1px solid var(--line);
-position:sticky;
-top:0;
-z-index:20;
+  background:#050a11f4;
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:20;
 }
 
 .header-inner{
-width:min(1450px,calc(100% - 50px));
-margin:auto;
-min-height:112px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:30px;
+  width:min(1450px,calc(100% - 50px));
+  margin:auto;
+  min-height:112px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
 }
 
 .logo{
-font-family:'Barlow Condensed',Impact,sans-serif;
-font-size:58px;
-font-weight:900;
-line-height:.8;
-letter-spacing:-2px;
+  font-family:'Barlow Condensed',Impact,sans-serif;
+  font-size:58px;
+  font-weight:900;
+  line-height:.8;
+  letter-spacing:-2px;
 }
 
-.logo b{color:var(--blue)}
+.logo b{
+  color:var(--blue);
+}
 
 .logo small{
-display:block;
-font-family:'DM Sans',sans-serif;
-font-size:9px;
-letter-spacing:4px;
-font-weight:700;
-color:#8295aa;
-margin-top:12px;
+  display:block;
+  font-family:'DM Sans',sans-serif;
+  font-size:9px;
+  letter-spacing:4px;
+  font-weight:700;
+  color:#8295aa;
+  margin-top:12px;
 }
 
 .nav{
-display:flex;
-align-items:center;
-gap:42px;
-font-family:'Barlow Condensed',sans-serif;
-font-size:18px;
-font-weight:700;
+  display:flex;
+  align-items:center;
+  gap:42px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:18px;
+  font-weight:700;
 }
 
 .nav a{
-padding:15px 0;
-border-bottom:3px solid transparent;
+  padding:15px 0;
+  border-bottom:3px solid transparent;
 }
 
-.nav a:hover{border-color:var(--blue)}
+.nav a:hover{
+  border-color:var(--blue);
+}
 
 .btn{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-background:var(--blue);
-color:#fff;
-padding:13px 20px;
-border-radius:4px;
-font-size:12px;
-font-weight:800;
-letter-spacing:.08em;
-transition:.2s;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--blue);
+  color:#fff;
+  padding:13px 20px;
+  border-radius:4px;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.08em;
+  transition:.2s;
 }
 
 .btn:hover{
-background:var(--blue2);
-transform:translateY(-1px);
+  background:var(--blue2);
+  transform:translateY(-1px);
 }
 
-/* LAYOUT */
+/* =========================
+   LAYOUT
+========================= */
 
 .container{
-width:min(1450px,calc(100% - 50px));
-margin:auto;
-padding:20px 0 70px;
+  width:min(1450px,calc(100% - 50px));
+  margin:auto;
+  padding:20px 0 70px;
 }
 
 .layout{
-display:grid;
-grid-template-columns:minmax(0,2.5fr) minmax(300px,.9fr);
-gap:18px;
+  display:grid;
+  grid-template-columns:minmax(0,2.5fr) minmax(300px,.9fr);
+  gap:18px;
 }
 
-/* ARTICOLO PRINCIPALE */
+/* =========================
+   ARTICOLO PRINCIPALE
+========================= */
 
 .feature{
-position:relative;
-min-height:470px;
-border:1px solid #27425e;
-border-radius:5px;
-overflow:hidden;
-display:flex;
-align-items:flex-end;
+  position:relative;
+  min-height:470px;
+  border:1px solid #27425e;
+  border-radius:5px;
+  overflow:hidden;
+  display:flex;
+  align-items:flex-end;
 
-background-image:
-linear-gradient(
-0deg,
-rgba(2,7,13,.97) 0%,
-rgba(2,7,13,.68) 30%,
-rgba(2,7,13,.08) 75%
-),
-url('inter-convocati.jpeg.png');
+  background-image:
+    linear-gradient(
+      0deg,
+      rgba(2,7,13,.98) 0%,
+      rgba(2,7,13,.72) 32%,
+      rgba(2,7,13,.08) 76%
+    ),
+    url('inter-convocati.jpeg.PNG');
 
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
 }
 
 .feature:after{
-content:"";
-position:absolute;
-inset:0;
-background:linear-gradient(90deg,rgba(0,0,0,.2),transparent 55%);
-pointer-events:none;
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    90deg,
+    rgba(0,0,0,.30),
+    transparent 60%
+  );
+  pointer-events:none;
 }
 
 .feature-content{
-position:relative;
-z-index:2;
-padding:30px;
-max-width:950px;
+  position:relative;
+  z-index:2;
+  padding:30px;
+  max-width:950px;
 }
 
 .category{
-display:inline-flex;
-background:var(--blue);
-padding:6px 10px;
-border-radius:3px;
-font-size:10px;
-font-weight:900;
-letter-spacing:.08em;
-text-transform:uppercase;
-margin-bottom:15px;
+  display:inline-flex;
+  background:var(--blue);
+  padding:6px 10px;
+  border-radius:3px;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:15px;
 }
 
 .date{
-font-size:11px;
-font-weight:800;
-letter-spacing:.15em;
-color:#c4d1df;
-text-transform:uppercase;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.15em;
+  color:#c4d1df;
+  text-transform:uppercase;
 }
 
 .feature h1{
-font-family:'Barlow Condensed',sans-serif;
-font-size:clamp(43px,4.5vw,69px);
-line-height:.98;
-margin:8px 0 10px;
-max-width:950px;
-text-shadow:0 3px 15px #000;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(43px,4.5vw,69px);
+  line-height:.98;
+  margin:8px 0 10px;
+  max-width:950px;
+  text-shadow:0 3px 15px #000;
 }
 
 .feature p{
-color:#d4dde6;
-font-size:16px;
-margin:0 0 18px;
-text-shadow:0 2px 8px #000;
+  color:#d4dde6;
+  font-size:16px;
+  margin:0 0 18px;
+  text-shadow:0 2px 8px #000;
 }
 
-/* CARD */
+/* =========================
+   CARD
+========================= */
 
 .cards{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:18px;
-margin-top:18px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin-top:18px;
 }
 
 .card{
-min-height:370px;
-position:relative;
-overflow:hidden;
-border:1px solid var(--line);
-border-radius:5px;
-display:flex;
-align-items:flex-end;
-background-color:var(--panel);
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-transition:.2s;
+  min-height:370px;
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:5px;
+  display:flex;
+  align-items:flex-end;
+  background-color:var(--panel);
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  transition:.2s;
 }
 
 .card:hover{
-border-color:#2588df;
-transform:translateY(-3px);
+  border-color:#2588df;
+  transform:translateY(-3px);
 }
+
+/* ROMA - INTER */
 
 .card.score{
-background-image:
-linear-gradient(
-0deg,
-rgba(2,7,13,.97) 0%,
-rgba(2,7,13,.70) 36%,
-rgba(2,7,13,.05) 78%
-),
-url('roma-inter.jpeg.png');
+  background-image:
+    linear-gradient(
+      0deg,
+      rgba(2,7,13,.98) 0%,
+      rgba(2,7,13,.73) 38%,
+      rgba(2,7,13,.05) 80%
+    ),
+    url('roma-inter.jpeg.PNG');
 }
 
+/* MAZZOLA */
+
 .card.mazzola{
-background-image:
-linear-gradient(
-0deg,
-rgba(2,7,13,.98) 0%,
-rgba(2,7,13,.72) 38%,
-rgba(2,7,13,.08) 80%
-),
-url('mazzola.jpeg.png');
+  background-image:
+    linear-gradient(
+      0deg,
+      rgba(2,7,13,.98) 0%,
+      rgba(2,7,13,.74) 40%,
+      rgba(2,7,13,.06) 80%
+    ),
+    url('mazzola.jpeg.PNG');
 }
 
 .card-content{
-position:relative;
-z-index:2;
-padding:22px;
-width:100%;
+  position:relative;
+  z-index:2;
+  padding:22px;
+  width:100%;
 }
 
 .card h2{
-font-family:'Barlow Condensed',sans-serif;
-font-size:34px;
-line-height:1;
-margin:8px 0 10px;
-text-shadow:0 3px 12px #000;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:34px;
+  line-height:1;
+  margin:8px 0 10px;
+  text-shadow:0 3px 12px #000;
 }
 
 .card p{
-font-size:13px;
-color:#d0d8e0;
-line-height:1.5;
-text-shadow:0 2px 7px #000;
+  font-size:13px;
+  color:#d0d8e0;
+  line-height:1.5;
+  text-shadow:0 2px 7px #000;
 }
 
 .read{
-display:inline-block;
-margin-top:15px;
-font-size:11px;
-font-weight:900;
-letter-spacing:.1em;
-color:#55baff;
+  display:inline-block;
+  margin-top:15px;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.1em;
+  color:#55baff;
 }
 
-/* SIDEBAR */
+/* =========================
+   SIDEBAR
+========================= */
 
 .sidebar{
-display:flex;
-flex-direction:column;
-gap:14px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
 }
 
 .box{
-background:linear-gradient(145deg,#0c1622,#07101a);
-border:1px solid var(--line);
-border-radius:4px;
-padding:20px;
+  background:linear-gradient(145deg,#0c1622,#07101a);
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:20px;
 }
 
 .box-title{
-display:flex;
-align-items:center;
-justify-content:space-between;
-border-bottom:1px solid #29415a;
-padding-bottom:12px;
-margin-bottom:8px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid #29415a;
+  padding-bottom:12px;
+  margin-bottom:8px;
 }
 
 .box-title h2{
-font-family:'Barlow Condensed',sans-serif;
-font-size:31px;
-line-height:1;
-margin:0;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:31px;
+  line-height:1;
+  margin:0;
 }
 
 .blue-line{
-height:3px;
-width:52px;
-background:var(--blue);
-margin-top:8px;
+  height:3px;
+  width:52px;
+  background:var(--blue);
+  margin-top:8px;
 }
 
 .popular{
-list-style:none;
-padding:0;
-margin:0;
+  list-style:none;
+  padding:0;
+  margin:0;
 }
 
 .popular li{
-display:grid;
-grid-template-columns:40px 1fr;
-gap:12px;
-padding:17px 0;
-border-bottom:1px solid #213145;
+  display:grid;
+  grid-template-columns:40px 1fr;
+  gap:12px;
+  padding:17px 0;
+  border-bottom:1px solid #213145;
 }
 
-.popular li:last-child{border-bottom:0}
+.popular li:last-child{
+  border-bottom:0;
+}
 
 .num{
-font-family:'Barlow Condensed',sans-serif;
-font-size:31px;
-font-weight:900;
-color:#53677e;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:31px;
+  font-weight:900;
+  color:#53677e;
 }
 
 .popular a{
-font-family:'Barlow Condensed',sans-serif;
-font-size:18px;
-font-weight:800;
-line-height:1.1;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:18px;
+  font-weight:800;
+  line-height:1.1;
 }
 
-.popular a:hover{color:var(--cyan)}
+.popular a:hover{
+  color:var(--cyan);
+}
 
 .popular small{
-display:block;
-color:#7f91a5;
-font-family:'DM Sans',sans-serif;
-font-size:9px;
-letter-spacing:.13em;
-margin-top:8px;
+  display:block;
+  color:#7f91a5;
+  font-family:'DM Sans',sans-serif;
+  font-size:9px;
+  letter-spacing:.13em;
+  margin-top:8px;
 }
 
-/* FILTRI */
+/* =========================
+   ARGOMENTI
+========================= */
 
 .filters{
-display:flex;
-gap:9px;
-flex-wrap:wrap;
-padding-top:8px;
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+  padding-top:8px;
 }
 
 .filter{
-background:transparent;
-border:1px solid #486078;
-color:white;
-padding:9px 16px;
-border-radius:4px;
-cursor:pointer;
-font-size:12px;
+  background:transparent;
+  border:1px solid #486078;
+  color:white;
+  padding:9px 16px;
+  border-radius:4px;
+  cursor:pointer;
+  font-size:12px;
 }
 
-.filter.active,.filter:hover{
-background:var(--blue);
-border-color:var(--blue);
+.filter.active,
+.filter:hover{
+  background:var(--blue);
+  border-color:var(--blue);
 }
 
-/* BOX X */
+/* =========================
+   X
+========================= */
 
 .xbox{
-position:relative;
-overflow:hidden;
-min-height:210px;
+  position:relative;
+  overflow:hidden;
+  min-height:210px;
 }
 
 .xbox:after{
-content:"𝕏";
-position:absolute;
-right:10px;
-bottom:-30px;
-font-size:180px;
-color:#168cff1b;
-transform:rotate(-10deg);
+  content:"𝕏";
+  position:absolute;
+  right:10px;
+  bottom:-30px;
+  font-size:180px;
+  color:#168cff1b;
+  transform:rotate(-10deg);
 }
 
 .xbox-content{
-position:relative;
-z-index:2;
+  position:relative;
+  z-index:2;
 }
 
 .xbox h3{
-font-family:'Barlow Condensed',sans-serif;
-font-size:29px;
-margin:13px 0 6px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:29px;
+  margin:13px 0 6px;
 }
 
 .xbox p{
-font-size:13px;
-color:#aab7c5;
-margin:0 0 18px;
+  font-size:13px;
+  color:#aab7c5;
+  margin:0 0 18px;
 }
 
-/* PAGINA ARTICOLO */
+/* =========================
+   PAGINA ARTICOLO
+========================= */
 
 .article-page{
-display:none;
-width:min(900px,calc(100% - 40px));
-margin:50px auto 90px;
+  display:none;
+  width:min(900px,calc(100% - 40px));
+  margin:50px auto 90px;
 }
 
-.article-page.show{display:block}
-.home.hidden{display:none}
+.article-page.show{
+  display:block;
+}
+
+.home.hidden{
+  display:none;
+}
 
 .back{
-display:inline-block;
-color:#56b8ff;
-font-size:12px;
-font-weight:900;
-margin-bottom:28px;
+  display:inline-block;
+  color:#56b8ff;
+  font-size:12px;
+  font-weight:900;
+  margin-bottom:28px;
 }
 
 .article-cover{
-height:390px;
-border-radius:5px;
-background-size:cover;
-background-position:center;
-margin-bottom:30px;
-border:1px solid var(--line);
+  width:100%;
+  height:430px;
+  border-radius:6px;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  margin-bottom:30px;
+  border:1px solid var(--line);
 }
 
 .article-page h1{
-font-family:'Barlow Condensed',sans-serif;
-font-size:clamp(48px,7vw,85px);
-line-height:.96;
-margin:12px 0 20px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(48px,7vw,85px);
+  line-height:.96;
+  margin:12px 0 20px;
 }
 
 .article-lead{
-font-size:20px;
-color:#b8c7d5;
-line-height:1.5;
+  font-size:20px;
+  color:#b8c7d5;
+  line-height:1.5;
 }
 
 .article-meta{
-border-top:1px solid var(--line);
-border-bottom:1px solid var(--line);
-padding:14px 0;
-margin:25px 0;
-color:#8496a9;
-font-size:11px;
-font-weight:800;
-letter-spacing:.08em;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:14px 0;
+  margin:25px 0;
+  color:#8496a9;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.08em;
 }
 
 .article-body p{
-font-size:17px;
-line-height:1.85;
-margin:0 0 22px;
+  font-size:17px;
+  line-height:1.85;
+  margin:0 0 22px;
 }
 
 .source{
-background:var(--panel);
-border-left:3px solid var(--blue);
-padding:16px;
-margin-top:35px;
-font-size:12px;
-color:#aebac7;
+  background:var(--panel);
+  border-left:3px solid var(--blue);
+  padding:16px;
+  margin-top:35px;
+  font-size:12px;
+  color:#aebac7;
 }
 
 .source a{
-color:#67c3ff;
-text-decoration:underline;
+  color:#67c3ff;
+  text-decoration:underline;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-border-top:1px solid var(--line);
-padding:28px 0;
-color:#75889c;
-font-size:11px;
+  border-top:1px solid var(--line);
+  padding:28px 0;
+  color:#75889c;
+  font-size:11px;
 }
 
 .footer-inner{
-width:min(1450px,calc(100% - 50px));
-margin:auto;
-display:flex;
-justify-content:space-between;
-gap:20px;
+  width:min(1450px,calc(100% - 50px));
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
 }
 
-/* TABLET */
+/* =========================
+   TABLET
+========================= */
 
 @media(max-width:950px){
 
-.header-inner{min-height:85px}
+  .header-inner{
+    min-height:85px;
+  }
 
-.logo{font-size:43px}
+  .logo{
+    font-size:43px;
+  }
 
-.logo small{display:none}
+  .logo small{
+    display:none;
+  }
 
-.nav{display:none}
+  .nav{
+    display:none;
+  }
 
-.layout{grid-template-columns:1fr}
+  .layout{
+    grid-template-columns:1fr;
+  }
 
-.sidebar{
-display:grid;
-grid-template-columns:1fr 1fr;
+  .sidebar{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
 }
 
-}
-
-/* IPHONE */
+/* =========================
+   IPHONE
+========================= */
 
 @media(max-width:650px){
 
-.breaking{height:39px}
+  .breaking{
+    height:39px;
+  }
 
-.breaking-label{
-height:39px;
-font-size:17px;
-padding:0 13px;
-}
+  .breaking-label{
+    height:39px;
+    font-size:17px;
+    padding:0 13px;
+  }
 
-.breaking-move{font-size:11px}
+  .breaking-move{
+    font-size:11px;
+  }
 
-.header-inner,
-.container,
-.footer-inner{
-width:calc(100% - 26px);
-}
+  .header-inner,
+  .container,
+  .footer-inner{
+    width:calc(100% - 26px);
+  }
 
-.header-inner{min-height:68px}
+  .header-inner{
+    min-height:68px;
+  }
 
-.logo{
-font-size:32px;
-letter-spacing:-1px;
-}
+  .logo{
+    font-size:32px;
+    letter-spacing:-1px;
+  }
 
-.header .btn{
-padding:10px 12px;
-font-size:9px;
-}
+  .header .btn{
+    padding:10px 12px;
+    font-size:9px;
+  }
 
-.container{padding-top:13px}
+  .container{
+    padding-top:13px;
+  }
 
-.feature{
-min-height:455px;
-background-position:center top;
-}
+  .feature{
+    min-height:455px;
+    background-position:center;
+  }
 
-.feature-content{padding:20px}
+  .feature-content{
+    padding:20px;
+  }
 
-.feature h1{font-size:43px}
+  .feature h1{
+    font-size:43px;
+  }
 
-.feature p{font-size:14px}
+  .feature p{
+    font-size:14px;
+  }
 
-.cards{grid-template-columns:1fr}
+  .cards{
+    grid-template-columns:1fr;
+  }
 
-.card{min-height:360px}
+  .card{
+    min-height:360px;
+  }
 
-.card h2{font-size:31px}
+  .card h2{
+    font-size:31px;
+  }
 
-.sidebar{
-display:flex;
-margin-top:4px;
-}
+  .sidebar{
+    display:flex;
+    margin-top:4px;
+  }
 
-.article-cover{
-height:240px;
-}
+  .article-cover{
+    height:250px;
+  }
 
-.article-body p{font-size:16px}
+  .article-body p{
+    font-size:16px;
+  }
 
-.footer-inner{flex-direction:column}
-
+  .footer-inner{
+    flex-direction:column;
+  }
 }
 
 </style>
@@ -652,50 +740,79 @@ height:240px;
 
 <body>
 
+<!-- ULTIM'ORA -->
+
 <div class="breaking">
-<div class="breaking-label">ULTIM’ORA</div>
 
-<div class="breaking-track">
-<div class="breaking-move">
+  <div class="breaking-label">
+    ULTIM’ORA
+  </div>
 
-<span>10.000 € di multa alla Juventus per il minuto di silenzio su Mazzola</span>
-<span>Inter, 13 convocati per le nazionali</span>
-<span>Roma-Inter 2-2: doppietta di Lautaro</span>
+  <div class="breaking-track">
+    <div class="breaking-move">
 
-<span>10.000 € di multa alla Juventus per il minuto di silenzio su Mazzola</span>
-<span>Inter, 13 convocati per le nazionali</span>
-<span>Roma-Inter 2-2: doppietta di Lautaro</span>
+      <span>
+        10.000 € di multa alla Juventus per il minuto di silenzio su Mazzola
+      </span>
+
+      <span>
+        Inter, 13 convocati per le nazionali
+      </span>
+
+      <span>
+        Roma-Inter 2-2: doppietta di Lautaro
+      </span>
+
+      <span>
+        10.000 € di multa alla Juventus per il minuto di silenzio su Mazzola
+      </span>
+
+      <span>
+        Inter, 13 convocati per le nazionali
+      </span>
+
+      <span>
+        Roma-Inter 2-2: doppietta di Lautaro
+      </span>
+
+    </div>
+  </div>
 
 </div>
-</div>
-</div>
+
+<!-- HEADER -->
 
 <header class="header">
-<div class="header-inner">
 
-<a href="#home" class="logo">
-NICKLAS <b>NEWS.</b>
-<small>IL CALCIO, CON QUALCHE OPINIONE DI TROPPO</small>
-</a>
+  <div class="header-inner">
 
-<nav class="nav">
-<a href="#home">Home</a>
-<a href="#notizie">Ultime notizie</a>
-<a href="#piu-letti">Più letti</a>
-<a href="#chi-siamo">Chi siamo</a>
-</nav>
+    <a href="#home" class="logo">
+      NICKLAS <b>NEWS.</b>
+      <small>IL CALCIO, CON QUALCHE OPINIONE DI TROPPO</small>
+    </a>
 
-<a class="btn"
-href="https://x.com/nicklasbahre"
-target="_blank"
-rel="noopener noreferrer">
-SEGUIMI SU X ↗
-</a>
+    <nav class="nav">
+      <a href="#home">Home</a>
+      <a href="#notizie">Ultime notizie</a>
+      <a href="#piu-letti">Più letti</a>
+      <a href="#chi-siamo">Chi siamo</a>
+    </nav>
 
-</div>
+    <a
+      class="btn"
+      href="https://x.com/nicklasbahre"
+      target="_blank"
+      rel="noopener noreferrer">
+      SEGUIMI SU X ↗
+    </a>
+
+  </div>
+
 </header>
 
 <main>
+
+<!-- HOME -->
 
 <div id="homeView" class="home">
 
@@ -703,182 +820,257 @@ SEGUIMI SU X ↗
 
 <div class="layout">
 
+<!-- COLONNA NOTIZIE -->
+
 <div>
 
-<a class="feature"
-href="#articolo/tredici-inter-nazionali"
-id="notizie">
+<!-- 13 CONVOCATI -->
 
-<div class="feature-content">
+<a
+  class="feature"
+  href="#articolo/tredici-inter-nazionali"
+  id="notizie">
 
-<span class="category">INTER</span>
+  <div class="feature-content">
 
-<div class="date">
-24 SETTEMBRE 2026
-</div>
+    <span class="category">
+      INTER
+    </span>
 
-<h1>
-Inter, 13 convocati: la sosta diventa uno sport estremo
-</h1>
+    <div class="date">
+      24 SETTEMBRE 2026
+    </div>
 
-<p>
-Tredici nerazzurri partono per le nazionali. Purtroppo anche Lautaro.
-</p>
+    <h1>
+      Inter, 13 convocati: la sosta diventa uno sport estremo
+    </h1>
 
-<span class="btn">
-LEGGI L’ARTICOLO →
-</span>
+    <p>
+      Tredici nerazzurri partono per le nazionali. Purtroppo anche Lautaro.
+    </p>
 
-</div>
+    <span class="btn">
+      LEGGI L’ARTICOLO →
+    </span>
+
+  </div>
+
 </a>
+
+<!-- ALTRE DUE NOTIZIE -->
 
 <div class="cards">
 
-<a class="card score"
-href="#articolo/roma-inter-rimonta-lautaro">
+<!-- ROMA INTER -->
 
-<div class="card-content">
+<a
+  class="card score"
+  href="#articolo/roma-inter-rimonta-lautaro">
 
-<span class="category">SERIE A</span>
+  <div class="card-content">
 
-<div class="date">
-24 SETTEMBRE 2026
-</div>
+    <span class="category">
+      SERIE A
+    </span>
 
-<h2>
-Lautaro rimonta la Roma. Il primo tempo dell’Inter è ancora disperso
-</h2>
+    <div class="date">
+      24 SETTEMBRE 2026
+    </div>
 
-<p>
-Primo tempo disastroso, il capitano conquista il pareggio.
-</p>
+    <h2>
+      Lautaro rimonta la Roma. Il primo tempo dell’Inter è ancora disperso
+    </h2>
 
-<span class="read">
-LEGGI L’ARTICOLO →
-</span>
+    <p>
+      Primo tempo disastroso, il capitano conquista il pareggio.
+    </p>
 
-</div>
+    <span class="read">
+      LEGGI L’ARTICOLO →
+    </span>
+
+  </div>
+
 </a>
 
-<a class="card mazzola"
-href="#articolo/juventus-mazzola-minuto-silenzio">
+<!-- MAZZOLA -->
 
-<div class="card-content">
+<a
+  class="card mazzola"
+  href="#articolo/juventus-mazzola-minuto-silenzio">
 
-<span class="category">SERIE A</span>
+  <div class="card-content">
 
-<div class="date">
-24 SETTEMBRE 2026
-</div>
+    <span class="category">
+      SERIE A
+    </span>
 
-<h2>
-Juventus, spalle a Mazzola: il minuto di silenzio dura meno del rispetto
-</h2>
+    <div class="date">
+      24 SETTEMBRE 2026
+    </div>
 
-<p>
-Una parte della Curva Sud si gira durante il ricordo della leggenda dell’Inter.
-</p>
+    <h2>
+      Juventus, spalle a Mazzola: il minuto di silenzio dura meno del rispetto
+    </h2>
 
-<span class="read">
-LEGGI L’ARTICOLO →
-</span>
+    <p>
+      Una parte della Curva Sud si gira durante il ricordo della leggenda dell’Inter.
+    </p>
 
-</div>
+    <span class="read">
+      LEGGI L’ARTICOLO →
+    </span>
+
+  </div>
+
 </a>
 
 </div>
 </div>
+
+<!-- SIDEBAR -->
 
 <aside class="sidebar">
 
 <section class="box" id="piu-letti">
 
-<div class="box-title">
-<div>
-<h2>PIÙ LETTI</h2>
-<div class="blue-line"></div>
-</div>
-<span>🔥</span>
-</div>
+  <div class="box-title">
 
-<ol class="popular">
+    <div>
+      <h2>PIÙ LETTI</h2>
+      <div class="blue-line"></div>
+    </div>
 
-<li>
-<span class="num">01</span>
-<div>
-<a href="#articolo/tredici-inter-nazionali">
-Inter, 13 convocati: la sosta diventa uno sport estremo
-</a>
-<small>24 SETTEMBRE 2026</small>
-</div>
-</li>
+    <span>🔥</span>
 
-<li>
-<span class="num">02</span>
-<div>
-<a href="#articolo/roma-inter-rimonta-lautaro">
-Lautaro rimonta la Roma. Il primo tempo dell’Inter è ancora disperso
-</a>
-<small>24 SETTEMBRE 2026</small>
-</div>
-</li>
+  </div>
 
-<li>
-<span class="num">03</span>
-<div>
-<a href="#articolo/juventus-mazzola-minuto-silenzio">
-Juventus, spalle a Mazzola: il minuto di silenzio dura meno del rispetto
-</a>
-<small>24 SETTEMBRE 2026</small>
-</div>
-</li>
+  <ol class="popular">
 
-</ol>
+    <li>
+
+      <span class="num">01</span>
+
+      <div>
+
+        <a href="#articolo/tredici-inter-nazionali">
+          Inter, 13 convocati: la sosta diventa uno sport estremo
+        </a>
+
+        <small>
+          24 SETTEMBRE 2026
+        </small>
+
+      </div>
+
+    </li>
+
+    <li>
+
+      <span class="num">02</span>
+
+      <div>
+
+        <a href="#articolo/roma-inter-rimonta-lautaro">
+          Lautaro rimonta la Roma. Il primo tempo dell’Inter è ancora disperso
+        </a>
+
+        <small>
+          24 SETTEMBRE 2026
+        </small>
+
+      </div>
+
+    </li>
+
+    <li>
+
+      <span class="num">03</span>
+
+      <div>
+
+        <a href="#articolo/juventus-mazzola-minuto-silenzio">
+          Juventus, spalle a Mazzola: il minuto di silenzio dura meno del rispetto
+        </a>
+
+        <small>
+          24 SETTEMBRE 2026
+        </small>
+
+      </div>
+
+    </li>
+
+  </ol>
+
 </section>
+
+<!-- ARGOMENTI -->
 
 <section class="box">
 
-<div class="box-title">
-<div>
-<h2>ESPLORA ARGOMENTI</h2>
-<div class="blue-line"></div>
-</div>
-</div>
+  <div class="box-title">
 
-<div class="filters">
-<button class="filter active" data-filter="Tutte">Tutte</button>
-<button class="filter" data-filter="Inter">Inter</button>
-<button class="filter" data-filter="Serie A">Serie A</button>
-</div>
+    <div>
+      <h2>ESPLORA ARGOMENTI</h2>
+      <div class="blue-line"></div>
+    </div>
+
+  </div>
+
+  <div class="filters">
+
+    <button class="filter active">
+      Tutte
+    </button>
+
+    <button class="filter">
+      Inter
+    </button>
+
+    <button class="filter">
+      Serie A
+    </button>
+
+  </div>
 
 </section>
 
+<!-- X -->
+
 <section class="box xbox" id="chi-siamo">
 
-<div class="xbox-content">
+  <div class="xbox-content">
 
-<div class="box-title">
-<div>
-<h2>NICKLAS NEWS SU X</h2>
-<div class="blue-line"></div>
-</div>
-<span>𝕏</span>
-</div>
+    <div class="box-title">
 
-<h3>Il resto succede su X.</h3>
+      <div>
+        <h2>NICKLAS NEWS SU X</h2>
+        <div class="blue-line"></div>
+      </div>
 
-<p>
-Post, battute e aggiornamenti sul profilo @nicklasbahre.
-</p>
+      <span>𝕏</span>
 
-<a class="btn"
-href="https://x.com/nicklasbahre"
-target="_blank"
-rel="noopener noreferrer">
-VAI AL PROFILO ↗
-</a>
+    </div>
 
-</div>
+    <h3>
+      Il resto succede su X.
+    </h3>
+
+    <p>
+      Post, battute e aggiornamenti sul profilo @nicklasbahre.
+    </p>
+
+    <a
+      class="btn"
+      href="https://x.com/nicklasbahre"
+      target="_blank"
+      rel="noopener noreferrer">
+      VAI AL PROFILO ↗
+    </a>
+
+  </div>
+
 </section>
 
 </aside>
@@ -887,183 +1079,312 @@ VAI AL PROFILO ↗
 </div>
 </div>
 
-<div id="articleView" class="article-page"></div>
+<!-- PAGINA ARTICOLO -->
+
+<div
+  id="articleView"
+  class="article-page">
+</div>
 
 </main>
 
+<!-- FOOTER -->
+
 <footer>
+
 <div class="footer-inner">
 
-<span>
-© 2026 NICKLAS NEWS · PROGETTO INDIPENDENTE E SATIRICO
-</span>
+  <span>
+    © 2026 NICKLAS NEWS · PROGETTO INDIPENDENTE E SATIRICO
+  </span>
 
-<a href="https://x.com/nicklasbahre"
-target="_blank"
-rel="noopener noreferrer">
-@nicklasbahre ↗
-</a>
+  <a
+    href="https://x.com/nicklasbahre"
+    target="_blank"
+    rel="noopener noreferrer">
+    @nicklasbahre ↗
+  </a>
 
 </div>
+
 </footer>
 
 <script>
 
+/* =========================
+   ARTICOLI
+========================= */
+
 const stories=[
 
 {
-slug:'tredici-inter-nazionali',
-category:'Inter',
-date:'24 settembre 2026',
-headline:'Inter, 13 convocati: la sosta diventa uno sport estremo',
-summary:'Tredici nerazzurri partono per le nazionali. Purtroppo anche Lautaro.',
-image:'inter-convocati.jpeg.png',
-source:'https://www.inter.it/',
-paragraphs:[
-'Il campionato si ferma e tredici giocatori dell’Inter partono con le rispettive nazionali. Tra loro ci sono Barella, Bastoni, Dimarco e Pio Esposito, convocati dall’Italia, ma di questo penso non freghi nulla a nessuno.',
-'Nations League (competizione più ridicola di sempre) e amichevoli riempiranno le prossime settimane. L’Inter tornerà in campionato contro il Parma il 10 ottobre. Da qui ad allora, preghiamo per l’integrità fisica di ogni nostro tesserato.',
-'La sosta serve a far riposare i club. Naturalmente il modo migliore per farlo è mandare tredici giocatori in giro per il mondo a giocare altre partite.'
-]
+  slug:'tredici-inter-nazionali',
+
+  category:'Inter',
+
+  date:'24 settembre 2026',
+
+  headline:
+  'Inter, 13 convocati: la sosta diventa uno sport estremo',
+
+  summary:
+  'Tredici nerazzurri partono per le nazionali. Purtroppo anche Lautaro.',
+
+  image:
+  'inter-convocati.jpeg.PNG',
+
+  source:
+  'https://www.inter.it/',
+
+  paragraphs:[
+
+    'Il campionato si ferma e tredici giocatori dell’Inter partono con le rispettive nazionali. Tra loro ci sono Barella, Bastoni, Dimarco e Pio Esposito, convocati dall’Italia, ma di questo penso non freghi nulla a nessuno.',
+
+    'Nations League (competizione più ridicola di sempre) e amichevoli riempiranno le prossime settimane. L’Inter tornerà in campionato contro il Parma il 10 ottobre. Da qui ad allora, preghiamo per l’integrità fisica di ogni nostro tesserato.',
+
+    'La sosta serve a far riposare i club. Naturalmente il modo migliore per farlo è mandare tredici giocatori in giro per il mondo a giocare altre partite.'
+
+  ]
 },
 
 {
-slug:'roma-inter-rimonta-lautaro',
-category:'Serie A',
-date:'24 settembre 2026',
-headline:'Lautaro rimonta la Roma. Il primo tempo dell’Inter è ancora disperso',
-summary:'Primo tempo disastroso, il capitano conquista il pareggio.',
-image:'roma-inter.jpeg.png',
-source:'https://www.inter.it/',
-paragraphs:[
-'Koné (che prima di questa partita aveva segnato solo 4 gol in 2 anni) segna al 6° e al 37°: all’intervallo Roma-Inter è 2-0. I nerazzurri rientrano in campo, Lautaro segna subito al 46° e trova il pareggio al 79°. Finisce 2-2.',
-'Un punto recuperato in una partita che sembrava già scappata. Resta da capire dove fosse finita l’Inter nei primi quarantacinque minuti: centrocampo e difesa disastrosi.'
-]
+  slug:'roma-inter-rimonta-lautaro',
+
+  category:'Serie A',
+
+  date:'24 settembre 2026',
+
+  headline:
+  'Lautaro rimonta la Roma. Il primo tempo dell’Inter è ancora disperso',
+
+  summary:
+  'Primo tempo disastroso, il capitano conquista il pareggio.',
+
+  image:
+  'roma-inter.jpeg.PNG',
+
+  source:
+  'https://www.inter.it/',
+
+  paragraphs:[
+
+    'Koné (che prima di questa partita aveva segnato solo 4 gol in 2 anni) segna al 6° e al 37°: all’intervallo Roma-Inter è 2-0. I nerazzurri rientrano in campo, Lautaro segna subito al 46° e trova il pareggio al 79°. Finisce 2-2.',
+
+    'Un punto recuperato in una partita che sembrava già scappata. Resta da capire dove fosse finita l’Inter nei primi quarantacinque minuti: centrocampo e difesa disastrosi.'
+
+  ]
 },
 
 {
-slug:'juventus-mazzola-minuto-silenzio',
-category:'Serie A',
-date:'24 settembre 2026',
-headline:'Juventus, spalle a Mazzola: il minuto di silenzio dura meno del rispetto',
-summary:'Una parte della Curva Sud si gira durante il ricordo della leggenda dell’Inter. Cori nel minuto di raccoglimento e 10.000 euro di multa alla Juventus.',
-image:'mazzola.jpeg.png',
-source:'https://www.ansa.it/',
-paragraphs:[
-'Prima di Juventus-Atalanta, all’Allianz Stadium viene osservato il minuto di silenzio disposto dalla FIGC in memoria di Sandro Mazzola, scomparso a 83 anni. Ma non tutto lo stadio decide di partecipare allo stesso modo.',
-'Una parte dei sostenitori presenti nella Curva Sud (se si può chiamare ancora curva) si volta di spalle al terreno di gioco e durante il raccoglimento vengono intonati cori dedicati a figure storiche della Juventus. È sicuramente una mancanza di rispetto, ma sono cose che fanno parte del calcio. La stessa Juventus prende immediatamente le distanze dall’accaduto, ricordando che nessuna rivalità può giustificare una mancanza di rispetto durante una commemorazione.',
-'Due giorni dopo arriva anche la decisione del Giudice Sportivo: 10.000 euro di multa alla Juventus. La sanzione viene attenuata proprio per la presa di posizione del club e per la dissociazione del resto del pubblico.'
-]
+  slug:'juventus-mazzola-minuto-silenzio',
+
+  category:'Serie A',
+
+  date:'24 settembre 2026',
+
+  headline:
+  'Juventus, spalle a Mazzola: il minuto di silenzio dura meno del rispetto',
+
+  summary:
+  'Una parte della Curva Sud si gira durante il ricordo della leggenda dell’Inter. Cori nel minuto di raccoglimento e 10.000 euro di multa alla Juventus.',
+
+  image:
+  'mazzola.jpeg.PNG',
+
+  source:
+  'https://www.ansa.it/',
+
+  paragraphs:[
+
+    'Prima di Juventus-Atalanta, all’Allianz Stadium viene osservato il minuto di silenzio disposto dalla FIGC in memoria di Sandro Mazzola, scomparso a 83 anni. Ma non tutto lo stadio decide di partecipare allo stesso modo.',
+
+    'Una parte dei sostenitori presenti nella Curva Sud (se si può chiamare ancora curva) si volta di spalle al terreno di gioco e durante il raccoglimento vengono intonati cori dedicati a figure storiche della Juventus. È sicuramente una mancanza di rispetto, ma sono cose che fanno parte del calcio. La stessa Juventus prende immediatamente le distanze dall’accaduto, ricordando che nessuna rivalità può giustificare una mancanza di rispetto durante una commemorazione.',
+
+    'Due giorni dopo arriva anche la decisione del Giudice Sportivo: 10.000 euro di multa alla Juventus. La sanzione viene attenuata proprio per la presa di posizione del club e per la dissociazione del resto del pubblico.'
+
+  ]
 }
 
 ];
 
+
+/* =========================
+   SICUREZZA TESTO
+========================= */
+
 function esc(s){
-return String(s).replace(
-/[&<>"']/g,
-c=>({
-'&':'&amp;',
-'<':'&lt;',
-'>':'&gt;',
-'"':'&quot;',
-"'":'&#39;'
-}[c])
-);
+
+  return String(s).replace(
+
+    /[&<>"']/g,
+
+    c=>({
+
+      '&':'&amp;',
+      '<':'&lt;',
+      '>':'&gt;',
+      '"':'&quot;',
+      "'":'&#39;'
+
+    }[c])
+
+  );
+
 }
+
+
+/* =========================
+   NAVIGAZIONE ARTICOLI
+========================= */
 
 function route(){
 
-const slug=
-location.hash.startsWith('#articolo/')
-?decodeURIComponent(location.hash.slice(10))
-:null;
+  const slug=
+    location.hash.startsWith('#articolo/')
+    ? decodeURIComponent(location.hash.slice(10))
+    : null;
 
-const story=stories.find(s=>s.slug===slug);
+  const story=
+    stories.find(s=>s.slug===slug);
 
-const home=document.getElementById('homeView');
-const article=document.getElementById('articleView');
+  const home=
+    document.getElementById('homeView');
 
-if(story){
+  const article=
+    document.getElementById('articleView');
 
-home.classList.add('hidden');
-article.classList.add('show');
 
-article.innerHTML=`
+  if(story){
 
-<a href="#notizie" class="back">
-← TORNA ALLE NOTIZIE
-</a>
+    home.classList.add('hidden');
 
-<div
-class="article-cover"
-style="background-image:
-linear-gradient(0deg,rgba(2,7,13,.35),rgba(2,7,13,.05)),
-url('${esc(story.image)}')">
-</div>
+    article.classList.add('show');
 
-<span class="category">
-${esc(story.category)}
-</span>
 
-<h1>
-${esc(story.headline)}
-</h1>
+    article.innerHTML=`
 
-<p class="article-lead">
-${esc(story.summary)}
-</p>
+      <a
+        href="#notizie"
+        class="back">
+        ← TORNA ALLE NOTIZIE
+      </a>
 
-<div class="article-meta">
-DI NICKLAS NEWS · ${esc(story.date)} · NOTIZIA E COMMENTO SATIRICO
-</div>
 
-<div class="article-body">
-${story.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}
-</div>
+      <div
+        class="article-cover"
+        style="
+        background-image:
+        linear-gradient(
+          0deg,
+          rgba(2,7,13,.25),
+          rgba(2,7,13,.02)
+        ),
+        url('${esc(story.image)}');
+        ">
+      </div>
 
-<div class="source">
 
-Fonte dei fatti:
+      <span class="category">
+        ${esc(story.category)}
+      </span>
 
-<a
-href="${esc(story.source)}"
-target="_blank"
-rel="noopener noreferrer">
-consulta la fonte ↗
-</a>
 
-<br><br>
+      <h1>
+        ${esc(story.headline)}
+      </h1>
 
-Il commento e le opinioni presenti nell’articolo sono di Nicklas News.
 
-</div>
-`;
+      <p class="article-lead">
+        ${esc(story.summary)}
+      </p>
 
-document.title=story.headline+' — Nicklas News';
 
-window.scrollTo(0,0);
+      <div class="article-meta">
+        DI NICKLAS NEWS ·
+        ${esc(story.date)} ·
+        NOTIZIA E COMMENTO SATIRICO
+      </div>
 
-}else{
 
-home.classList.remove('hidden');
-article.classList.remove('show');
-article.innerHTML='';
+      <div class="article-body">
 
-document.title='Nicklas News — Il calcio spiegato da Bahre';
+        ${story.paragraphs
+          .map(
+            p=>`<p>${esc(p)}</p>`
+          )
+          .join('')
+        }
 
-if(
-['#notizie','#piu-letti','#chi-siamo']
-.includes(location.hash)
-){
-setTimeout(()=>{
-document.querySelector(location.hash)?.scrollIntoView();
-},50);
+      </div>
+
+
+      <div class="source">
+
+        Fonte dei fatti:
+
+        <a
+          href="${esc(story.source)}"
+          target="_blank"
+          rel="noopener noreferrer">
+          consulta la fonte ↗
+        </a>
+
+        <br><br>
+
+        Il commento e le opinioni presenti
+        nell’articolo sono di Nicklas News.
+
+      </div>
+
+    `;
+
+
+    document.title=
+      story.headline+
+      ' — Nicklas News';
+
+
+    window.scrollTo(0,0);
+
+  }
+
+  else{
+
+    home.classList.remove('hidden');
+
+    article.classList.remove('show');
+
+    article.innerHTML='';
+
+    document.title=
+      'Nicklas News — Il calcio spiegato da Bahre';
+
+
+    if(
+      ['#notizie','#piu-letti','#chi-siamo']
+      .includes(location.hash)
+    ){
+
+      setTimeout(()=>{
+
+        document
+          .querySelector(location.hash)
+          ?.scrollIntoView();
+
+      },50);
+
+    }
+
+  }
+
 }
 
-}
 
-}
+window.addEventListener(
+  'hashchange',
+  route
+);
 
-window.addEventListener('hashchange',route);
 route();
 
 </script>
