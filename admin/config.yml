@@ -1,0 +1,25 @@
+backend:
+  name: github
+  repo: r2rfyvfndg-droid/nicklasbahre.github.io
+  branch: main
+
+site_url: https://nicklasnews.it
+display_url: https://nicklasnews.it
+media_folder: images/articoli
+public_folder: /images/articoli
+
+collections:
+  - name: articoli
+    label: Articoli
+    label_singular: Articolo
+    folder: _posts
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: Titolo, name: title, widget: string }
+      - { label: Riassunto, name: description, widget: text, hint: "Compare nella homepage e nell'anteprima su X." }
+      - { label: Categoria, name: category, widget: select, options: [Inter, Serie A] }
+      - { label: Data, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: false, format: YYYY-MM-DD }
+      - { label: Copertina, name: image, widget: image, hint: "Immagine orizzontale 16:9, consigliati almeno 1200 × 675 pixel." }
+      - { label: Articolo, name: body, widget: markdown }
+      - { label: Layout, name: layout, widget: hidden, default: articolo }
