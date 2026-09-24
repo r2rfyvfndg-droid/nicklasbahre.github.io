@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#050a11">
 <meta name="description" content="Nicklas News: calcio, notizie e commenti satirici di Nicklas Bahre.">
-
 <title>Nicklas News — Il calcio spiegato da Bahre</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,11 +12,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
 :root{
 --bg:#050a11;
 --panel:#0b131e;
---panel2:#0e1825;
 --line:#213247;
 --text:#f4f8fc;
 --muted:#9aabba;
@@ -27,28 +24,17 @@
 }
 
 *{box-sizing:border-box}
-
-html{
-scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
 margin:0;
-background:
-radial-gradient(circle at 40% 0,#0b2037 0,transparent 25%),
-var(--bg);
+background:radial-gradient(circle at 40% 0,#0b2037 0,transparent 25%),var(--bg);
 color:var(--text);
 font-family:'DM Sans',Arial,sans-serif;
 }
 
-a{
-color:inherit;
-text-decoration:none;
-}
-
-button{
-font:inherit;
-}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
 
 /* ULTIM'ORA */
 
@@ -84,18 +70,18 @@ align-items:center;
 gap:22px;
 white-space:nowrap;
 width:max-content;
-animation:ticker 28s linear infinite;
+animation:ticker 30s linear infinite;
 font-size:13px;
 }
 
 .breaking-move span:after{
-content:"|";
+content:"•";
 margin-left:22px;
 color:#536579;
 }
 
 @keyframes ticker{
-from{transform:translateX(30px)}
+from{transform:translateX(20px)}
 to{transform:translateX(-50%)}
 }
 
@@ -128,9 +114,7 @@ line-height:.8;
 letter-spacing:-2px;
 }
 
-.logo b{
-color:var(--blue);
-}
+.logo b{color:var(--blue)}
 
 .logo small{
 display:block;
@@ -156,16 +140,14 @@ padding:15px 0;
 border-bottom:3px solid transparent;
 }
 
-.nav a:hover{
-border-color:var(--blue);
-}
+.nav a:hover{border-color:var(--blue)}
 
 .btn{
 display:inline-flex;
 align-items:center;
 justify-content:center;
 background:var(--blue);
-color:white;
+color:#fff;
 padding:13px 20px;
 border-radius:4px;
 font-size:12px;
@@ -179,7 +161,7 @@ background:var(--blue2);
 transform:translateY(-1px);
 }
 
-/* MAIN */
+/* LAYOUT */
 
 .container{
 width:min(1450px,calc(100% - 50px));
@@ -193,50 +175,44 @@ grid-template-columns:minmax(0,2.5fr) minmax(300px,.9fr);
 gap:18px;
 }
 
-/* FEATURE */
+/* ARTICOLO PRINCIPALE */
 
 .feature{
 position:relative;
-min-height:435px;
+min-height:470px;
 border:1px solid #27425e;
-border-radius:4px;
+border-radius:5px;
 overflow:hidden;
 display:flex;
 align-items:flex-end;
-background:
-linear-gradient(0deg,rgba(2,7,13,.92) 0%,rgba(2,7,13,.15) 70%),
-url('inter-convocati.jpg') center/cover no-repeat;
 
-.feature:before{
-content:"13";
-position:absolute;
-right:6%;
-top:-30px;
-font-family:'Barlow Condensed',sans-serif;
-font-size:350px;
-font-weight:900;
-line-height:1;
-color:#ffffff0c;
+background-image:
+linear-gradient(
+0deg,
+rgba(2,7,13,.97) 0%,
+rgba(2,7,13,.68) 30%,
+rgba(2,7,13,.08) 75%
+),
+url('inter-convocati.jpeg.png');
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
 }
 
 .feature:after{
 content:"";
 position:absolute;
 inset:0;
-background:
-linear-gradient(0deg,#03070d 0,transparent 65%),
-repeating-linear-gradient(
-120deg,
-transparent 0 55px,
-#ffffff05 56px 58px
-);
+background:linear-gradient(90deg,rgba(0,0,0,.2),transparent 55%);
+pointer-events:none;
 }
 
 .feature-content{
 position:relative;
 z-index:2;
-padding:28px;
-max-width:900px;
+padding:30px;
+max-width:950px;
 }
 
 .category{
@@ -265,15 +241,17 @@ font-size:clamp(43px,4.5vw,69px);
 line-height:.98;
 margin:8px 0 10px;
 max-width:950px;
+text-shadow:0 3px 15px #000;
 }
 
 .feature p{
-color:#c5d0dc;
+color:#d4dde6;
 font-size:16px;
 margin:0 0 18px;
+text-shadow:0 2px 8px #000;
 }
 
-/* SECONDARY ARTICLES */
+/* CARD */
 
 .cards{
 display:grid;
@@ -283,14 +261,17 @@ margin-top:18px;
 }
 
 .card{
-min-height:360px;
+min-height:370px;
 position:relative;
 overflow:hidden;
 border:1px solid var(--line);
-border-radius:4px;
-background:var(--panel);
+border-radius:5px;
 display:flex;
 align-items:flex-end;
+background-color:var(--panel);
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
 transition:.2s;
 }
 
@@ -299,35 +280,26 @@ border-color:#2588df;
 transform:translateY(-3px);
 }
 
-.card:before{
-position:absolute;
-inset:0;
-display:grid;
-place-items:center;
-font-family:'Barlow Condensed',sans-serif;
-font-weight:900;
-color:#ffffff12;
+.card.score{
+background-image:
+linear-gradient(
+0deg,
+rgba(2,7,13,.97) 0%,
+rgba(2,7,13,.70) 36%,
+rgba(2,7,13,.05) 78%
+),
+url('roma-inter.jpeg.png');
 }
 
-  .card.score:before{
-content:"";
-background:
-linear-gradient(0deg,rgba(2,7,13,.90) 0%,rgba(2,7,13,.05) 75%),
-url('roma-inter.jpg') center/cover no-repeat;
-}
-
-.card.mazzola:before{
-content:"";
-background:
-linear-gradient(0deg,rgba(2,7,13,.92) 0%,rgba(2,7,13,.08) 72%),
-url('mazzola.jpg') center/cover no-repeat;
-}
-
-.card:after{
-content:"";
-position:absolute;
-inset:0;
-background:linear-gradient(0deg,#03070d 0,transparent 75%);
+.card.mazzola{
+background-image:
+linear-gradient(
+0deg,
+rgba(2,7,13,.98) 0%,
+rgba(2,7,13,.72) 38%,
+rgba(2,7,13,.08) 80%
+),
+url('mazzola.jpeg.png');
 }
 
 .card-content{
@@ -342,12 +314,14 @@ font-family:'Barlow Condensed',sans-serif;
 font-size:34px;
 line-height:1;
 margin:8px 0 10px;
+text-shadow:0 3px 12px #000;
 }
 
 .card p{
 font-size:13px;
-color:#b5c0cc;
+color:#d0d8e0;
 line-height:1.5;
+text-shadow:0 2px 7px #000;
 }
 
 .read{
@@ -356,7 +330,7 @@ margin-top:15px;
 font-size:11px;
 font-weight:900;
 letter-spacing:.1em;
-color:#29a5ff;
+color:#55baff;
 }
 
 /* SIDEBAR */
@@ -411,9 +385,7 @@ padding:17px 0;
 border-bottom:1px solid #213145;
 }
 
-.popular li:last-child{
-border-bottom:0;
-}
+.popular li:last-child{border-bottom:0}
 
 .num{
 font-family:'Barlow Condensed',sans-serif;
@@ -429,9 +401,7 @@ font-weight:800;
 line-height:1.1;
 }
 
-.popular a:hover{
-color:var(--cyan);
-}
+.popular a:hover{color:var(--cyan)}
 
 .popular small{
 display:block;
@@ -442,7 +412,7 @@ letter-spacing:.13em;
 margin-top:8px;
 }
 
-/* FILTERS */
+/* FILTRI */
 
 .filters{
 display:flex;
@@ -461,13 +431,12 @@ cursor:pointer;
 font-size:12px;
 }
 
-.filter.active,
-.filter:hover{
+.filter.active,.filter:hover{
 background:var(--blue);
 border-color:var(--blue);
 }
 
-/* X BOX */
+/* BOX X */
 
 .xbox{
 position:relative;
@@ -502,7 +471,7 @@ color:#aab7c5;
 margin:0 0 18px;
 }
 
-/* ARTICLE VIEW */
+/* PAGINA ARTICOLO */
 
 .article-page{
 display:none;
@@ -510,13 +479,8 @@ width:min(900px,calc(100% - 40px));
 margin:50px auto 90px;
 }
 
-.article-page.show{
-display:block;
-}
-
-.home.hidden{
-display:none;
-}
+.article-page.show{display:block}
+.home.hidden{display:none}
 
 .back{
 display:inline-block;
@@ -524,6 +488,15 @@ color:#56b8ff;
 font-size:12px;
 font-weight:900;
 margin-bottom:28px;
+}
+
+.article-cover{
+height:390px;
+border-radius:5px;
+background-size:cover;
+background-position:center;
+margin-bottom:30px;
+border:1px solid var(--line);
 }
 
 .article-page h1{
@@ -587,29 +560,19 @@ justify-content:space-between;
 gap:20px;
 }
 
-/* MOBILE */
+/* TABLET */
 
 @media(max-width:950px){
 
-.header-inner{
-min-height:85px;
-}
+.header-inner{min-height:85px}
 
-.logo{
-font-size:43px;
-}
+.logo{font-size:43px}
 
-.logo small{
-display:none;
-}
+.logo small{display:none}
 
-.nav{
-display:none;
-}
+.nav{display:none}
 
-.layout{
-grid-template-columns:1fr;
-}
+.layout{grid-template-columns:1fr}
 
 .sidebar{
 display:grid;
@@ -618,11 +581,11 @@ grid-template-columns:1fr 1fr;
 
 }
 
+/* IPHONE */
+
 @media(max-width:650px){
 
-.breaking{
-height:39px;
-}
+.breaking{height:39px}
 
 .breaking-label{
 height:39px;
@@ -630,9 +593,7 @@ font-size:17px;
 padding:0 13px;
 }
 
-.breaking-move{
-font-size:11px;
-}
+.breaking-move{font-size:11px}
 
 .header-inner,
 .container,
@@ -640,9 +601,7 @@ font-size:11px;
 width:calc(100% - 26px);
 }
 
-.header-inner{
-min-height:68px;
-}
+.header-inner{min-height:68px}
 
 .logo{
 font-size:32px;
@@ -654,64 +613,37 @@ padding:10px 12px;
 font-size:9px;
 }
 
-.container{
-padding-top:13px;
-}
+.container{padding-top:13px}
 
 .feature{
-min-height:430px;
+min-height:455px;
+background-position:center top;
 }
 
-.feature:before{
-font-size:240px;
-top:20px;
-right:-10px;
-}
+.feature-content{padding:20px}
 
-.feature-content{
-padding:20px;
-}
+.feature h1{font-size:43px}
 
-.feature h1{
-font-size:43px;
-}
+.feature p{font-size:14px}
 
-.feature p{
-font-size:14px;
-}
+.cards{grid-template-columns:1fr}
 
-.cards{
-grid-template-columns:1fr;
-}
+.card{min-height:360px}
 
-.card{
-min-height:310px;
-}
-
-.card.score:before{
-font-size:125px;
-}
-
-.card.mazzola:before{
-font-size:70px;
-}
-
-.card h2{
-font-size:31px;
-}
+.card h2{font-size:31px}
 
 .sidebar{
 display:flex;
 margin-top:4px;
 }
 
-.article-body p{
-font-size:16px;
+.article-cover{
+height:240px;
 }
 
-.footer-inner{
-flex-direction:column;
-}
+.article-body p{font-size:16px}
+
+.footer-inner{flex-direction:column}
 
 }
 
@@ -721,34 +653,24 @@ flex-direction:column;
 <body>
 
 <div class="breaking">
-
-<div class="breaking-label">
-ULTIM’ORA
-</div>
+<div class="breaking-label">ULTIM’ORA</div>
 
 <div class="breaking-track">
-
 <div class="breaking-move">
 
 <span>10.000 € di multa alla Juventus per il minuto di silenzio su Mazzola</span>
-
 <span>Inter, 13 convocati per le nazionali</span>
-
 <span>Roma-Inter 2-2: doppietta di Lautaro</span>
 
 <span>10.000 € di multa alla Juventus per il minuto di silenzio su Mazzola</span>
-
 <span>Inter, 13 convocati per le nazionali</span>
-
 <span>Roma-Inter 2-2: doppietta di Lautaro</span>
 
 </div>
 </div>
 </div>
 
-
 <header class="header">
-
 <div class="header-inner">
 
 <a href="#home" class="logo">
@@ -772,7 +694,6 @@ SEGUIMI SU X ↗
 
 </div>
 </header>
-
 
 <main>
 
@@ -809,9 +730,7 @@ LEGGI L’ARTICOLO →
 </span>
 
 </div>
-
 </a>
-
 
 <div class="cards">
 
@@ -839,9 +758,7 @@ LEGGI L’ARTICOLO →
 </span>
 
 </div>
-
 </a>
-
 
 <a class="card mazzola"
 href="#articolo/juventus-mazzola-minuto-silenzio">
@@ -867,132 +784,88 @@ LEGGI L’ARTICOLO →
 </span>
 
 </div>
-
 </a>
 
 </div>
-
 </div>
-
 
 <aside class="sidebar">
 
 <section class="box" id="piu-letti">
 
 <div class="box-title">
-
 <div>
 <h2>PIÙ LETTI</h2>
 <div class="blue-line"></div>
 </div>
-
 <span>🔥</span>
-
 </div>
 
 <ol class="popular">
 
 <li>
-
 <span class="num">01</span>
-
 <div>
-
 <a href="#articolo/tredici-inter-nazionali">
 Inter, 13 convocati: la sosta diventa uno sport estremo
 </a>
-
 <small>24 SETTEMBRE 2026</small>
-
 </div>
-
 </li>
 
 <li>
-
 <span class="num">02</span>
-
 <div>
-
 <a href="#articolo/roma-inter-rimonta-lautaro">
 Lautaro rimonta la Roma. Il primo tempo dell’Inter è ancora disperso
 </a>
-
 <small>24 SETTEMBRE 2026</small>
-
 </div>
-
 </li>
 
 <li>
-
 <span class="num">03</span>
-
 <div>
-
 <a href="#articolo/juventus-mazzola-minuto-silenzio">
 Juventus, spalle a Mazzola: il minuto di silenzio dura meno del rispetto
 </a>
-
 <small>24 SETTEMBRE 2026</small>
-
 </div>
-
 </li>
 
 </ol>
-
 </section>
-
 
 <section class="box">
 
 <div class="box-title">
-
 <div>
 <h2>ESPLORA ARGOMENTI</h2>
 <div class="blue-line"></div>
 </div>
-
 </div>
 
 <div class="filters">
-
-<button class="filter active">
-Tutte
-</button>
-
-<button class="filter">
-Inter
-</button>
-
-<button class="filter">
-Serie A
-</button>
-
+<button class="filter active" data-filter="Tutte">Tutte</button>
+<button class="filter" data-filter="Inter">Inter</button>
+<button class="filter" data-filter="Serie A">Serie A</button>
 </div>
 
 </section>
-
 
 <section class="box xbox" id="chi-siamo">
 
 <div class="xbox-content">
 
 <div class="box-title">
-
 <div>
 <h2>NICKLAS NEWS SU X</h2>
 <div class="blue-line"></div>
 </div>
-
 <span>𝕏</span>
-
 </div>
 
-<h3>
-Il resto succede su X.
-</h3>
+<h3>Il resto succede su X.</h3>
 
 <p>
 Post, battute e aggiornamenti sul profilo @nicklasbahre.
@@ -1006,7 +879,6 @@ VAI AL PROFILO ↗
 </a>
 
 </div>
-
 </section>
 
 </aside>
@@ -1015,14 +887,11 @@ VAI AL PROFILO ↗
 </div>
 </div>
 
-
 <div id="articleView" class="article-page"></div>
 
 </main>
 
-
 <footer>
-
 <div class="footer-inner">
 
 <span>
@@ -1036,9 +905,7 @@ rel="noopener noreferrer">
 </a>
 
 </div>
-
 </footer>
-
 
 <script>
 
@@ -1046,86 +913,51 @@ const stories=[
 
 {
 slug:'tredici-inter-nazionali',
-
 category:'Inter',
-
 date:'24 settembre 2026',
-
 headline:'Inter, 13 convocati: la sosta diventa uno sport estremo',
-
 summary:'Tredici nerazzurri partono per le nazionali. Purtroppo anche Lautaro.',
-
+image:'inter-convocati.jpeg.png',
 source:'https://www.inter.it/',
-
 paragraphs:[
-
 'Il campionato si ferma e tredici giocatori dell’Inter partono con le rispettive nazionali. Tra loro ci sono Barella, Bastoni, Dimarco e Pio Esposito, convocati dall’Italia, ma di questo penso non freghi nulla a nessuno.',
-
 'Nations League (competizione più ridicola di sempre) e amichevoli riempiranno le prossime settimane. L’Inter tornerà in campionato contro il Parma il 10 ottobre. Da qui ad allora, preghiamo per l’integrità fisica di ogni nostro tesserato.',
-
 'La sosta serve a far riposare i club. Naturalmente il modo migliore per farlo è mandare tredici giocatori in giro per il mondo a giocare altre partite.'
-
 ]
-
 },
 
-
 {
-
 slug:'roma-inter-rimonta-lautaro',
-
 category:'Serie A',
-
 date:'24 settembre 2026',
-
 headline:'Lautaro rimonta la Roma. Il primo tempo dell’Inter è ancora disperso',
-
 summary:'Primo tempo disastroso, il capitano conquista il pareggio.',
-
+image:'roma-inter.jpeg.png',
 source:'https://www.inter.it/',
-
 paragraphs:[
-
 'Koné (che prima di questa partita aveva segnato solo 4 gol in 2 anni) segna al 6° e al 37°: all’intervallo Roma-Inter è 2-0. I nerazzurri rientrano in campo, Lautaro segna subito al 46° e trova il pareggio al 79°. Finisce 2-2.',
-
 'Un punto recuperato in una partita che sembrava già scappata. Resta da capire dove fosse finita l’Inter nei primi quarantacinque minuti: centrocampo e difesa disastrosi.'
-
 ]
-
 },
 
-
 {
-
 slug:'juventus-mazzola-minuto-silenzio',
-
 category:'Serie A',
-
 date:'24 settembre 2026',
-
 headline:'Juventus, spalle a Mazzola: il minuto di silenzio dura meno del rispetto',
-
 summary:'Una parte della Curva Sud si gira durante il ricordo della leggenda dell’Inter. Cori nel minuto di raccoglimento e 10.000 euro di multa alla Juventus.',
-
+image:'mazzola.jpeg.png',
 source:'https://www.ansa.it/',
-
 paragraphs:[
-
 'Prima di Juventus-Atalanta, all’Allianz Stadium viene osservato il minuto di silenzio disposto dalla FIGC in memoria di Sandro Mazzola, scomparso a 83 anni. Ma non tutto lo stadio decide di partecipare allo stesso modo.',
-
 'Una parte dei sostenitori presenti nella Curva Sud (se si può chiamare ancora curva) si volta di spalle al terreno di gioco e durante il raccoglimento vengono intonati cori dedicati a figure storiche della Juventus. È sicuramente una mancanza di rispetto, ma sono cose che fanno parte del calcio. La stessa Juventus prende immediatamente le distanze dall’accaduto, ricordando che nessuna rivalità può giustificare una mancanza di rispetto durante una commemorazione.',
-
 'Due giorni dopo arriva anche la decisione del Giudice Sportivo: 10.000 euro di multa alla Juventus. La sanzione viene attenuata proprio per la presa di posizione del club e per la dissociazione del resto del pubblico.'
-
 ]
-
 }
 
 ];
 
-
 function esc(s){
-
 return String(s).replace(
 /[&<>"']/g,
 c=>({
@@ -1136,9 +968,7 @@ c=>({
 "'":'&#39;'
 }[c])
 );
-
 }
-
 
 function route(){
 
@@ -1147,20 +977,14 @@ location.hash.startsWith('#articolo/')
 ?decodeURIComponent(location.hash.slice(10))
 :null;
 
-const story=
-stories.find(s=>s.slug===slug);
+const story=stories.find(s=>s.slug===slug);
 
-const home=
-document.getElementById('homeView');
-
-const article=
-document.getElementById('articleView');
-
+const home=document.getElementById('homeView');
+const article=document.getElementById('articleView');
 
 if(story){
 
 home.classList.add('hidden');
-
 article.classList.add('show');
 
 article.innerHTML=`
@@ -1168,6 +992,13 @@ article.innerHTML=`
 <a href="#notizie" class="back">
 ← TORNA ALLE NOTIZIE
 </a>
+
+<div
+class="article-cover"
+style="background-image:
+linear-gradient(0deg,rgba(2,7,13,.35),rgba(2,7,13,.05)),
+url('${esc(story.image)}')">
+</div>
 
 <span class="category">
 ${esc(story.category)}
@@ -1186,11 +1017,7 @@ DI NICKLAS NEWS · ${esc(story.date)} · NOTIZIA E COMMENTO SATIRICO
 </div>
 
 <div class="article-body">
-
-${story.paragraphs
-.map(p=>`<p>${esc(p)}</p>`)
-.join('')}
-
+${story.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}
 </div>
 
 <div class="source">
@@ -1209,52 +1036,34 @@ consulta la fonte ↗
 Il commento e le opinioni presenti nell’articolo sono di Nicklas News.
 
 </div>
-
 `;
 
-document.title=
-story.headline+' — Nicklas News';
+document.title=story.headline+' — Nicklas News';
 
 window.scrollTo(0,0);
 
-}
-
-else{
+}else{
 
 home.classList.remove('hidden');
-
 article.classList.remove('show');
-
 article.innerHTML='';
 
-document.title=
-'Nicklas News — Il calcio spiegato da Bahre';
+document.title='Nicklas News — Il calcio spiegato da Bahre';
 
 if(
 ['#notizie','#piu-letti','#chi-siamo']
 .includes(location.hash)
 ){
-
 setTimeout(()=>{
-
-document
-.querySelector(location.hash)
-?.scrollIntoView();
-
+document.querySelector(location.hash)?.scrollIntoView();
 },50);
-
 }
 
 }
 
 }
 
-
-window.addEventListener(
-'hashchange',
-route
-);
-
+window.addEventListener('hashchange',route);
 route();
 
 </script>
