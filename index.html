@@ -1,3 +1,6 @@
+---
+layout: null
+---
 <!doctype html>
 <html lang="it">
 <head>
@@ -215,6 +218,9 @@ display:grid;
 grid-template-columns:1fr 1fr;
 gap:18px;
 margin-top:18px;
+}
+.card.new-story{
+background-image:linear-gradient(0deg,rgba(2,7,13,.98) 0%,rgba(2,7,13,.73) 38%,rgba(2,7,13,.05) 80%),var(--story-image);
 }
 .card{
 min-height:370px;
@@ -570,6 +576,18 @@ NICKLAS <b>NEWS.</b>
 </a>
 
 <div class="cards">
+
+{% for post in site.posts %}
+<a class="card new-story" href="{{ post.url | relative_url }}" style="--story-image:url('{{ post.image | relative_url }}')">
+<div class="card-content">
+<span class="category">{{ post.category | escape }}</span>
+<div class="date">{{ post.date | date: "%d/%m/%Y" }}</div>
+<h2>{{ post.title | escape }}</h2>
+<p>{{ post.description | escape }}</p>
+<span class="read">LEGGI L’ARTICOLO →</span>
+</div>
+</a>
+{% endfor %}
 
 <a class="card stankovic" href="/stankovic.html">
 <div class="card-content">

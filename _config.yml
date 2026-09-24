@@ -1,0 +1,7 @@
+title: Nicklas News
+url: https://nicklasnews.it
+baseurl: ""
+permalink: /notizie/:title/
+timezone: Europe/Rome
+markdown: kramdown
+
