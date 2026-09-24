@@ -1,0 +1,20 @@
+.site-menu-toggle{flex:0 0 auto;width:44px;height:44px;display:grid;place-content:center;gap:5px;border:1px solid #29415a;border-radius:5px;background:#0b1826;color:#f4f8fc;cursor:pointer}
+.site-menu-toggle span{display:block;width:21px;height:2px;border-radius:2px;background:currentColor}
+.site-menu-toggle:hover,.site-menu-toggle:focus-visible{border-color:#1ba4ff;outline:2px solid transparent}
+.site-menu-backdrop{position:fixed;inset:0;background:rgba(0,4,10,.73);z-index:100}
+.site-menu-panel{position:fixed;right:0;top:0;bottom:0;z-index:101;width:min(410px,100%);overflow-y:auto;background:#081321;border-left:1px solid #29415a;box-shadow:-16px 0 50px #0008;padding:26px 25px 35px;color:#f4f8fc;font-family:'DM Sans',Arial,sans-serif}
+.site-menu-panel[hidden],.site-menu-backdrop[hidden]{display:none}
+.site-menu-open{overflow:hidden}
+.site-menu-top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:30px}
+.site-menu-brand{font:900 32px/1 'Barlow Condensed',Impact,sans-serif;color:white}
+.site-menu-brand b{color:#087ff5}
+.site-menu-close{width:42px;height:42px;border:1px solid #29415a;border-radius:5px;background:#11243a;color:white;font:30px/1 Arial,sans-serif;cursor:pointer}
+.site-menu-panel h2{font:900 35px/1 'Barlow Condensed',Impact,sans-serif;margin:26px 0 12px}
+.site-menu-panel p{color:#b8c7d5;font-size:14px;line-height:1.65;margin:0 0 18px}
+.site-menu-links{display:grid;gap:3px;border-block:1px solid #29415a;padding:12px 0}
+.site-menu-panel a{color:#f4f8fc;text-decoration:none}
+.site-menu-links a{padding:11px 0;font-weight:800;font-size:16px}
+.site-menu-panel a:hover,.site-menu-panel a:focus-visible{color:#8bdcff;text-decoration:underline}
+.site-menu-contact{display:block;font-weight:800;color:#8bdcff!important;overflow-wrap:anywhere;margin:8px 0 24px}
+.site-menu-note{border-top:1px solid #29415a;padding-top:18px;font-size:12px!important}
+@media(max-width:650px){.site-menu-toggle{width:40px;height:40px}.site-menu-panel{padding:22px 20px 30px}.header-inner{gap:9px}.header-inner .logo{font-size:clamp(24px,7vw,32px)}.header-inner .btn{padding:10px 8px}.wrap .small{display:none}}
