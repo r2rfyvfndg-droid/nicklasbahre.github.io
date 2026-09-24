@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   panel.setAttribute('aria-labelledby','site-menu-title');
   panel.hidden=true;
   panel.innerHTML=`
-    <div class="site-menu-top"><div class="site-menu-brand" id="site-menu-title">NICKLAS <b>NEWS.</b></div><button class="site-menu-close" type="button" aria-label="Chiudi il menu">×</button></div>
+    <div class="site-menu-top"><div class="site-menu-brand" id="site-menu-title">NICKLAS <b>NEWS</b></div><button class="site-menu-close" type="button" aria-label="Chiudi il menu">×</button></div>
     <nav class="site-menu-links" aria-label="Navigazione principale">
       <a href="/">Home</a><a href="/#notizie">Articoli</a><a href="https://x.com/nicklasbahre" target="_blank" rel="noopener noreferrer">Seguici su X ↗</a>
     </nav>
