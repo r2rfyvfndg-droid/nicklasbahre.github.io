@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ page.title | escape }} — Nicklas News</title>
+<meta name="description" content="{{ page.description | escape }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Nicklas News">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:title" content="{{ page.title | escape }}">
+<meta property="og:description" content="{{ page.description | escape }}">
+<meta property="og:image" content="{{ page.image | absolute_url }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@nicklasbahre">
+<meta name="twitter:image" content="{{ page.image | absolute_url }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#050a11;color:#f4f8fc;font:16px/1.7 'DM Sans',Arial,sans-serif}a{color:#72c6ff}header{border-bottom:1px solid #213247;background:#081321}header .wrap{max-width:1050px;margin:auto;padding:22px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px}header a{text-decoration:none}.brand{font:900 36px/1 'Barlow Condensed',sans-serif;color:white}.brand span{color:#087ff5}.small{font-size:12px;font-weight:700}main{max-width:900px;margin:40px auto 80px;padding:0 20px}.back{font-size:12px;font-weight:800;text-decoration:none}h1{font:900 clamp(46px,7vw,82px)/.98 'Barlow Condensed',Impact,sans-serif;margin:22px 0}.lead{font-size:20px;color:#b8c7d5;line-height:1.5}.meta{border-block:1px solid #213247;padding:13px 0;color:#95a7b9;font-size:11px;font-weight:800;letter-spacing:.05em;margin:26px 0}.cover{width:100%;height:auto;display:block;aspect-ratio:16/9;object-fit:contain;background:#050a11;border:1px solid #213247;border-radius:5px;margin:28px 0}article p{margin:0 0 23px;font-size:17px;line-height:1.85}article a{overflow-wrap:anywhere}footer{border-top:1px solid #213247;color:#8193a5;font-size:11px;padding:25px 20px;text-align:center}@media(max-width:650px){main{margin-top:25px}.lead{font-size:18px}article p{font-size:16px}.brand{font-size:30px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="/">NICKLAS <span>NEWS.</span></a><a class="small" href="https://x.com/nicklasbahre">SEGUIMI SU X ↗</a></div></header>
+<main>
+<a class="back" href="/">← TORNA ALLE NOTIZIE</a>
+<h1>{{ page.title | escape }}</h1>
+<p class="lead">{{ page.description | escape }}</p>
+<div class="meta">DI NICKLAS NEWS · {{ page.date | date: "%d/%m/%Y" }} · NOTIZIA E COMMENTO SATIRICO</div>
+<img class="cover" src="{{ page.image | relative_url }}" alt="Copertina: {{ page.title | escape }}" width="1600" height="900">
+<article>{{ content }}</article>
+</main>
+<footer>© 2026 NICKLAS NEWS · PROGETTO INDIPENDENTE E SATIRICO</footer>
+</body>
+</html>
