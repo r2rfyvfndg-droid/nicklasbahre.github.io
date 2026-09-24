@@ -1,868 +1,1000 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>NICKLAS NEWS — Il calcio spiegato da Bahre</title>
-
-  <meta
-    name="description"
-    content="NICKLAS NEWS — Il calcio spiegato da Bahre. Notizie, ironia e satira sul mondo del calcio."
-  >
-
-  <style>
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: #07090c;
-      color: #f4f6f8;
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.5;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(7, 9, 12, 0.96);
-      border-bottom: 1px solid #202731;
-      backdrop-filter: blur(10px);
-    }
-
-    .header-container {
-      max-width: 1250px;
-      margin: auto;
-      padding: 17px 25px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-    }
-
-    .logo {
-      font-size: 27px;
-      font-weight: 900;
-      letter-spacing: -1.5px;
-      white-space: nowrap;
-    }
-
-    .logo span {
-      color: #087cff;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-    }
-
-    nav a {
-      color: #aeb6c1;
-      font-size: 14px;
-      font-weight: 700;
-      transition: 0.2s;
-    }
-
-    nav a:hover {
-      color: #087cff;
-    }
-
-    .x-button {
-      background: #087cff;
-      padding: 9px 16px;
-      border-radius: 7px;
-      font-weight: 800;
-      font-size: 13px;
-      white-space: nowrap;
-      transition: 0.2s;
-    }
-
-    .x-button:hover {
-      background: #006be0;
-      transform: translateY(-1px);
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      max-width: 1250px;
-      margin: auto;
-      padding: 75px 25px 65px;
-    }
-
-    .hero-label {
-      color: #087cff;
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-    }
-
-    .hero h1 {
-      margin-top: 13px;
-      font-size: clamp(48px, 9vw, 105px);
-      line-height: 0.88;
-      letter-spacing: -6px;
-      font-weight: 950;
-    }
-
-    .hero h1 span {
-      color: #087cff;
-    }
-
-    .slogan {
-      margin-top: 22px;
-      font-size: clamp(22px, 3vw, 32px);
-      font-weight: 800;
-      color: #ffffff;
-    }
-
-    .hero-description {
-      max-width: 650px;
-      margin-top: 13px;
-      color: #9fa8b4;
-      font-size: 17px;
-    }
-
-    /* =========================
-       MAIN LAYOUT
-    ========================= */
-
-    .main-container {
-      max-width: 1250px;
-      margin: auto;
-      padding: 0 25px 80px;
-
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 310px;
-      gap: 35px;
-    }
-
-    .section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      padding-bottom: 15px;
-      margin-bottom: 22px;
-
-      border-bottom: 1px solid #242b34;
-    }
-
-    .section-heading h2 {
-      font-size: 25px;
-    }
-
-    .section-heading span {
-      color: #087cff;
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
-
-    /* =========================
-       FEATURED ARTICLE
-    ========================= */
-
-    .featured {
-      position: relative;
-      overflow: hidden;
-
-      padding: 32px;
-      margin-bottom: 22px;
-
-      border-radius: 14px;
-      border: 1px solid #087cff;
-
-      background:
-        radial-gradient(
-          circle at top right,
-          rgba(8,124,255,0.25),
-          transparent 45%
-        ),
-        #10151d;
-    }
-
-    .featured::after {
-      content: "NEWS";
-
-      position: absolute;
-      right: -10px;
-      bottom: -25px;
-
-      font-size: 100px;
-      font-weight: 950;
-
-      color: rgba(255,255,255,0.025);
-    }
-
-    .tag {
-      display: inline-block;
-
-      padding: 5px 9px;
-
-      border-radius: 5px;
-
-      background: rgba(8,124,255,0.13);
-      color: #087cff;
-
-      font-size: 10px;
-      font-weight: 900;
-
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .featured h3 {
-      position: relative;
-      z-index: 1;
-
-      max-width: 750px;
-
-      margin-top: 13px;
-
-      font-size: clamp(28px, 4vw, 43px);
-      line-height: 1.02;
-      letter-spacing: -1.5px;
-    }
-
-    .featured p {
-      position: relative;
-      z-index: 1;
-
-      max-width: 700px;
-
-      margin-top: 15px;
-
-      color: #b0b8c4;
-      font-size: 16px;
-    }
-
-    .meta {
-      position: relative;
-      z-index: 1;
-
-      margin-top: 20px;
-
-      color: #69727e;
-      font-size: 12px;
-    }
-
-    /* =========================
-       NEWS GRID
-    ========================= */
-
-    .news-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .news-card {
-      background: #101318;
-
-      border: 1px solid #202731;
-      border-radius: 12px;
-
-      padding: 23px;
-
-      transition: 0.2s;
-    }
-
-    .news-card:hover {
-      border-color: #087cff;
-      transform: translateY(-3px);
-    }
-
-    .news-card h3 {
-      margin-top: 10px;
-
-      font-size: 21px;
-      line-height: 1.12;
-    }
-
-    .news-card p {
-      margin-top: 10px;
-
-      color: #969faa;
-      font-size: 14px;
-    }
-
-    /* =========================
-       SIDEBAR
-    ========================= */
-
-    .sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .sidebar-box {
-      background: #101318;
-
-      border: 1px solid #202731;
-      border-radius: 12px;
-
-      padding: 22px;
-    }
-
-    .sidebar-box h3 {
-      margin-bottom: 12px;
-
-      font-size: 17px;
-    }
-
-    .sidebar-box p {
-      color: #969faa;
-      font-size: 14px;
-    }
-
-    .follow-button {
-      display: block;
-
-      margin-top: 17px;
-
-      padding: 11px;
-
-      text-align: center;
-
-      background: #087cff;
-      border-radius: 7px;
-
-      font-size: 13px;
-      font-weight: 900;
-    }
-
-    .follow-button:hover {
-      background: #006be0;
-    }
-
-    /* =========================
-       CATEGORIES
-    ========================= */
-
-    .categories {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .category {
-      padding: 7px 10px;
-
-      border: 1px solid #2b333d;
-      border-radius: 6px;
-
-      color: #b8c0ca;
-
-      font-size: 12px;
-      font-weight: 700;
-
-      transition: 0.2s;
-    }
-
-    .category:hover {
-      color: #087cff;
-      border-color: #087cff;
-    }
-
-    /* =========================
-       ADVERTISING
-    ========================= */
-
-    .ad-space {
-      min-height: 130px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border: 1px dashed #353d47;
-      border-radius: 8px;
-
-      color: #59616c;
-
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-      border-top: 1px solid #202731;
-
-      background: #090b0f;
-    }
-
-    .footer-container {
-      max-width: 1250px;
-      margin: auto;
-
-      padding: 35px 25px;
-
-      display: flex;
-      justify-content: space-between;
-      gap: 25px;
-
-      color: #69727e;
-      font-size: 12px;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .footer-links a:hover {
-      color: #087cff;
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 900px) {
-
-      nav {
-        display: none;
-      }
-
-      .main-container {
-        grid-template-columns: 1fr;
-      }
-
-      .sidebar {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-      }
-
-    }
-
-    @media (max-width: 600px) {
-
-      .header-container {
-        padding: 14px 15px;
-      }
-
-      .logo {
-        font-size: 22px;
-      }
-
-      .hero {
-        padding: 55px 15px 45px;
-      }
-
-      .hero h1 {
-        font-size: 62px;
-        letter-spacing: -4px;
-      }
-
-      .slogan {
-        font-size: 22px;
-      }
-
-      .hero-description {
-        font-size: 15px;
-      }
-
-      .main-container {
-        padding-left: 15px;
-        padding-right: 15px;
-      }
-
-      .news-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .sidebar {
-        display: flex;
-      }
-
-      .featured {
-        padding: 24px;
-      }
-
-      .footer-container {
-        flex-direction: column;
-      }
-
-      .footer-links {
-        flex-wrap: wrap;
-      }
-
-    }
-
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080c13">
+<meta name="description" content="Nicklas News: calcio, notizie verificate e commenti satirici di Nicklas Bahre.">
+<title>Nicklas News — Il calcio spiegato da Bahre</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--bg:#080c13;
+--panel:#121a26;
+--line:#2a3645;
+--text:#f3f7fb;
+--muted:#a5b2c2;
+--blue:#2697ff;
+--cyan:#a8e8ff
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+margin:0;
+background:var(--bg);
+color:var(--text);
+font:16px/1.55 'DM Sans',Arial,sans-serif
+}
+
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+
+a:focus-visible,button:focus-visible{
+outline:2px solid var(--cyan);
+outline-offset:3px
+}
+
+h1,h2,h3,p{margin:0}
+
+.wrap{
+width:min(1200px,calc(100% - 40px));
+margin:auto
+}
+
+.display{
+font-family:'Barlow Condensed',Impact,sans-serif;
+text-transform:uppercase;
+line-height:.97;
+letter-spacing:-.018em
+}
+
+.eyebrow,.tag{
+color:var(--cyan);
+text-transform:uppercase;
+letter-spacing:.15em;
+font-size:11px;
+font-weight:800
+}
+
+.ticker{
+background:#126bce;
+color:#fff;
+font-size:11px;
+font-weight:800;
+letter-spacing:.1em
+}
+
+.ticker .wrap{
+display:flex;
+justify-content:space-between;
+padding:8px 0
+}
+
+.header{
+position:sticky;
+top:0;
+z-index:5;
+background:#080c13f2;
+backdrop-filter:blur(12px);
+border-bottom:1px solid var(--line)
+}
+
+.header-inner{
+min-height:70px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:16px
+}
+
+.brand{
+font:900 31px/1 'Barlow Condensed',Impact,sans-serif;
+white-space:nowrap
+}
+
+.brand b{color:var(--blue)}
+
+.nav{
+display:flex;
+gap:25px;
+font-size:13px;
+font-weight:800
+}
+
+.nav a:hover,.footer a:hover{color:var(--cyan)}
+
+.button{
+display:inline-flex;
+background:var(--blue);
+color:#06101e;
+padding:10px 16px;
+border-radius:4px;
+font-size:12px;
+font-weight:800;
+white-space:nowrap
+}
+
+.button:hover{background:var(--cyan)}
+
+.hero{
+overflow:hidden;
+position:relative;
+background:
+radial-gradient(ellipse at 76% 35%,#164472 0%,transparent 42%),
+linear-gradient(110deg,#0c1623,var(--bg));
+border-bottom:1px solid var(--line)
+}
+
+.hero:after{
+content:'NN';
+position:absolute;
+right:0;
+bottom:-.33em;
+color:#ffffff07;
+font:900 clamp(240px,40vw,560px)/1 'Barlow Condensed',sans-serif;
+pointer-events:none
+}
+
+.hero-inner{
+position:relative;
+z-index:1;
+padding:75px 0 70px
+}
+
+.hero h1{
+font-size:clamp(80px,12vw,170px);
+margin:12px 0 22px
+}
+
+.hero h1 em{
+font-style:normal;
+color:var(--blue)
+}
+
+.hero p{
+max-width:550px;
+color:#c4d1df;
+font-size:17px
+}
+
+.hero-bottom{
+display:flex;
+align-items:center;
+gap:18px;
+margin-top:28px
+}
+
+.hero-bottom small{color:var(--muted)}
+
+.stripe{
+height:5px;
+background:repeating-linear-gradient(
+90deg,
+#087bf0 0 60px,
+#080c13 60px 72px
+)
+}
+
+.content{padding:54px 0 80px}
+
+.layout{
+display:grid;
+grid-template-columns:minmax(0,1fr) 310px;
+gap:35px
+}
+
+.section-title{
+display:flex;
+justify-content:space-between;
+align-items:end;
+gap:12px;
+border-bottom:1px solid var(--line);
+padding-bottom:13px;
+margin-bottom:20px
+}
+
+.section-title h2{font-size:35px}
+
+.section-title small{
+font-size:11px;
+color:var(--muted)
+}
+
+.feature{
+display:grid;
+grid-template-columns:1.1fr .9fr;
+background:var(--panel);
+border:1px solid #316da4;
+min-height:310px
+}
+
+.feature-copy{
+display:flex;
+flex-direction:column;
+align-items:start;
+padding:30px
+}
+
+.feature h3{
+font-size:clamp(37px,4vw,59px);
+margin:15px 0
+}
+
+.feature p,.card p{
+font-size:14px;
+color:var(--muted)
+}
+
+.meta{
+color:#93a1af;
+font-size:11px;
+font-weight:800;
+text-transform:uppercase;
+margin-top:auto;
+padding-top:22px
+}
+
+.read{
+color:var(--cyan);
+font-size:12px;
+font-weight:800;
+margin-top:15px
+}
+
+.art{
+display:grid;
+place-content:center;
+text-align:center;
+position:relative;
+overflow:hidden;
+background:linear-gradient(145deg,#0a3666,#0b1725);
+border-left:1px solid #315478
+}
+
+.art:before,.visual:before{
+content:'';
+position:absolute;
+inset:-30%;
+background:repeating-linear-gradient(
+115deg,
+transparent 0 45px,
+#ffffff0a 46px 48px
+);
+transform:rotate(-6deg)
+}
+
+.art strong,.visual strong{
+position:relative;
+font:800 clamp(90px,11vw,150px)/.9 'Barlow Condensed',sans-serif
+}
+
+.art span{
+position:relative;
+color:var(--cyan);
+font-size:11px;
+font-weight:800;
+letter-spacing:.2em;
+margin-top:13px
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:18px;
+margin-top:18px
+}
+
+.card{
+background:var(--panel);
+border:1px solid var(--line);
+display:flex;
+flex-direction:column;
+min-height:340px;
+transition:transform .2s,border-color .2s
+}
+
+.card:hover{
+transform:translateY(-3px);
+border-color:var(--blue)
+}
+
+.visual{
+height:125px;
+position:relative;
+display:grid;
+place-items:center;
+overflow:hidden;
+background:linear-gradient(110deg,#09447e,#121b27)
+}
+
+.visual strong{font-size:75px}
+
+.card-body{
+padding:21px;
+flex:1;
+display:flex;
+flex-direction:column
+}
+
+.card h3{
+font-size:31px;
+margin:8px 0 10px
+}
+
+.sidebar{
+display:flex;
+flex-direction:column;
+gap:19px
+}
+
+.box{
+background:var(--panel);
+border:1px solid var(--line);
+padding:22px
+}
+
+.box h3{
+font-size:25px;
+margin-bottom:15px
+}
+
+.box p{
+font-size:13px;
+color:var(--muted)
+}
+
+.box .note{
+font-size:11px;
+margin-top:15px;
+color:#8996a5
+}
+
+.box .button{margin-top:17px}
+
+.rank{
+list-style:none;
+margin:0;
+padding:0
+}
+
+.rank li{
+display:grid;
+grid-template-columns:33px 1fr;
+gap:10px;
+border-top:1px solid var(--line);
+padding:12px 0
+}
+
+.rank li:first-child{border:0}
+
+.rank span{
+color:var(--blue);
+font:800 31px/1 'Barlow Condensed',sans-serif
+}
+
+.rank a{
+font-size:13px;
+font-weight:800;
+line-height:1.35
+}
+
+.rank a:hover{color:var(--cyan)}
+
+.chips{
+display:flex;
+gap:7px;
+flex-wrap:wrap
+}
+
+.chip{
+background:transparent;
+border:1px solid #425267;
+border-radius:3px;
+color:#d1dae5;
+padding:6px 10px;
+font-size:11px;
+font-weight:800;
+cursor:pointer
+}
+
+.chip:hover,.chip.active{
+background:#1b70c4;
+border-color:#1b70c4;
+color:white
+}
+
+.social{
+margin-top:52px;
+padding:28px 32px;
+border:1px solid #326da4;
+background:linear-gradient(105deg,#0c294b,#111a26);
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px
+}
+
+.social h2{
+font-size:37px;
+margin:8px 0
+}
+
+.social p{
+font-size:13px;
+color:var(--muted)
+}
+
+.footer{
+border-top:1px solid var(--line);
+padding:28px 0;
+color:#8797a8;
+font-size:12px
+}
+
+.footer-inner{
+display:flex;
+justify-content:space-between;
+gap:15px
+}
+
+.footer a{color:#b8cada}
+
+.article-view{
+display:none;
+max-width:850px
+}
+
+.article-view.show{display:block}
+.home-view.hidden{display:none}
+
+.back{
+display:inline-block;
+color:var(--cyan);
+font-weight:800;
+font-size:13px;
+margin-bottom:28px
+}
+
+.article-view h1{
+font-size:clamp(50px,7vw,88px);
+margin:13px 0 19px
+}
+
+.lead{
+font-size:20px;
+color:#c4d2df;
+margin-bottom:22px
+}
+
+.article-meta{
+color:#93a1af;
+font-size:12px;
+border-block:1px solid var(--line);
+padding:13px 0;
+margin-bottom:28px
+}
+
+.body p{
+line-height:1.8;
+margin-bottom:20px
+}
+
+.source{
+border-left:3px solid var(--blue);
+background:var(--panel);
+padding:14px 16px;
+margin-top:32px;
+font-size:12px
+}
+
+.source a{
+color:var(--cyan);
+text-decoration:underline
+}
+
+@media(max-width:900px){
+.layout{grid-template-columns:1fr}
+.sidebar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.nav{display:none}
+}
+
+@media(max-width:650px){
+.wrap{width:calc(100% - 30px)}
+.ticker span:last-child{display:none}
+.header-inner{min-height:62px}
+.brand{font-size:25px}
+.header .button{font-size:11px;padding:9px}
+.hero-inner{padding:53px 0}
+.hero h1{font-size:clamp(76px,17vw,106px)}
+.hero p{font-size:15px}
+.hero-bottom{align-items:start;flex-direction:column}
+.content{padding-top:34px}
+.feature{display:flex;flex-direction:column-reverse}
+.art{height:175px;border-left:0;border-bottom:1px solid #315478}
+.art strong{font-size:100px}
+.feature-copy{padding:24px}
+.feature h3{font-size:44px}
+.cards,.sidebar{grid-template-columns:1fr}
+.social{align-items:start;flex-direction:column;padding:23px}
+.footer-inner{flex-direction:column}
+}
+
+@media(prefers-reduced-motion:reduce){
+html{scroll-behavior:auto}
+.card{transition:none}
+}
+</style>
 </head>
-
 
 <body>
 
+<div class="ticker">
+<div class="wrap">
+<span>CALCIO / OPINIONI / SATIRA</span>
+<span>IL CALCIO SPIEGATO DA BAHRE</span>
+</div>
+</div>
 
-  <!-- =========================
-       HEADER
-  ========================= -->
+<header class="header">
+<div class="wrap header-inner">
 
-  <header>
+<a class="brand" href="#home">
+NICKLAS<b>NEWS</b><b>.</b>
+</a>
 
-    <div class="header-container">
+<nav class="nav">
+<a href="#home">Home</a>
+<a href="#notizie">Ultime notizie</a>
+<a href="#piu-letti">Più letti</a>
+<a href="#su-di-noi">Chi siamo</a>
+</nav>
 
-      <a href="#home" class="logo">
-        NICKLAS<span>NEWS</span>
-      </a>
+<a class="button"
+href="https://x.com/nicklasbahre"
+target="_blank"
+rel="noopener noreferrer">
+SEGUIMI SU X ↗
+</a>
 
-      <nav>
-        <a href="#home">Home</a>
-        <a href="#notizie">Notizie</a>
-        <a href="#categorie">Categorie</a>
-        <a href="#contatti">Contatti</a>
-      </nav>
+</div>
+</header>
 
-      <a
-        class="x-button"
-        href="https://x.com/nicklasbahre"
-        target="_blank"
-      >
-        Seguimi su X
-      </a>
+<main>
 
-    </div>
+<div id="homeView" class="home-view">
 
-  </header>
+<section class="hero" id="home">
+<div class="wrap hero-inner">
 
+<span class="eyebrow">
+Il calcio, con qualche opinione di troppo
+</span>
 
-  <!-- =========================
-       HERO
-  ========================= -->
+<h1 class="display">
+NICKLAS<br><em>NEWS.</em>
+</h1>
 
-  <section class="hero" id="home">
+<p>
+Partite, protagonisti e notizie del momento.
+I fatti hanno una fonte; il commento ha la firma di Bahre.
+</p>
 
-    <div class="hero-label">
-      CALCIO • IRONIA • SATIRA
-    </div>
+<div class="hero-bottom">
 
-    <h1>
-      NICKLAS<br>
-      <span>NEWS.</span>
-    </h1>
+<a class="button" href="#notizie">
+LEGGI LE NOTIZIE ↓
+</a>
 
-    <div class="slogan">
-      Il calcio spiegato da Bahre
-    </div>
+<small>
+Un progetto indipendente di satira calcistica
+</small>
 
-    <p class="hero-description">
-      Notizie, opinioni, mercato e tutto quello che succede
-      nel mondo del calcio. Con un pizzico di ironia.
-    </p>
+</div>
+</div>
+</section>
 
-  </section>
+<div class="stripe"></div>
 
+<div class="wrap content">
 
-  <!-- =========================
-       CONTENT
-  ========================= -->
+<div class="layout">
 
-  <main class="main-container">
+<section id="notizie">
 
+<div class="section-title">
+<h2 class="display">Ultime notizie</h2>
+<small id="resultLabel">24 SETTEMBRE 2026</small>
+</div>
 
-    <!-- NEWS -->
+<div id="articles"></div>
 
-    <section id="notizie">
+</section>
 
-      <div class="section-heading">
+<aside class="sidebar">
 
-        <h2>Ultime notizie</h2>
+<section class="box" id="piu-letti">
 
-        <span>
-          NICKLAS NEWS
-        </span>
+<h3 class="display">Più letti</h3>
 
-      </div>
+<ol class="rank" id="popular"></ol>
 
+<p class="note">
+Selezione iniziale della redazione.
+La classifica delle letture arriverà quando sarà attiva una misurazione.
+</p>
 
-      <!-- FEATURED -->
+</section>
 
-      <article class="featured">
+<section class="box">
 
-        <span class="tag">
-          In evidenza
-        </span>
+<h3 class="display">Esplora</h3>
 
-        <h3>
-          Il calcio italiano non smette mai di regalare materiale.
-        </h3>
+<div class="chips" id="filters"></div>
 
-        <p>
-          Le notizie più importanti, i protagonisti del momento
-          e tutto quello che succede dentro e fuori dal campo.
-          Raccontato, ovviamente, alla maniera di Bahre.
-        </p>
+</section>
 
-        <div class="meta">
-          NICKLAS NEWS • 23 SETTEMBRE 2026
-        </div>
+<section class="box" id="su-di-noi">
 
-      </article>
+<h3 class="display">Cos'è Nicklas News?</h3>
 
+<p>
+Un sito indipendente di satira calcistica:
+risultati e fonti verificabili, opinioni dichiarate
+e la giusta dose di nerazzurro.
+</p>
 
-      <!-- ARTICLES -->
+<a class="button"
+href="https://x.com/nicklasbahre"
+target="_blank"
+rel="noopener noreferrer">
+TROVAMI SU X ↗
+</a>
 
-      <div class="news-grid">
+</section>
 
+</aside>
+
+</div>
+
+<section class="social">
+
+<div>
 
-        <article class="news-card">
+<span class="eyebrow">Dal sito al feed</span>
 
-          <span class="tag">
-            Serie A
-          </span>
+<h2 class="display">
+Il resto succede su X.
+</h2>
+
+<p>
+Post, battute e aggiornamenti sul profilo @nicklasbahre.
+</p>
+
+</div>
+
+<a class="button"
+href="https://x.com/nicklasbahre"
+target="_blank"
+rel="noopener noreferrer">
+VAI AL PROFILO ↗
+</a>
 
-          <h3>
-            Titolo della prima notizia
-          </h3>
+</section>
 
-          <p>
-            Inserisci qui una breve introduzione alla notizia.
-            Il testo potrà essere sostituito con i tuoi articoli reali.
-          </p>
+</div>
+</div>
 
-          <div class="meta">
-            23 settembre 2026
-          </div>
+<div class="wrap content article-view" id="articleView"></div>
 
-        </article>
+</main>
 
+<footer class="footer">
 
-        <article class="news-card">
+<div class="wrap footer-inner">
 
-          <span class="tag">
-            Inter
-          </span>
+<span>
+© 2026 NICKLAS NEWS · Progetto indipendente e satirico
+</span>
 
-          <h3>
-            Titolo della seconda notizia
-          </h3>
+<a href="https://x.com/nicklasbahre"
+target="_blank"
+rel="noopener noreferrer">
+@nicklasbahre ↗
+</a>
 
-          <p>
-            Una breve descrizione dell'articolo,
-            con il tono caratteristico di Nicklas News.
-          </p>
+</div>
 
-          <div class="meta">
-            23 settembre 2026
-          </div>
+</footer>
 
-        </article>
+<script>
 
+const stories=[
 
-        <article class="news-card">
+{
+slug:'tredici-inter-nazionali',
+category:'Inter',
+date:'24 settembre 2026',
+headline:'Inter, 13 convocati: la sosta diventa uno sport estremo',
+summary:'Tredici nerazzurri partono per le nazionali. Purtroppo anche Lautaro.',
+art:'13',
+label:'CONVOCATI',
+source:'https://www.inter.it/',
+paragraphs:[
+'Il campionato si ferma e tredici giocatori dell’Inter partono con le rispettive nazionali. Tra loro ci sono Barella, Bastoni, Dimarco e Pio Esposito, convocati dall’Italia, ma di questo penso non freghi nulla a nessuno.',
+'Nations League (competizione più ridicola di sempre) e amichevoli riempiranno le prossime settimane. L’Inter tornerà in campionato contro il Parma il 10 ottobre. Da qui ad allora, preghiamo per l’integrità fisica di ogni nostro tesserato.',
+'La sosta serve a far riposare i club. Naturalmente il modo migliore per farlo è mandare tredici giocatori in giro per il mondo a giocare altre partite.'
+]
+},
 
-          <span class="tag">
-            Mercato
-          </span>
+{
+slug:'roma-inter-rimonta-lautaro',
+category:'Serie A',
+date:'24 settembre 2026',
+headline:'Lautaro rimonta la Roma. Il primo tempo dell’Inter è ancora disperso',
+summary:'Primo tempo disastroso, il capitano conquista il pareggio.',
+art:'2–2',
+label:'ROMA / INTER',
+source:'https://www.inter.it/',
+paragraphs:[
+'Koné (che prima di questa partita aveva segnato solo 4 gol in 2 anni) segna al 6° e al 37°: all’intervallo Roma-Inter è 2-0. I nerazzurri rientrano in campo, Lautaro segna subito al 46° e trova il pareggio al 79°. Finisce 2-2.',
+'Un punto recuperato in una partita che sembrava già scappata. Resta da capire dove fosse finita l’Inter nei primi quarantacinque minuti: centrocampo e difesa disastrosi.'
+]
+},
 
-          <h3>
-            Titolo della terza notizia
-          </h3>
+{
+slug:'juventus-mazzola-minuto-silenzio',
+category:'Serie A',
+date:'24 settembre 2026',
+headline:'Juventus, spalle a Mazzola: il minuto di silenzio dura meno del rispetto',
+summary:'Una parte della Curva Sud si gira durante il ricordo della leggenda dell’Inter. Cori nel minuto di raccoglimento e 10.000 euro di multa alla Juventus.',
+art:'10K',
+label:'JUVENTUS / MAZZOLA',
+source:'https://www.ansa.it/',
+paragraphs:[
+'Prima di Juventus-Atalanta, all’Allianz Stadium viene osservato il minuto di silenzio disposto dalla FIGC in memoria di Sandro Mazzola, scomparso a 83 anni. Ma non tutto lo stadio decide di partecipare allo stesso modo.',
+'Una parte dei sostenitori presenti nella Curva Sud (se si può chiamare ancora curva) si volta di spalle al terreno di gioco e durante il raccoglimento vengono intonati cori dedicati a figure storiche della Juventus. È sicuramente una mancanza di rispetto, ma sono cose che fanno parte del calcio. La stessa Juventus prende immediatamente le distanze dall’accaduto, ricordando che nessuna rivalità può giustificare una mancanza di rispetto durante una commemorazione.',
+'Due giorni dopo arriva anche la decisione del Giudice Sportivo: 10.000 euro di multa alla Juventus. La sanzione viene attenuata proprio per la presa di posizione del club e per la dissociazione del resto del pubblico.'
+]
+}
 
-          <p>
-            Tutte le ultime novità dal mercato
-            e dalle trattative del calcio italiano.
-          </p>
+];
 
-          <div class="meta">
-            23 settembre 2026
-          </div>
+const categories=['Tutte','Inter','Serie A'];
 
-        </article>
+const esc=s=>String(s).replace(
+/[&<>"']/g,
+c=>({
+'&':'&amp;',
+'<':'&lt;',
+'>':'&gt;',
+'"':'&quot;',
+"'":'&#39;'
+}[c])
+);
 
+let selected='Tutte';
 
-        <article class="news-card">
+function card(s,featured=false){
 
-          <span class="tag">
-            Satira
-          </span>
+let link='#articolo/'+s.slug;
 
-          <h3>
-            Quando il calcio diventa una commedia
-          </h3>
+if(featured)
 
-          <p>
-            Le situazioni più assurde del mondo del calcio,
-            raccontate con ironia e satira.
-          </p>
+return `
+<a class="feature" href="${link}">
 
-          <div class="meta">
-            23 settembre 2026
-          </div>
+<div class="feature-copy">
 
-        </article>
+<span class="tag">
+${esc(s.category)} · IN EVIDENZA
+</span>
 
+<h3 class="display">
+${esc(s.headline)}
+</h3>
 
-      </div>
+<p>${esc(s.summary)}</p>
 
-    </section>
+<span class="meta">
+${esc(s.date)}
+</span>
 
+<span class="read">
+LEGGI L’ARTICOLO →
+</span>
 
-    <!-- =========================
-         SIDEBAR
-    ========================= -->
+</div>
 
-    <aside class="sidebar">
+<div class="art">
 
+<strong>${esc(s.art)}</strong>
 
-      <!-- ABOUT -->
+<span>${esc(s.label)}</span>
 
-      <div class="sidebar-box">
+</div>
 
-        <h3>
-          Cos'è Nicklas News?
-        </h3>
+</a>
+`;
 
-        <p>
-          Una pagina dedicata al calcio italiano:
-          notizie, commenti, ironia e satira.
-        </p>
+return `
+<a class="card" href="${link}">
 
-        <a
-          href="https://x.com/nicklasbahre"
-          target="_blank"
-          class="follow-button"
-        >
-          Seguimi su X
-        </a>
+<div class="visual">
+<strong>${esc(s.art)}</strong>
+</div>
 
-      </div>
+<div class="card-body">
 
+<span class="tag">
+${esc(s.category)}
+</span>
 
-      <!-- CATEGORIES -->
+<h3 class="display">
+${esc(s.headline)}
+</h3>
 
-      <div class="sidebar-box" id="categorie">
+<p>${esc(s.summary)}</p>
 
-        <h3>
-          Categorie
-        </h3>
+<span class="meta">
+${esc(s.date)} · LEGGI →
+</span>
 
-        <div class="categories">
+</div>
 
-          <a href="#" class="category">Inter</a>
-          <a href="#" class="category">Milan</a>
-          <a href="#" class="category">Juventus</a>
-          <a href="#" class="category">Napoli</a>
-          <a href="#" class="category">Roma</a>
-          <a href="#" class="category">Serie A</a>
-          <a href="#" class="category">Mercato</a>
-          <a href="#" class="category">Satira</a>
+</a>
+`;
 
-        </div>
+}
 
-      </div>
+function renderHome(){
 
+let list=stories.filter(
+s=>selected==='Tutte'||s.category===selected
+);
 
-      <!-- AD -->
+document.getElementById('articles').innerHTML=
+card(list[0],true)+
+`<div class="cards">
+${list.slice(1).map(s=>card(s)).join('')}
+</div>`;
 
-      <div class="sidebar-box">
+document.getElementById('resultLabel').textContent=
+selected==='Tutte'
+?'24 SETTEMBRE 2026'
+:selected.toUpperCase();
 
-        <h3>
-          Pubblicità
-        </h3>
+document.getElementById('filters').innerHTML=
+categories.map(c=>
+`<button
+type="button"
+class="chip ${selected===c?'active':''}"
+data-filter="${esc(c)}"
+aria-pressed="${selected===c}">
+${esc(c)}
+</button>`
+).join('');
 
-        <div class="ad-space">
-          Spazio pubblicitario
-        </div>
+}
 
-      </div>
+document.getElementById('filters')
+.addEventListener('click',e=>{
 
+let b=e.target.closest('[data-filter]');
 
-      <!-- CONTACT -->
+if(b){
 
-      <div class="sidebar-box" id="contatti">
+selected=b.dataset.filter;
 
-        <h3>
-          Contatti
-        </h3>
+renderHome();
 
-        <p>
-          Collaborazioni, pubblicità e segnalazioni.
-        </p>
+}
 
-        <p style="margin-top: 10px; color: #087cff;">
-          info@nicklasnews.it
-        </p>
+});
 
-      </div>
+document.getElementById('popular').innerHTML=
+stories.map((s,i)=>
+`<li>
+<span>0${i+1}</span>
+<a href="#articolo/${s.slug}">
+${esc(s.headline)}
+</a>
+</li>`
+).join('');
 
+function route(){
 
-    </aside>
+let slug=
+location.hash.startsWith('#articolo/')
+?decodeURIComponent(location.hash.slice(10))
+:null;
 
-  </main>
+let s=stories.find(x=>x.slug===slug);
 
+let view=document.getElementById('articleView');
 
-  <!-- =========================
-       FOOTER
-  ========================= -->
+document.getElementById('homeView')
+.classList.toggle('hidden',!!s);
 
-  <footer>
+view.classList.toggle('show',!!s);
 
-    <div class="footer-container">
+if(s){
 
-      <div>
-        © 2026 NICKLAS NEWS
-      </div>
+view.innerHTML=`
 
-      <div class="footer-links">
+<a class="back" href="#notizie">
+← TORNA ALLE NOTIZIE
+</a>
 
-        <a href="#">
-          Privacy
-        </a>
+<div class="eyebrow">
+${esc(s.category)} / NICKLAS NEWS
+</div>
 
-        <a href="#">
-          Cookie
-        </a>
+<h1 class="display">
+${esc(s.headline)}
+</h1>
 
-        <a href="#contatti">
-          Contatti
-        </a>
+<p class="lead">
+${esc(s.summary)}
+</p>
 
-        <a
-          href="https://x.com/nicklasbahre"
-          target="_blank"
-        >
-          X
-        </a>
+<div class="article-meta">
+DI NICKLAS NEWS · ${esc(s.date)} · NOTIZIA E COMMENTO SATIRICO
+</div>
 
-      </div>
+<div class="body">
+${s.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}
+</div>
 
-    </div>
+<div class="source">
+Fatti e risultato:
+<a href="${esc(s.source)}"
+target="_blank"
+rel="noopener noreferrer">
+fonte ↗
+</a>.
+Il commento è satira di Nicklas News.
+</div>
+`;
 
-  </footer>
+document.title=s.headline+' — Nicklas News';
 
+scrollTo(0,0);
+
+}else{
+
+view.innerHTML='';
+
+document.title=
+'Nicklas News — Il calcio spiegato da Bahre';
+
+if(
+['#notizie','#piu-letti','#su-di-noi']
+.includes(location.hash)
+)
+
+setTimeout(
+()=>document.querySelector(location.hash)?.scrollIntoView(),
+0
+);
+
+}
+
+}
+
+renderHome();
+
+addEventListener('hashchange',route);
+
+route();
+
+</script>
 
 </body>
 </html>
