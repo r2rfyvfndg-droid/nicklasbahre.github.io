@@ -1,6 +1,6 @@
 backend:
-  name: github
-  repo: r2rfyvfndg-droid/nicklasbahre.github.io
+  name: turbo-github
+  turbo_site_id: ff22fb8e-e48f-48a8-839b-ec159a61e837
   branch: main
 
 site_url: https://nicklasnews.it
