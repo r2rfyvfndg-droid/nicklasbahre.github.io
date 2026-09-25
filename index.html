@@ -523,6 +523,7 @@ gap:20px;
 .article-body p{font-size:16px}
 .footer-inner{flex-direction:column}
 }
+.reaction-section{margin:46px 0 10px;padding:24px 0;border-top:1px solid #213247}.reaction-section h2{font:800 28px/1.1 'Barlow Condensed',Impact,sans-serif;margin:0 0 18px}.reaction-section .WebReactionz{color:#f4f8fc}.reaction-section .WebReactionz .emoji{font-family:'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',sans-serif;font-style:normal;font-weight:normal;font-size:28px;line-height:1.2}.reaction-section .WebReactionz .reaction{min-width:45px;min-height:45px;display:inline-flex;align-items:center;justify-content:center}.reaction-section:has(.emojis:empty){display:none}
 </style>
 </head>
 
@@ -818,6 +819,7 @@ return String(s).replace(/[&<>"']/g,c=>({
 }
 
 function route(){
+document.getElementById('story-reactions-script')?.remove();
 const slug=location.hash.startsWith('#articolo/')
 ?decodeURIComponent(location.hash.slice(10))
 :null;
@@ -860,7 +862,22 @@ ${story.extraSource ? `<span> · </span><a href="${esc(story.extraSource)}" targ
 <br><br>
 Il commento e le opinioni presenti nell’articolo sono di Nicklas News.
 </div>
+<section class="reaction-section" aria-label="Reazioni all'articolo">
+<h2>COME REAGISCI?</h2>
+<div id="article-reactions"></div>
+</section>
 `;
+
+const reactionScript=document.createElement('script');
+reactionScript.id='story-reactions-script';
+reactionScript.src='https://cdn.jsdelivr.net/gh/intersect-software/web-reactionz@1/public/setup.min.js';
+reactionScript.async=true;
+reactionScript.dataset.siteid='{{ site.reactions_site_id | escape }}';
+reactionScript.dataset.domselector='#article-reactions';
+reactionScript.dataset.position='bottom';
+reactionScript.dataset.prompt='';
+reactionScript.dataset.pageid='/articolo/'+story.slug;
+document.body.appendChild(reactionScript);
 
 document.title=story.headline+' — Nicklas News';
 window.scrollTo(0,0);
