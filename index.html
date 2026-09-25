@@ -8,6 +8,12 @@ layout: null
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#050a11">
 <meta name="description" content="Nicklas News: calcio, notizie e commenti satirici di Nicklas Bahre.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nicklas News — Il calcio spiegato da Bahre">
+<meta property="og:description" content="Notizie, opinioni e satira calcistica di Nicklas Bahre.">
+<meta property="og:url" content="{{ site.url }}/">
+<meta property="og:image" content="{{ site.url }}{{ site.posts.first.image | relative_url }}">
+<meta name="twitter:card" content="summary_large_image">
 <title>Nicklas News — Il calcio spiegato da Bahre</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,11 +74,13 @@ width:max-content;
 animation:ticker 34s linear infinite;
 font-size:13px;
 }
-.breaking-move span:after{
+.breaking-move a:after{
 content:"•";
 margin-left:22px;
 color:#536579;
 }
+.breaking-move a:hover{color:var(--cyan)}
+@media(prefers-reduced-motion:reduce){.breaking-move{animation:none;overflow:auto}}
 @keyframes ticker{
 from{transform:translateX(20px)}
 to{transform:translateX(-50%)}
@@ -164,11 +172,12 @@ display:flex;
 align-items:flex-end;
 background-image:
 linear-gradient(0deg,rgba(2,7,13,.98) 0%,rgba(2,7,13,.72) 32%,rgba(2,7,13,.08) 76%),
-url('inter-convocati.jpeg.PNG');
+var(--feature-image);
 background-size:cover;
 background-position:center;
 background-repeat:no-repeat;
 }
+.feature[hidden]{display:none}
 .feature:after{
 content:"";
 position:absolute;
@@ -238,6 +247,7 @@ background-position:center;
 background-repeat:no-repeat;
 transition:.2s;
 }
+.card[hidden]{display:none}
 .card:hover{
 border-color:#2588df;
 transform:translateY(-3px);
@@ -533,14 +543,9 @@ gap:20px;
 <div class="breaking-label">ULTIM’ORA</div>
 <div class="breaking-track">
 <div class="breaking-move">
-<span>Akanji senza treccine: Nicklas News apre ufficialmente il caso</span>
-<span>Inter, 13 convocati per le nazionali</span>
-<span>Roma-Inter 2-2: doppietta di Lautaro</span>
-<span>10.000 € di multa alla Juventus per il minuto di silenzio su Mazzola</span>
-<span>Akanji senza treccine: Nicklas News apre ufficialmente il caso</span>
-<span>Inter, 13 convocati per le nazionali</span>
-<span>Roma-Inter 2-2: doppietta di Lautaro</span>
-<span>10.000 € di multa alla Juventus per il minuto di silenzio su Mazzola</span>
+{% for repeat in (1..2) %}{% for post in site.posts limit:4 %}
+<a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+{% endfor %}{% endfor %}
 </div>
 </div>
 </div>
@@ -554,7 +559,7 @@ NICKLAS <b>NEWS</b>
 <nav class="nav">
 <a href="#home">Home</a>
 <a href="#notizie">Ultime notizie</a>
-<a href="#piu-letti">Più letti</a>
+<a href="#da-leggere">Da leggere</a>
 </nav>
 <a class="btn" href="https://x.com/nicklasbahre" target="_blank" rel="noopener noreferrer">SEGUIMI SU X ↗</a>
 </div>
@@ -567,22 +572,25 @@ NICKLAS <b>NEWS</b>
 
 <div>
 
-<a class="feature" href="#articolo/tredici-inter-nazionali" id="notizie">
+{% assign latest = site.posts.first %}
+{% if latest %}
+<a class="feature" href="{{ latest.url | relative_url }}" id="notizie" data-category="{{ latest.category | downcase | escape }}" style="--feature-image:url('{{ latest.image | relative_url }}')">
 <div class="feature-content">
-<span class="category">INTER</span>
-<div class="date">24 SETTEMBRE 2026</div>
-<h1>Inter, 13 convocati: la sosta diventa uno sport estremo</h1>
-<p>Tredici nerazzurri partono per le nazionali. Purtroppo anche Lautaro.</p>
+<span class="category">{{ latest.category | escape }} · SATIRA</span>
+<div class="date">{{ latest.date | date: "%d/%m/%Y" }}</div>
+<h1>{{ latest.title | escape }}</h1>
+<p>{{ latest.description | escape }}</p>
 <span class="btn">LEGGI L’ARTICOLO →</span>
 </div>
 </a>
+{% endif %}
 
-<div class="cards">
+<div class="cards" id="article-cards">
 
-{% for post in site.posts %}
-<a class="card new-story" href="{{ post.url | relative_url }}" style="--story-image:url('{{ post.image | relative_url }}')">
+{% for post in site.posts offset:1 %}
+<a class="card new-story" data-category="{{ post.category | downcase | escape }}" href="{{ post.url | relative_url }}" style="--story-image:url('{{ post.image | relative_url }}')">
 <div class="card-content">
-<span class="category">{{ post.category | escape }}</span>
+<span class="category">{{ post.category | escape }} · SATIRA</span>
 <div class="date">{{ post.date | date: "%d/%m/%Y" }}</div>
 <h2>{{ post.title | escape }}</h2>
 <p>{{ post.description | escape }}</p>
@@ -591,9 +599,9 @@ NICKLAS <b>NEWS</b>
 </a>
 {% endfor %}
 
-<a class="card stankovic" href="/stankovic.html">
+<a class="card stankovic" data-category="inter" href="/stankovic.html">
 <div class="card-content">
-<span class="category">INTER</span>
+<span class="category">INTER · SATIRA</span>
 <div class="date">24 SETTEMBRE 2026</div>
 <h2>Stanković, «zingaro» del centrocampo? Il ruolo che l’Inter non gli trova e l’ipotesi prestito</h2>
 <p>Al Brugge era un mediano apprezzato. All’Inter ha giocato appena un quarto d’ora nelle prime sei partite. Il problema è la posizione, la concorrenza o il giocatore?</p>
@@ -601,9 +609,9 @@ NICKLAS <b>NEWS</b>
 </div>
 </a>
 
-<a class="card score" href="#articolo/roma-inter-rimonta-lautaro">
+<a class="card score" data-category="serie a" href="/notizie/roma-inter-rimonta-lautaro/">
 <div class="card-content">
-<span class="category">SERIE A</span>
+<span class="category">SERIE A · SATIRA</span>
 <div class="date">24 SETTEMBRE 2026</div>
 <h2>Lautaro rimonta la Roma. Il primo tempo dell’Inter è ancora disperso</h2>
 <p>Primo tempo disastroso, il capitano conquista il pareggio.</p>
@@ -611,9 +619,9 @@ NICKLAS <b>NEWS</b>
 </div>
 </a>
 
-<a class="card mazzola" href="#articolo/juventus-mazzola-minuto-silenzio">
+<a class="card mazzola" data-category="serie a" href="/notizie/juventus-mazzola-minuto-silenzio/">
 <div class="card-content">
-<span class="category">SERIE A</span>
+<span class="category">SERIE A · SATIRA</span>
 <div class="date">24 SETTEMBRE 2026</div>
 <h2>Juventus, spalle a Mazzola: il minuto di silenzio dura meno del rispetto</h2>
 <p>Una parte della Curva Sud si gira durante il ricordo della leggenda dell’Inter.</p>
@@ -621,9 +629,9 @@ NICKLAS <b>NEWS</b>
 </div>
 </a>
 
-<a class="card akanji" href="#articolo/akanji-senza-treccine">
+<a class="card akanji" data-category="inter" href="/notizie/akanji-senza-treccine/">
 <div class="card-content">
-<span class="category">INTER</span>
+<span class="category">INTER · SATIRA</span>
 <div class="date">24 SETTEMBRE 2026</div>
 <h2>Akanji senza treccine: è diventato più nero di prima?</h2>
 <p>Da quando ha cambiato pettinatura sembra aver perso certezze. Coincidenza? Nicklas Bahre, naturalmente, dice di no.</p>
@@ -636,43 +644,15 @@ NICKLAS <b>NEWS</b>
 
 <aside class="sidebar">
 
-<section class="box" id="piu-letti">
-<div class="box-title">
-<div>
-<h2>PIÙ LETTI</h2>
-<div class="blue-line"></div>
-</div>
-<span>🔥</span>
-</div>
+<section class="box" id="da-leggere">
+<div class="box-title"><div><h2>DA LEGGERE</h2><div class="blue-line"></div></div><span>🔥</span></div>
 <ol class="popular">
-<li>
-<span class="num">01</span>
-<div>
-<a href="#articolo/akanji-senza-treccine">Akanji senza treccine: è diventato più nero di prima?</a>
-<small>24 SETTEMBRE 2026</small>
-</div>
-</li>
-<li>
-<span class="num">02</span>
-<div>
-<a href="#articolo/tredici-inter-nazionali">Inter, 13 convocati: la sosta diventa uno sport estremo</a>
-<small>24 SETTEMBRE 2026</small>
-</div>
-</li>
-<li>
-<span class="num">03</span>
-<div>
-<a href="#articolo/roma-inter-rimonta-lautaro">Lautaro rimonta la Roma. Il primo tempo dell’Inter è ancora disperso</a>
-<small>24 SETTEMBRE 2026</small>
-</div>
-</li>
-<li>
-<span class="num">04</span>
-<div>
-<a href="#articolo/juventus-mazzola-minuto-silenzio">Juventus, spalle a Mazzola</a>
-<small>24 SETTEMBRE 2026</small>
-</div>
-</li>
+{% for post in site.posts limit:4 %}
+<li><span class="num">0{{ forloop.index }}</span><div>
+<a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+<small>{{ post.date | date: "%d/%m/%Y" }}</small>
+</div></li>
+{% endfor %}
 </ol>
 </section>
 
@@ -684,9 +664,9 @@ NICKLAS <b>NEWS</b>
 </div>
 </div>
 <div class="filters">
-<button class="filter active">Tutte</button>
-<button class="filter">Inter</button>
-<button class="filter">Serie A</button>
+<button class="filter active" type="button" data-filter="tutte" aria-pressed="true">Tutte</button>
+<button class="filter" type="button" data-filter="inter" aria-pressed="false">Inter</button>
+<button class="filter" type="button" data-filter="serie a" aria-pressed="false">Serie A</button>
 </div>
 </section>
 
@@ -721,6 +701,11 @@ NICKLAS <b>NEWS</b>
 </footer>
 
 <script>
+document.querySelectorAll(".filter").forEach(button=>button.addEventListener("click",()=>{
+  document.querySelectorAll(".filter").forEach(item=>{const active=item===button;item.classList.toggle("active",active);item.setAttribute("aria-pressed",String(active))});
+  document.querySelectorAll("#article-cards .card, .feature").forEach(card=>{card.hidden=button.dataset.filter!=="tutte"&&card.dataset.category!==button.dataset.filter});
+  document.getElementById("article-cards")?.scrollIntoView({block:"start"});
+}));
 const stories=[
 
 {
@@ -834,6 +819,10 @@ const slug=location.hash.startsWith('#articolo/')
 ?decodeURIComponent(location.hash.slice(10))
 :null;
 
+if(slug&&stories.some(s=>s.slug===slug)) {
+  location.replace("/notizie/"+encodeURIComponent(slug)+"/");
+  return;
+}
 const story=stories.find(s=>s.slug===slug);
 const home=document.getElementById('homeView');
 const article=document.getElementById('articleView');
@@ -901,7 +890,7 @@ article.classList.remove('show');
 article.innerHTML='';
 document.title='Nicklas News — Il calcio spiegato da Bahre';
 
-if(['#notizie','#piu-letti','#chi-siamo'].includes(location.hash)){
+if(['#notizie','#da-leggere','#chi-siamo'].includes(location.hash)){
 setTimeout(()=>{
 document.querySelector(location.hash)?.scrollIntoView();
 },50);
