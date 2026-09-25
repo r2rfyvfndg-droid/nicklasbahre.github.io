@@ -1,3 +1,6 @@
+---
+layout: null
+---
 <!doctype html>
 <html lang="it">
 <head>
@@ -51,6 +54,7 @@ main{margin-top:25px}
 article p{font-size:16px}
 .brand{font-size:30px}
 }
+.related{margin:48px 0;border-top:1px solid #213247;padding-top:24px}.related h2{font:800 30px/1 'Barlow Condensed',sans-serif}.related-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.related-grid a{color:white;text-decoration:none;background:#0b131e;border:1px solid #213247;border-radius:5px;overflow:hidden;font:800 24px/1.1 'Barlow Condensed',sans-serif}.related-grid img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}.related-grid span{display:block;padding:15px}@media(max-width:650px){.related-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -91,6 +95,9 @@ Le opinioni sono di Nicklas News.
 <h2>COME REAGISCI?</h2>
 <div id="article-reactions"></div>
 </section>
+<section class="related" aria-label="Altri articoli"><h2>LEGGI ANCHE</h2><div class="related-grid">
+{% assign shown = 0 %}{% for post in site.posts %}{% if post.category == "Inter" and shown < 2 %}<a href="{{ post.url | relative_url }}"><img src="{{ post.image | relative_url }}" alt="" loading="lazy"><span>{{ post.title | escape }}</span></a>{% assign shown = shown | plus: 1 %}{% endif %}{% endfor %}
+</div></section>
 </main>
 
 <footer>© 2026 NICKLAS NEWS · PROGETTO INDIPENDENTE E SATIRICO</footer>
