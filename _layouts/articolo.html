@@ -44,7 +44,7 @@
 </main>
 <footer>© 2026 NICKLAS NEWS · PROGETTO INDIPENDENTE E SATIRICO</footer>
 {% if site.reactions_site_id != empty %}
-<script defer src="https://webreactionz.com/setup.min.js" data-siteid="{{ site.reactions_site_id | escape }}" data-domselector="#article-reactions" data-position="bottom" data-prompt="" data-pageid="{{ page.url | escape }}"></script>
+<script async defer src="https://cdn.jsdelivr.net/gh/intersect-software/web-reactionz@1/public/setup.min.js" data-siteid="{{ site.reactions_site_id | escape }}" data-domselector="#article-reactions" data-position="bottom" data-prompt="" data-pageid="{{ page.url | escape }}"></script>
 {% endif %}
 <!-- Cloudflare Web Analytics -->
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"06d5384791564c34b6ef0d2d7763c9d2"}'></script>
