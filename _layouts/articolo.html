@@ -22,6 +22,7 @@
 <script src="/menu.js" defer></script>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#050a11;color:#f4f8fc;font:16px/1.7 'DM Sans',Arial,sans-serif}a{color:#72c6ff}header{border-bottom:1px solid #213247;background:#081321}header .wrap{max-width:1050px;margin:auto;padding:22px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px}header a{text-decoration:none}.brand{font:900 36px/1 'Barlow Condensed',sans-serif;color:white}.brand span{color:#087ff5}.small{font-size:12px;font-weight:700}main{max-width:900px;margin:40px auto 80px;padding:0 20px}.back{font-size:12px;font-weight:800;text-decoration:none}h1{font:900 clamp(46px,7vw,82px)/.98 'Barlow Condensed',Impact,sans-serif;margin:22px 0}.lead{font-size:20px;color:#b8c7d5;line-height:1.5}.meta{border-block:1px solid #213247;padding:13px 0;color:#95a7b9;font-size:11px;font-weight:800;letter-spacing:.05em;margin:26px 0}.cover{width:100%;height:auto;display:block;aspect-ratio:16/9;object-fit:contain;background:#050a11;border:1px solid #213247;border-radius:5px;margin:28px 0}article p{margin:0 0 23px;font-size:17px;line-height:1.85}article a{overflow-wrap:anywhere}footer{border-top:1px solid #213247;color:#8193a5;font-size:11px;padding:25px 20px;text-align:center}@media(max-width:650px){main{margin-top:25px}.lead{font-size:18px}article p{font-size:16px}.brand{font-size:30px}}
+.reaction-section{margin:46px 0 10px;padding:24px 0;border-top:1px solid #213247}.reaction-section h2{font:800 28px/1.1 'Barlow Condensed',Impact,sans-serif;margin:0 0 18px}.reaction-section .webReactionz{color:#f4f8fc}
 </style>
 </head>
 <body>
@@ -33,8 +34,17 @@
 <div class="meta">DI NICKLAS NEWS · {{ page.date | date: "%d/%m/%Y" }} · NOTIZIA E COMMENTO SATIRICO</div>
 <img class="cover" src="{{ page.image | relative_url }}" alt="Copertina: {{ page.title | escape }}" width="1600" height="900">
 <article>{{ content }}</article>
+{% if site.reactions_site_id != empty %}
+<section class="reaction-section" aria-label="Reazioni all'articolo">
+<h2>COME REAGISCI?</h2>
+<div id="article-reactions"></div>
+</section>
+{% endif %}
 </main>
 <footer>© 2026 NICKLAS NEWS · PROGETTO INDIPENDENTE E SATIRICO</footer>
+{% if site.reactions_site_id != empty %}
+<script defer src="https://webreactionz.com/setup.min.js" data-siteid="{{ site.reactions_site_id | escape }}" data-domselector="#article-reactions" data-position="bottom" data-prompt="" data-pageid="{{ page.url | escape }}"></script>
+{% endif %}
 <!-- Cloudflare Web Analytics -->
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"06d5384791564c34b6ef0d2d7763c9d2"}'></script>
 </body>
