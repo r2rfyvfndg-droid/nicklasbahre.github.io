@@ -4,7 +4,8 @@ title: "L’INTER E LA SUA SCELTA DI GIOCARE IN DIECI DA PIÙ DI QUINDICI ANNI"
 description: "Da Handanović a Sommer fino a Josep Martínez: una lettura satirica e impietosa del problema della porta nerazzurra."
 category: Inter
 date: 2026-09-27 21:20:00 +0200
-image: /portieri-inter.PNG
+image: /portieri-inter-social.jpg
+social_version: 202609272150
 ---
 
 *Satira — Nicklas News. La copertina è un’illustrazione satirica e non rappresenta una scena reale.*
