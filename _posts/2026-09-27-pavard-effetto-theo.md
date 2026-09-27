@@ -4,7 +4,7 @@ title: "PAVARD, È FINITO L’EFFETTO THEO?"
 description: "Benjamin Pavard è tornato all’Inter e sembra essere tornato anche Benji l’interista. Tra vecchi tormentoni, padel e un rendimento che torna a salire."
 category: Inter · Satira
 date: 2026-09-27 18:50:00 +0200
-image: /pavard-effetto-theo.jpg.PNG
+image: /pavard-effetto-theo.PNG
 permalink: /notizie/pavard-effetto-theo/
 ---
 
