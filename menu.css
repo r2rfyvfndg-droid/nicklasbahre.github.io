@@ -17,7 +17,4 @@
 .site-menu-panel a:hover,.site-menu-panel a:focus-visible{color:#8bdcff;text-decoration:underline}
 .site-menu-contact{display:block;font-weight:800;color:#8bdcff!important;overflow-wrap:anywhere;margin:8px 0 24px}
 .site-menu-note{border-top:1px solid #29415a;padding-top:18px;font-size:12px!important}
-.header-inner .logo{display:block;width:300px;height:92px;flex:0 0 auto;background:url('/nicklas-news-logo.jpg.PNG') center/contain no-repeat;font-size:0!important;line-height:0!important;letter-spacing:0!important;overflow:hidden}
-.header-inner .logo b,.header-inner .logo small{display:none!important}
-@media(max-width:950px){.header-inner .logo{width:235px;height:72px}}
-@media(max-width:650px){.site-menu-toggle{width:40px;height:40px}.site-menu-panel{padding:22px 20px 30px}.header-inner{gap:9px}.header-inner .logo{width:145px;height:56px;flex-shrink:1}.header-inner .btn{padding:10px 8px}.wrap .small{display:none}}
+@media(max-width:650px){.site-menu-toggle{width:40px;height:40px}.site-menu-panel{padding:22px 20px 30px}.header-inner{gap:9px}.header-inner .btn{padding:10px 8px}.wrap .small{display:none}}
