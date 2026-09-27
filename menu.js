@@ -1,25 +1,6 @@
 document.addEventListener('DOMContentLoaded',()=>{
   const header=document.querySelector('.header-inner, header .wrap');
   if(!header)return;
-
-  const oldLogo=header.querySelector('.logo');
-  if(oldLogo){
-    oldLogo.innerHTML='';
-    oldLogo.style.background='none';
-    oldLogo.style.width='auto';
-    oldLogo.style.height='auto';
-    oldLogo.style.fontSize='0';
-    const logoImg=document.createElement('img');
-    logoImg.src='/nicklas-news-logo.jpg.PNG?v=20260927-2';
-    logoImg.alt='Nicklas News';
-    logoImg.style.display='block';
-    logoImg.style.width='clamp(145px,22vw,300px)';
-    logoImg.style.maxHeight='82px';
-    logoImg.style.objectFit='contain';
-    logoImg.style.objectPosition='left center';
-    oldLogo.appendChild(logoImg);
-  }
-
   const toggle=document.createElement('button');
   toggle.type='button';
   toggle.className='site-menu-toggle';
