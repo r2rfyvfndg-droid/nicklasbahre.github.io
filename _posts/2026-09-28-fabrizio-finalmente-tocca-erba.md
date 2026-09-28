@@ -5,6 +5,7 @@ description: "Fabrizio Romano cerca una fidanzata: forse è arrivato il momento 
 category: Satira
 date: 2026-09-28 19:34:00 +0200
 image: /fabrizio-romano.PNG
+social_version: 202609281940
 ---
 
 *Satira — Nicklas News*
