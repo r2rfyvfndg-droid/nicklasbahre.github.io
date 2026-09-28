@@ -4,6 +4,7 @@ title: "LA NUOVA NAZIONALE MULTIRAZZIALE"
 description: "La nuova Italia viene raccontata come giovane e multietnica. Ma il vero tema dovrebbe essere un altro: costruire finalmente una Nazionale forte."
 category: Nazionali
 date: 2026-09-28 21:00:00 +0200
+image: /nazionale-multirazziale.PNG
 ---
 
 “Giovane e multietnica”. Così viene presentata la nuova Nazionale. Tanti volti nuovi e la promessa dell’ennesimo “nuovo ciclo”.
