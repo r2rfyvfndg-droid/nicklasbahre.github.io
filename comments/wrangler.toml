@@ -1,0 +1,19 @@
+name = "nicklas-news-comments"
+main = "worker.js"
+compatibility_date = "2026-09-29"
+
+[vars]
+SITE_ORIGIN = "https://nicklasnews.it"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "nicklas-news-comments"
+database_id = "e1c05877-044a-4e32-b6be-28337fd26aa1"
+
+[[ratelimits]]
+name = "COMMENT_LIMITER"
+namespace_id = "1001"
+
+[ratelimits.simple]
+limit = 3
+period = 60
