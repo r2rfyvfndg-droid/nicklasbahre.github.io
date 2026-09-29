@@ -60,7 +60,7 @@ export default {
           return json({ error: 'Controlla nickname e testo del commento.' }, 400, origin);
         if (!await verifyTurnstile(String(data.token || ''), request, env))
           return json({ error: 'Verifica antispam non riuscita. Riprova.' }, 403, origin);
-        await env.DB.prepare('INSERT INTO comments (article,nickname,body,status) VALUES (?,?,?,'approved')')
+        await env.DB.prepare("INSERT INTO comments (article,nickname,body,status) VALUES (?,?,?,'approved')")
           .bind(article,nickname,body).run();
         return json({ message: 'Commento pubblicato.' }, 201, origin);
       }
