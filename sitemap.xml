@@ -6,9 +6,6 @@ layout: null
   <url>
     <loc>{{ site.url | xml_escape }}/</loc>
   </url>
-  <url>
-    <loc>{{ site.url | xml_escape }}/stankovic.html</loc>
-  </url>
   {% for post in site.posts %}{% unless post.archived %}
   <url>
     <loc>{{ post.url | absolute_url | xml_escape }}</loc>

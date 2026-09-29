@@ -617,19 +617,6 @@ gap:20px;
 </a>
 {% endunless %}{% endfor %}
 
-<a class="card stankovic" data-category="inter" href="/stankovic.html">
-<div class="card-content">
-<span class="category">INTER · SATIRA</span>
-<div class="date">24 SETTEMBRE 2026</div>
-<h2>Stanković, «zingaro» del centrocampo? Il ruolo che l’Inter non gli trova e l’ipotesi prestito</h2>
-<p>Al Brugge era un mediano apprezzato. All’Inter ha giocato appena un quarto d’ora nelle prime sei partite. Il problema è la posizione, la concorrenza o il giocatore?</p>
-<span class="read">LEGGI L’ARTICOLO →</span>
-</div>
-</a>
-
-
-
-
 </div>
 </div>
 
@@ -797,7 +784,7 @@ const slug=location.hash.startsWith('#articolo/')
 :null;
 
 if(slug&&stories.some(s=>s.slug===slug)) {
-  location.replace(slug==='stankovic-ruolo-inter' ? '/stankovic.html' : "/notizie/"+encodeURIComponent(slug)+"/");
+  location.replace("/notizie/"+encodeURIComponent(slug)+"/");
   return;
 }
 const story=stories.find(s=>s.slug===slug);

@@ -1,0 +1,22 @@
+---
+layout: articolo
+title: "Stanković, «zingaro» del centrocampo? Il ruolo che l’Inter non gli trova e l’ipotesi prestito"
+description: "Al Brugge era un mediano apprezzato. Tornato a Milano, ha giocato appena un quarto d’ora nelle prime sei partite. Il problema è la posizione, la concorrenza o il giocatore?"
+category: Inter
+date: 2026-09-24 12:00:00 +0200
+image: /stankovic.jpeg.PNG
+permalink: /notizie/stankovic-ruolo-inter/
+reaction_id: /articolo/stankovic-ruolo-inter
+---
+
+Chiariamo subito il titolo: «zingaro» si riferisce soltanto alla ricerca di un ruolo in campo. Aleksandar Stanković è tornato all’Inter dopo una stagione in cui al Club Brugge aveva trovato spazio, continuità e apprezzamenti. A Milano, invece, sembra cercare una casella libera in un centrocampo dove le sedie sono già tutte occupate.
+
+In Belgio giocava soprattutto da mediano davanti alla difesa. E non era il classico giovane di cui si parla bene perché «ha personalità»: ha chiuso il campionato con 39 presenze, 6 gol e 2 assist. L’Inter lo ha riacquistato, ma nelle prime sei partite stagionali Chivu gli ha concesso complessivamente 15 minuti. Curioso, per un allenatore a cui si può rimproverare tutto tranne di non dare spazio ai giovani.
+
+Perché non gioca? Potrebbe essere una questione di concorrenza e adattamento. Fare il mediano nel Brugge e prendere le chiavi del centrocampo dell’Inter sono due richieste diverse. Chivu, oggi, si affida ad altri. Resta però una domanda: se Stanković può fare il vice del regista, perché non provarlo più spesso? E se lo si vede anche da mezzala, quanto tempo serve per capire se lì può funzionare?
+
+Poi c’è l’ipotesi di un prestito a gennaio, di cui si parla sui giornali. Per ora è un’ipotesi, non una decisione ufficiale. Ma dopo averlo riportato a Milano, rimandarlo subito altrove avrebbe un che di comico: «Crediamo in te, Aleksandar. Vai a dimostrarlo a qualcun altro». E la paura di una nuova telenovela alla Asllani comincia a farsi sentire.
+
+È semplicemente scarso? Con 15 minuti a disposizione, sarebbe una sentenza ridicola. Il talento mostrato al Brugge non garantisce che diventi titolare nell’Inter, ma la panchina, da sola, non dimostra il contrario. Prima di decidere che non ha un ruolo, forse bisognerebbe lasciargliene giocare uno.
+
+**Fonti:** [Club Brugge](https://www.clubbrugge.be/en/teams/a-kern/players/aleksandar-stankovi%C4%87) · [Gazzetta dello Sport](https://www.gazzetta.it/Calcio/Serie-A/Inter/23-09-2026/inter-stankovic-che-fine-ha-fatto-da-vice-calhanoglu-a-un-quarto-d-ora-in-6-partite.shtml).
