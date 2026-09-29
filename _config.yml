@@ -8,5 +8,5 @@ timezone: Europe/Rome
 markdown: kramdown
 reactions_site_id: ""
 comments_enabled: false
-comments_sitekey: ""
+comments_sitekey: "0x4AAAAAAFJQr29nTz14eL1g"
 comments_api: ""
