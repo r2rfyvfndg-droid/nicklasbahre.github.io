@@ -22,15 +22,36 @@ document.addEventListener('DOMContentLoaded',()=>{
   panel.innerHTML=`
     <div class="site-menu-top"><div class="site-menu-brand" id="site-menu-title">NICKLAS <b>NEWS</b></div><button class="site-menu-close" type="button" aria-label="Chiudi il menu">×</button></div>
     <nav class="site-menu-links" aria-label="Navigazione principale">
-      <a href="/">Home</a><a href="/#notizie">Articoli</a><a href="https://x.com/nicklasbahre" target="_blank" rel="noopener noreferrer">Seguici su X ↗</a>
+      <a href="/">Home</a><a href="/#notizie">Ultime notizie</a><a href="/#da-leggere">Da leggere</a><a href="/#argomenti">Argomenti</a><a href="https://x.com/nicklasbahre" target="_blank" rel="noopener noreferrer">Seguici su X ↗</a>
     </nav>
+    <section class="site-menu-latest" aria-label="Ultimi articoli"><h2>Ultimi articoli</h2><div id="site-menu-latest-links"><a href="/#notizie">Vedi tutte le notizie →</a></div></section>
     <section><h2>Chi siamo</h2><p>Nicklas News è il progetto di Nicklas Bahre: notizie, opinioni e ironia sul calcio, con un occhio di riguardo per l’Inter.</p></section>
     <section><h2>Contatti</h2><p>Per segnalazioni, proposte o collaborazioni, scrivici:</p><a class="site-menu-contact" href="mailto:nicklasbahre@gmail.com">nicklasbahre@gmail.com</a></section>
     <p class="site-menu-note">Un progetto indipendente e satirico. Le opinioni pubblicate appartengono a Nicklas News.</p>`;
   document.body.append(backdrop,panel);
   const closeButton=panel.querySelector('.site-menu-close');
   function close(){panel.hidden=true;backdrop.hidden=true;document.body.classList.remove('site-menu-open');toggle.setAttribute('aria-expanded','false');toggle.focus()}
-  function open(){panel.hidden=false;backdrop.hidden=false;document.body.classList.add('site-menu-open');toggle.setAttribute('aria-expanded','true');closeButton.focus()}
+  let latestLoaded=false;
+  async function loadLatest(){
+    if(latestLoaded)return;
+    try{
+      const response=await fetch('/ultimi.json');
+      if(!response.ok)throw new Error('Articoli non disponibili');
+      const articles=await response.json();
+      const list=panel.querySelector('#site-menu-latest-links');
+      if(!Array.isArray(articles)||!list)return;
+      list.replaceChildren();
+      articles.forEach(article=>{
+        if(typeof article.url!=='string'||!article.url.startsWith('/notizie/'))return;
+        const link=document.createElement('a');
+        link.href=article.url;
+        link.textContent=article.title;
+        list.append(link);
+      });
+      latestLoaded=true;
+    }catch(error){/* Il link a tutte le notizie rimane disponibile. */}
+  }
+  function open(){panel.hidden=false;backdrop.hidden=false;document.body.classList.add('site-menu-open');toggle.setAttribute('aria-expanded','true');closeButton.focus();loadLatest()}
   toggle.addEventListener('click',open);
   closeButton.addEventListener('click',close);
   backdrop.addEventListener('click',close);

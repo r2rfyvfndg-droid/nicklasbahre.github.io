@@ -15,9 +15,10 @@ layout: null
 <meta property="og:image" content="{{ site.url }}{{ site.posts.first.image | relative_url }}">
 <meta name="twitter:card" content="summary_large_image">
 <title>Nicklas News — Il calcio spiegato da Bahre</title>
-  <link rel="icon" type="image/png" href="/nicklas-news-logo.jpg.PNG">
-<link rel="shortcut icon" href="/nicklas-news-logo.jpg.PNG">
-<link rel="apple-touch-icon" href="/nicklas-news-logo.jpg.PNG">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta property="og:site_name" content="Nicklas News">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -558,16 +559,13 @@ gap:20px;
 
 <header class="header">
 <div class="header-inner">
-<a href="#home" class="logo">
-NICKLAS <b>NEWS</b>
-<small>IL CALCIO, CON QUALCHE OPINIONE DI TROPPO</small>
-</a>
+<a href="/" class="site-brand-mark" aria-label="Nicklas News, torna alla home"><span class="site-logo-crop"><img src="/nicklas-news-logo.jpg.PNG" alt="Nicklas News" width="1254" height="1254"></span></a>
 <nav class="nav">
 <a href="#home">Home</a>
 <a href="#notizie">Ultime notizie</a>
 <a href="#da-leggere">Da leggere</a>
 </nav>
-<a class="btn" href="https://x.com/nicklasbahre" target="_blank" rel="noopener noreferrer">SEGUIMI SU X ↗</a>
+<a class="site-x-link" href="https://x.com/nicklasbahre" target="_blank" rel="noopener noreferrer" aria-label="Seguimi su X (apre una nuova scheda)">𝕏</a>
 </div>
 </header>
 
@@ -591,7 +589,7 @@ NICKLAS <b>NEWS</b>
 </a>
 {% endif %}
 
-<section class="box topic-picker" aria-label="Esplora gli articoli per argomento">
+<section class="box topic-picker" id="argomenti" aria-label="Esplora gli articoli per argomento">
 <div class="box-title"><div><h2>ESPLORA ARGOMENTI</h2><div class="blue-line"></div></div></div>
 <div class="filters">
 <button class="filter active" type="button" data-filter="tutte" aria-pressed="true">Tutte</button>
@@ -866,7 +864,7 @@ article.classList.remove('show');
 article.innerHTML='';
 document.title='Nicklas News — Il calcio spiegato da Bahre';
 
-if(['#notizie','#da-leggere','#chi-siamo'].includes(location.hash)){
+if(['#notizie','#da-leggere','#argomenti','#chi-siamo'].includes(location.hash)){
 setTimeout(()=>{
 document.querySelector(location.hash)?.scrollIntoView();
 },50);

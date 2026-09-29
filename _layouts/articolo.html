@@ -6,6 +6,10 @@
 <title>{{ page.title | escape }} — Nicklas News</title>
 <meta name="description" content="{{ page.description | escape }}">
 <link rel="canonical" href="{{ page.canonical_url | default: page.url | absolute_url }}">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 {% capture social_version %}{{ page.social_version | default: page.date | date: '%Y%m%d%H%M%S' }}{% endcapture %}
 {% capture social_image %}{{ page.image | absolute_url }}?v={{ social_version | strip }}{% endcapture %}
 <meta property="og:type" content="article">
@@ -39,7 +43,7 @@
 </style>
 </head>
 <body>
-<header><div class="wrap"><a class="brand" href="/">NICKLAS <span>NEWS</span></a><a class="small" href="https://x.com/nicklasbahre">SEGUIMI SU X ↗</a></div></header>
+<header><div class="wrap"><a class="site-brand-mark" href="/" aria-label="Nicklas News, torna alla home"><span class="site-logo-crop"><img src="/nicklas-news-logo.jpg.PNG" alt="Nicklas News" width="1254" height="1254"></span></a><a class="site-x-link" href="https://x.com/nicklasbahre" target="_blank" rel="noopener noreferrer" aria-label="Seguimi su X (apre una nuova scheda)">𝕏</a></div></header>
 <main>
 <a class="back" href="/">← TORNA ALLE NOTIZIE</a>
 <h1>{{ page.title | escape }}</h1>

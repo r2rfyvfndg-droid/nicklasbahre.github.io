@@ -1,0 +1,4 @@
+---
+layout: null
+---
+[{% assign separator = '' %}{% for post in site.posts limit:5 %}{% unless post.archived %}{{ separator }}{"title":{{ post.title | jsonify }},"url":{{ post.url | relative_url | jsonify }}}{% assign separator = ',' %}{% endunless %}{% endfor %}]
