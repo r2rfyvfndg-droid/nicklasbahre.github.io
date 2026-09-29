@@ -79,7 +79,7 @@
 {% endif %}
 {% if site.comments_enabled and site.comments_sitekey != empty %}
 <section class="comments" aria-label="Commenti" data-comments-article="{{ page.url | escape }}" data-comments-sitekey="{{ site.comments_sitekey | escape }}" data-comments-api="{{ site.comments_api | escape }}">
-<h2>COMMENTI</h2><p>Scegli un nickname: non serve registrarsi. I commenti compaiono dopo l’approvazione.</p>
+<h2>COMMENTI</h2><p>Scegli un nickname: non serve registrarsi. I commenti compaiono subito e possono essere rimossi se non rispettano le regole.</p>
 <ul class="comment-list"></ul><p class="comment-status" role="status"></p>
 <form><label>Nickname<input name="nickname" minlength="2" maxlength="24" required autocomplete="nickname"></label>
 <label>Il tuo commento<textarea name="body" minlength="10" maxlength="1000" rows="5" required></textarea></label>
