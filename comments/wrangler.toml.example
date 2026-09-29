@@ -18,5 +18,5 @@ namespace_id = "1001"
 limit = 3
 period = 60
 
-# Add route nicklasnews.it/api/comments* in Cloudflare after deploying.
+# Use the default workers.dev URL; the website calls it with CORS.
 # Store TURNSTILE_SECRET and ADMIN_TOKEN as Worker secrets, never in this file.
