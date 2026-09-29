@@ -6,6 +6,8 @@ category: Inter
 date: 2026-09-27 21:20:00 +0200
 image: /portieri-inter-social.jpg
 social_version: 202609272150
+archived: true
+canonical_url: /notizie/inter-portieri-15-anni/
 ---
 
 *Satira — Nicklas News. La copertina è un’illustrazione satirica e non rappresenta una scena reale.*

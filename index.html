@@ -382,6 +382,8 @@ gap:9px;
 flex-wrap:wrap;
 padding-top:8px;
 }
+.topic-picker{margin:18px 0 0}
+.topic-picker .box-title{margin-bottom:4px}
 .filter{
 background:transparent;
 border:1px solid #486078;
@@ -580,7 +582,7 @@ NICKLAS <b>NEWS</b>
 {% if latest %}
 <a class="feature" href="{{ latest.url | relative_url }}" id="notizie" data-category="{{ latest.category | downcase | escape }}" style="--feature-image:url('{{ latest.image | relative_url }}')">
 <div class="feature-content">
-<span class="category">{{ latest.category | escape }} · SATIRA</span>
+<span class="category">{{ latest.category | escape }}{% unless latest.category == 'Satira' %} · SATIRA{% endunless %}</span>
 <div class="date">{{ latest.date | date: "%d/%m/%Y" }}</div>
 <h1>{{ latest.title | escape }}</h1>
 <p>{{ latest.description | escape }}</p>
@@ -589,19 +591,30 @@ NICKLAS <b>NEWS</b>
 </a>
 {% endif %}
 
+<section class="box topic-picker" aria-label="Esplora gli articoli per argomento">
+<div class="box-title"><div><h2>ESPLORA ARGOMENTI</h2><div class="blue-line"></div></div></div>
+<div class="filters">
+<button class="filter active" type="button" data-filter="tutte" aria-pressed="true">Tutte</button>
+<button class="filter" type="button" data-filter="inter" aria-pressed="false">Inter</button>
+<button class="filter" type="button" data-filter="serie a" aria-pressed="false">Serie A</button>
+<button class="filter" type="button" data-filter="nazionali" aria-pressed="false">Nazionali</button>
+<button class="filter" type="button" data-filter="satira" aria-pressed="false">Satira</button>
+</div>
+</section>
+
 <div class="cards" id="article-cards">
 
-{% for post in site.posts offset:1 %}
+{% for post in site.posts offset:1 %}{% unless post.archived %}
 <a class="card new-story" data-category="{{ post.category | downcase | escape }}" href="{{ post.url | relative_url }}" style="--story-image:url('{{ post.image | relative_url }}')">
 <div class="card-content">
-<span class="category">{{ post.category | escape }} · SATIRA</span>
+<span class="category">{{ post.category | escape }}{% unless post.category == 'Satira' %} · SATIRA{% endunless %}</span>
 <div class="date">{{ post.date | date: "%d/%m/%Y" }}</div>
 <h2>{{ post.title | escape }}</h2>
 <p>{{ post.description | escape }}</p>
 <span class="read">LEGGI L’ARTICOLO →</span>
 </div>
 </a>
-{% endfor %}
+{% endunless %}{% endfor %}
 
 <a class="card stankovic" data-category="inter" href="/stankovic.html">
 <div class="card-content">
@@ -631,21 +644,6 @@ NICKLAS <b>NEWS</b>
 </div></li>
 {% endfor %}
 </ol>
-</section>
-
-<section class="box">
-<div class="box-title">
-<div>
-<h2>ESPLORA ARGOMENTI</h2>
-<div class="blue-line"></div>
-</div>
-</div>
-<div class="filters">
-<button class="filter active" type="button" data-filter="tutte" aria-pressed="true">Tutte</button>
-<button class="filter" type="button" data-filter="inter" aria-pressed="false">Inter</button>
-<button class="filter" type="button" data-filter="serie a" aria-pressed="false">Serie A</button>
-<button class="filter" type="button" data-filter="nazionali" aria-pressed="false">Nazionali</button>
-</div>
 </section>
 
 <section class="box xbox" id="chi-siamo">
@@ -798,7 +796,7 @@ const slug=location.hash.startsWith('#articolo/')
 :null;
 
 if(slug&&stories.some(s=>s.slug===slug)) {
-  location.replace("/notizie/"+encodeURIComponent(slug)+"/");
+  location.replace(slug==='stankovic-ruolo-inter' ? '/stankovic.html' : "/notizie/"+encodeURIComponent(slug)+"/");
   return;
 }
 const story=stories.find(s=>s.slug===slug);
