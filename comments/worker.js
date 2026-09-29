@@ -60,14 +60,14 @@ export default {
           return json({ error: 'Controlla nickname e testo del commento.' }, 400, origin);
         if (!await verifyTurnstile(String(data.token || ''), request, env))
           return json({ error: 'Verifica antispam non riuscita. Riprova.' }, 403, origin);
-        await env.DB.prepare('INSERT INTO comments (article,nickname,body) VALUES (?,?,?)')
+        await env.DB.prepare('INSERT INTO comments (article,nickname,body,status) VALUES (?,?,?,'approved')')
           .bind(article,nickname,body).run();
-        return json({ message: 'Commento ricevuto. Sarà visibile dopo approvazione.' }, 202, origin);
+        return json({ message: 'Commento pubblicato.' }, 201, origin);
       }
       if (url.pathname === '/api/comments/moderate' && request.method === 'GET') {
         if (!authorized(request, env)) return json({ error: 'Non autorizzato' }, 401, origin);
         const { results } = await env.DB.prepare(
-          "SELECT id,article,nickname,body,created_at FROM comments WHERE status='pending' ORDER BY created_at DESC LIMIT 100"
+          "SELECT id,article,nickname,body,status,created_at FROM comments WHERE status IN ('approved','pending') ORDER BY created_at DESC LIMIT 100"
         ).all();
         return json({ comments: results }, 200, origin);
       }
@@ -76,7 +76,7 @@ export default {
         const data = await request.json();
         if (!Number.isSafeInteger(data.id) || !['approved','rejected'].includes(data.status))
           return json({ error: 'Richiesta non valida' }, 400, origin);
-        await env.DB.prepare("UPDATE comments SET status=? WHERE id=? AND status='pending'")
+        await env.DB.prepare("UPDATE comments SET status=? WHERE id=? AND status IN ('approved','pending')")
           .bind(data.status,data.id).run();
         return json({ ok: true }, 200, origin);
       }
