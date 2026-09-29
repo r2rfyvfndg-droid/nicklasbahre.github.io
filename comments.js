@@ -34,9 +34,18 @@
   }
   function initTurnstile() {
     if (!sitekey || !window.turnstile) return;
-    widgetId = window.turnstile.render(root.querySelector('.comment-turnstile'), {
-      sitekey, theme: 'dark', action: 'comment'
-    });
+    try {
+      widgetId = window.turnstile.render(root.querySelector('.comment-turnstile'), {
+        sitekey, theme: 'dark', action: 'comment',
+        'error-callback': () => {
+          show('La verifica antispam non è disponibile. Riprova più tardi.');
+          return true;
+        },
+        'expired-callback': () => show('La verifica è scaduta. Riprova.')
+      });
+    } catch {
+      show('La verifica antispam non è disponibile. Riprova più tardi.');
+    }
   }
   window.nicklasCommentsTurnstile = initTurnstile;
   if (window.turnstile) initTurnstile();
@@ -63,6 +72,7 @@
     script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
     script.async = true;
     script.onload = initTurnstile;
+    script.onerror = () => show('La verifica antispam non si carica. Riprova più tardi.');
     document.head.append(script);
   }
   load();
