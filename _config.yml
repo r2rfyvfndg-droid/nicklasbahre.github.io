@@ -6,6 +6,6 @@ baseurl: ""
 permalink: /notizie/:title/
 timezone: Europe/Rome
 markdown: kramdown
-reactions_site_id: "507b9ac9-2663-4214-9399-08a2f731eeb8"
+reactions_site_id: ""
 comments_enabled: false
 comments_sitekey: ""
