@@ -53,7 +53,7 @@
       });
       const data = await response.json();
       show(data.message || data.error || 'Riprova più tardi.');
-      if (response.ok) { form.elements.namedItem('body').value = ''; window.turnstile.reset(widgetId); }
+      if (response.ok) { form.elements.namedItem('body').value = ''; await load(); show(data.message || 'Commento pubblicato.'); window.turnstile.reset(widgetId); }
       else window.turnstile.reset(widgetId);
     } catch { show('Invio non riuscito. Riprova più tardi.'); window.turnstile.reset(widgetId); }
     finally { button.disabled = false; }
