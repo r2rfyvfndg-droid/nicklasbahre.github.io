@@ -1,0 +1,22 @@
+name = "nicklas-news-comments"
+main = "worker.js"
+compatibility_date = "2026-09-29"
+
+[vars]
+SITE_ORIGIN = "https://nicklasnews.it"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "nicklas-news-comments"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+
+[[ratelimits]]
+name = "COMMENT_LIMITER"
+namespace_id = "1001"
+
+[ratelimits.simple]
+limit = 3
+period = 60
+
+# Add route nicklasnews.it/api/comments* in Cloudflare after deploying.
+# Store TURNSTILE_SECRET and ADMIN_TOKEN as Worker secrets, never in this file.

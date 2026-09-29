@@ -1,0 +1,14 @@
+.comments{margin:50px 0;border-top:1px solid #213247;padding-top:25px}
+.comments h2{font:800 32px/1 'Barlow Condensed',sans-serif;margin:0 0 10px}
+.comments p{color:#aab9c8}
+.comment-list{list-style:none;padding:0;margin:22px 0}
+.comment-list li{padding:16px 0;border-bottom:1px solid #213247}
+.comment-list strong{color:#fff}
+.comment-list time{margin-left:10px;color:#8da1b4;font-size:12px}
+.comment-list p{white-space:pre-wrap;overflow-wrap:anywhere;margin:8px 0 0}
+.comments form{display:grid;gap:12px}
+.comments label{font-size:13px;font-weight:700}
+.comments input,.comments textarea{display:block;width:100%;margin-top:5px;padding:12px;background:#0b131e;border:1px solid #486078;border-radius:4px;color:#f4f8fc;font:inherit}
+.comments button{justify-self:start;padding:12px 18px;background:#087ff5;border:0;border-radius:4px;color:#fff;font-weight:800;cursor:pointer}
+.comments button:disabled{opacity:.6}
+.comment-status{min-height:1.5em}

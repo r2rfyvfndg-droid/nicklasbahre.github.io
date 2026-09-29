@@ -314,6 +314,7 @@ font-weight:900;
 letter-spacing:.1em;
 color:#55baff;
 }
+.cover-badge{display:block;margin-top:11px;color:#c5d4e1;font-size:10px;font-weight:800;letter-spacing:.04em;text-shadow:0 2px 6px #000}
 
 .sidebar{
 display:flex;
@@ -584,6 +585,7 @@ gap:20px;
 <div class="date">{{ latest.date | date: "%d/%m/%Y" }}</div>
 <h1>{{ latest.title | escape }}</h1>
 <p>{{ latest.description | escape }}</p>
+<span class="cover-badge">DI {{ latest.author | default: site.author | upcase | escape }} · COPERTINA ILLUSTRATIVA IA</span>
 <span class="btn">LEGGI L’ARTICOLO →</span>
 </div>
 </a>
@@ -609,6 +611,7 @@ gap:20px;
 <div class="date">{{ post.date | date: "%d/%m/%Y" }}</div>
 <h2>{{ post.title | escape }}</h2>
 <p>{{ post.description | escape }}</p>
+<span class="cover-badge">DI {{ post.author | default: site.author | upcase | escape }} · COPERTINA ILLUSTRATIVA IA</span>
 <span class="read">LEGGI L’ARTICOLO →</span>
 </div>
 </a>
@@ -819,7 +822,7 @@ url('${esc(story.image)}');
 <p class="article-lead">${esc(story.summary)}</p>
 
 <div class="article-meta">
-DI NICKLAS NEWS · ${esc(story.date)} · NOTIZIA E COMMENTO SATIRICO
+DI NICKLAS BAHRE · ${esc(story.date)} · NOTIZIA E COMMENTO SATIRICO
 </div>
 
 <div class="article-body">
@@ -833,7 +836,7 @@ ${story.sourceLabel ? esc(story.sourceLabel) : 'sito ufficiale ↗'}
 </a>
 ${story.extraSource ? `<span> · </span><a href="${esc(story.extraSource)}" target="_blank" rel="noopener noreferrer">Gazzetta dello Sport ↗</a>` : ''}
 <br><br>
-Il commento e le opinioni presenti nell’articolo sono di Nicklas News.
+Il commento e le opinioni presenti nell’articolo sono di Nicklas Bahre. Copertina illustrativa realizzata o modificata con IA: la scena rappresentata non è una fotografia dell’evento raccontato.
 </div>
 <section class="reaction-section" aria-label="Reazioni all'articolo">
 <h2>COME REAGISCI?</h2>

@@ -10,7 +10,7 @@ archived: true
 canonical_url: /notizie/inter-portieri-15-anni/
 ---
 
-*Satira — Nicklas News. La copertina è un’illustrazione satirica e non rappresenta una scena reale.*
+*Satira — Nicklas Bahre. La copertina è un’illustrazione satirica e non rappresenta una scena reale.*
 
 Dopo Júlio César, all’Inter sembra essersi aperto un buco nero tra i pali.
 

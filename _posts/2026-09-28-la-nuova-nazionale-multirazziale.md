@@ -25,4 +25,4 @@ La Nazionale non ha bisogno di sembrare nuova.
 
 **Ha bisogno di tornare forte.**
 
-*Satira — Nicklas News.*
+*Satira — Nicklas Bahre.*

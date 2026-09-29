@@ -8,7 +8,7 @@ image: /fabrizio-romano.PNG
 social_version: 202609281940
 ---
 
-*Satira — Nicklas News*
+*Satira — Nicklas Bahre*
 
 Fabrizio Romano ha finalmente individuato la trattativa più importante della sua carriera. Niente attaccanti, clausole rescissorie o voli per Londra: **vuole trovare una fidanzata.**
 
