@@ -9,3 +9,4 @@ markdown: kramdown
 reactions_site_id: ""
 comments_enabled: false
 comments_sitekey: ""
+comments_api: ""
