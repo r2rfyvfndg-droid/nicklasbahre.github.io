@@ -252,6 +252,7 @@ background-position:center;
 background-repeat:no-repeat;
 transition:.2s;
 }
+.card-thumb{display:none}
 .card[hidden]{display:none}
 .card:hover{
 border-color:#2588df;
@@ -528,7 +529,14 @@ gap:20px;
 .feature h1{font-size:43px}
 .feature p{font-size:14px}
 .cards{grid-template-columns:1fr}
-.card{min-height:360px}
+.card.new-story{min-height:140px;display:grid;grid-template-columns:112px minmax(0,1fr);align-items:stretch;background-image:none;background:#0b131e}
+.card-thumb{display:block;width:112px;height:100%;min-height:140px;object-fit:cover}
+.card.new-story .card-content{padding:11px 12px;align-self:center}
+.card.new-story .category{font-size:9px;padding:4px 6px;margin-bottom:5px}
+.card.new-story .date{font-size:9px;letter-spacing:.04em}
+.card.new-story h2{font-size:23px;line-height:1.05;margin:5px 0}
+.card.new-story p,.card.new-story .cover-badge{display:none}
+.card.new-story .read{margin-top:5px;font-size:9px}
 .card.stankovic{grid-column:auto;min-height:360px}
 .card.stankovic h2{font-size:34px}
 .card.akanji{grid-column:auto;min-height:360px}
@@ -564,7 +572,7 @@ gap:20px;
 <nav class="nav">
 <a href="#home">Home</a>
 <a href="#notizie">Ultime notizie</a>
-<a href="#da-leggere">Da leggere</a>
+<a href="#da-leggere">Ultimi articoli</a>
 </nav>
 <a class="site-x-link" href="https://x.com/nicklasbahre" target="_blank" rel="noopener noreferrer" aria-label="Seguimi su X (apre una nuova scheda)">𝕏</a>
 </div>
@@ -606,6 +614,7 @@ gap:20px;
 
 {% for post in site.posts offset:1 %}{% unless post.archived %}
 <a class="card new-story" data-category="{{ post.category | downcase | escape }}" href="{{ post.url | relative_url }}" style="--story-image:url('{{ post.image | relative_url }}')">
+<img class="card-thumb" src="{{ post.image | relative_url }}" alt="" loading="lazy" width="112" height="140">
 <div class="card-content">
 <span class="category">{{ post.category | escape }}{% unless post.category == 'Satira' %} · SATIRA{% endunless %}</span>
 <div class="date">{{ post.date | date: "%d/%m/%Y" }}</div>
@@ -623,7 +632,7 @@ gap:20px;
 <aside class="sidebar">
 
 <section class="box" id="da-leggere">
-<div class="box-title"><div><h2>DA LEGGERE</h2><div class="blue-line"></div></div><span>🔥</span></div>
+<div class="box-title"><div><h2>ULTIMI ARTICOLI</h2><div class="blue-line"></div></div><span aria-hidden="true">↘</span></div>
 <ol class="popular">
 {% for post in site.posts limit:4 %}
 <li><span class="num">0{{ forloop.index }}</span><div>
