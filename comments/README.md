@@ -1,6 +1,6 @@
 # Commenti Nicklas News
 
-Il sito rimane statico su GitHub Pages. Il Worker `nicklas-news-comments.5s8kgf529y.workers.dev` gestisce `/api/comments` e il database D1 `nicklas-news-comments` salva i commenti. I lettori scelgono un nickname senza account. I nuovi commenti restano in attesa finché Nicklas non li approva in `/comments/admin.html`.
+Il sito rimane statico su GitHub Pages. Il Worker `nicklas-news-comments.5s8kgf529y.workers.dev` gestisce `/api/comments` e il database D1 `nicklas-news-comments` salva i commenti. I lettori scelgono un nickname senza account. I nuovi commenti compaiono subito; Nicklas può rimuoverli in `/comments/admin.html`.
 
 ## Configurazione
 
@@ -14,7 +14,7 @@ Il sito rimane statico su GitHub Pages. Il Worker `nicklas-news-comments.5s8kgf5
 
 1. Verificare GET `https://nicklas-news-comments.5s8kgf529y.workers.dev/api/comments?article=/notizie/parma-ma-che-cazzo-fai/` e la risposta `{"comments":[]}`.
 2. Impostare in `_config.yml` `comments_enabled: true` e `comments_api: "https://nicklas-news-comments.5s8kgf529y.workers.dev/api/comments"` solo dopo che Worker, binding e secret sono pronti.
-3. Provare un invio da un articolo e verificare che resti in moderazione.
-4. Aprire `/comments/admin.html` per approvare o rifiutare i commenti. Il token amministratore va inserito solo lì e non viene salvato nel browser.
+3. Provare un invio da un articolo e verificare che compaia subito.
+4. Aprire `/comments/admin.html` per rimuovere i commenti indesiderati. Gli eventuali commenti creati prima di questa modifica e ancora in attesa possono essere pubblicati da lì. Il token amministratore va inserito solo lì e non viene salvato nel browser.
 
-Il Worker verifica origine, token Turnstile sul server, lunghezza del testo e limite di invii. Visualizza solo commenti approvati. Le pagine non interpretano HTML nei commenti.
+Il Worker verifica origine, token Turnstile sul server, lunghezza del testo e limite di invii. Visualizza i commenti pubblicati e consente di rimuoverli in seguito. Le pagine non interpretano HTML nei commenti.
