@@ -13,3 +13,4 @@
 .site-menu-latest{border-top:1px solid #29415a;margin-top:22px;padding-top:2px}
 #site-menu-latest-links{display:grid;gap:2px}
 #site-menu-latest-links a{display:block;padding:11px 0;border-bottom:1px solid #1d3044;font-size:14px;font-weight:700;line-height:1.35}
+@media(max-width:650px){.header-inner,header .wrap{min-height:92px!important}.site-brand-mark{height:82px}.site-logo-crop img{top:-32px}}
