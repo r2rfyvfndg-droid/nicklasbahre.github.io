@@ -776,17 +776,6 @@ return String(s).replace(/[&<>"']/g,c=>({
 }[c]));
 }
 
-function initStoryReactions(slug){
-if(typeof WebReactionz==='undefined')return;
-new WebReactionz({
-siteId:'{{ site.reactions_site_id | escape }}',
-domSelector:'#article-reactions',
-position:'bottom',
-prompt:'',
-pageId:'/articolo/'+slug
-}).init();
-}
-
 function route(){
 const slug=location.hash.startsWith('#articolo/')
 ?decodeURIComponent(location.hash.slice(10))
@@ -834,26 +823,7 @@ ${story.extraSource ? `<span> · </span><a href="${esc(story.extraSource)}" targ
 <br><br>
 Il commento e le opinioni presenti nell’articolo sono di Nicklas Bahre. Copertina illustrativa realizzata o modificata con IA: la scena rappresentata non è una fotografia dell’evento raccontato.
 </div>
-<section class="reaction-section" aria-label="Reazioni all'articolo">
-<h2>COME REAGISCI?</h2>
-<div id="article-reactions"></div>
-</section>
 `;
-
-if(typeof WebReactionz!=='undefined'){
-initStoryReactions(story.slug);
-}else if(!document.getElementById('story-reactions-script')){
-const reactionScript=document.createElement('script');
-reactionScript.id='story-reactions-script';
-reactionScript.src='https://cdn.jsdelivr.net/gh/intersect-software/web-reactionz@1/public/setup.min.js';
-reactionScript.async=true;
-reactionScript.dataset.noautoinit='1';
-reactionScript.onload=()=>{
-const currentSlug=location.hash.startsWith('#articolo/')?decodeURIComponent(location.hash.slice(10)):null;
-if(currentSlug&&stories.some(s=>s.slug===currentSlug))initStoryReactions(currentSlug);
-};
-document.body.appendChild(reactionScript);
-}
 
 document.title=story.headline+' — Nicklas News';
 window.scrollTo(0,0);
