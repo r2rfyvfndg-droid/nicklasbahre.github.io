@@ -33,7 +33,7 @@
 <meta property="og:description" content="{{ meta_description | escape }}{% unless include.home %} · Di Nicklas Bahre · Satira · Copertina illustrativa IA.{% endunless %}">
 <meta property="og:image" content="{{ social_image }}">
 <meta property="og:image:secure_url" content="{{ social_image }}">
-{% if include.home or cover_data %}<meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="600">{% endif %}
+{% if include.home %}<meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="600">{% elsif cover_data %}<meta property="og:image:type" content="{{ cover_data.social_type | default: 'image/jpeg' }}"><meta property="og:image:width" content="{{ cover_data.social_width | default: 1200 }}"><meta property="og:image:height" content="{{ cover_data.social_height | default: 675 }}">{% endif %}
 <meta property="og:image:alt" content="{% if include.home %}Nicklas News: logo con serpente verde{% else %}Copertina illustrativa IA: {{ page.title | escape }}{% endif %}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@nicklasbahre">
