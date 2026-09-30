@@ -1,9 +1,9 @@
 {% if site.comments_enabled %}
-<section id="commenti" class="comments" aria-labelledby="comments-title" data-comments-article="{{ page.url | escape }}" data-comments-api="{{ site.comments_api | escape }}">
+<section id="commenti" class="comments" data-nosnippet aria-labelledby="comments-title" data-comments-article="{{ page.canonical_url | default: page.url | escape }}" data-comments-api="{{ site.comments_api | escape }}">
 <div class="comments-title"><h2 id="comments-title">LA PAROLA AI TIFOSI</h2><span class="comment-count" aria-label="Numero di commenti">0</span></div>
 <p class="comments-intro">Bastano un nickname e la tua opinione. Nessuna registrazione, nessuna email. Il commento appare subito: quelli offensivi potranno essere rimossi.</p>
 <form>
-<label>Il tuo nickname<input name="nickname" minlength="2" maxlength="24" required autocomplete="nickname" placeholder="Come ti chiami in curva?"></label>
+<label>Nome<input name="nickname" minlength="2" maxlength="24" required autocomplete="nickname" placeholder="Nome (es. Peppino)"></label>
 <label>Il tuo commento<textarea name="body" minlength="1" maxlength="1000" rows="4" required placeholder="Di’ la tua…"></textarea></label>
 <label class="comment-trap" aria-hidden="true">Lascia vuoto<input name="website" tabindex="-1" autocomplete="off"></label>
 <div class="comment-form-bottom"><span class="comment-characters">0 / 1000</span><button type="submit">PUBBLICA COMMENTO →</button></div>

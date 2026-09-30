@@ -1,5 +1,7 @@
 ---
 layout: articolo
+archived: true
+canonical_url: /notizie/italia-francia-nicklas/
 title: "NON FACCIAMOCI INFINOCCHIARE DAI FRANCESI"
 date: 2026-09-30 18:35:00 +0200
 category: "Satira"

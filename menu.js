@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   panel.innerHTML=`
     <div class="site-menu-top"><div class="site-menu-brand" id="site-menu-title">NICKLAS <b>NEWS</b></div><button class="site-menu-close" type="button" aria-label="Chiudi il menu">×</button></div>
     <nav class="site-menu-links" aria-label="Navigazione principale">
-      <a href="/">Home</a><a href="/#notizie">Ultime notizie</a><a href="/#da-leggere">Da leggere</a><a href="/#argomenti">Argomenti</a><a href="https://x.com/nicklasbahre" target="_blank" rel="noopener noreferrer">Seguici su X ↗</a>
+      <a href="/">Home</a><a href="/#notizie">Ultime notizie</a><a href="/#argomenti">Cerca un articolo</a><a href="/#argomenti">Argomenti</a><a href="https://x.com/nicklasbahre" target="_blank" rel="noopener noreferrer">Seguici su X ↗</a>
     </nav>
     <section class="site-menu-latest" aria-label="Ultimi articoli"><h2>Ultimi articoli</h2><div id="site-menu-latest-links"><a href="/#notizie">Vedi tutte le notizie →</a></div></section>
     <section><h2>Chi siamo</h2><p>Nicklas News è il progetto di Nicklas Bahre: notizie, opinioni e ironia sul calcio, con un occhio di riguardo per l’Inter.</p></section>
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   toggle.addEventListener('click',open);
   closeButton.addEventListener('click',close);
   backdrop.addEventListener('click',close);
-  panel.querySelectorAll('a').forEach(link=>link.addEventListener('click',close));
+  panel.addEventListener('click',event=>{if(event.target.closest('a'))close()});
   document.addEventListener('keydown',event=>{
     if(panel.hidden)return;
     if(event.key==='Escape'){close();return}

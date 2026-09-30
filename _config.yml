@@ -17,3 +17,13 @@ defaults:
       type: posts
     values:
       layout: articolo
+
+description: "Nicklas News: notizie, opinioni e satira sul calcio di Nicklas Bahre. Inter, Serie A e Nazionali raccontate con ironia e passione nerazzurra."
+exclude:
+  - scripts
+  - comments/README.md
+  - comments/worker.js
+  - comments/schema.sql
+  - comments/wrangler.toml
+  - comments/wrangler.toml.example
+  - README.md

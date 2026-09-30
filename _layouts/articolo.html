@@ -1,92 +1,18 @@
-<!doctype html>
-<html lang="it">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{{ page.title | escape }} — Nicklas News</title>
-<meta name="description" content="{{ page.description | escape }}">
-<meta name="author" content="{{ page.author | default: site.author | escape }}">
-<link rel="canonical" href="{{ page.canonical_url | default: page.url | absolute_url }}">
-<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="shortcut icon" href="/favicon.ico">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-{% capture social_image %}{{ page.image | absolute_url }}{% endcapture %}
-<meta property="og:type" content="article">
-<meta property="og:site_name" content="Nicklas News">
-<meta property="og:locale" content="it_IT">
-<meta property="og:url" content="{{ page.url | absolute_url }}">
-<meta property="og:title" content="{{ page.title | escape }}">
-<meta property="article:author" content="{{ page.author | default: site.author | escape }}">
-<meta property="og:description" content="Di {{ page.author | default: site.author | escape }} · Satira. Copertina illustrativa IA. {{ page.description | escape }}">
-<meta property="og:image" content="{{ social_image | strip }}">
-<meta property="og:image:secure_url" content="{{ social_image | strip }}">
-<meta property="og:image:type" content="image/{% if page.image contains '.webp' %}webp{% elsif page.image contains '.jpg' or page.image contains '.jpeg' %}jpeg{% else %}png{% endif %}">
-<meta property="og:image:width" content="1600">
-<meta property="og:image:height" content="900">
-<meta property="og:image:alt" content="Copertina illustrativa realizzata o modificata con IA: {{ page.title | escape }}">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@nicklasbahre">
-<meta name="twitter:domain" content="nicklasnews.it">
-<meta name="twitter:url" content="{{ page.url | absolute_url }}">
-<meta name="twitter:title" content="{{ page.title | escape }}">
-<meta name="twitter:description" content="Di {{ page.author | default: site.author | escape }} · Satira. Copertina illustrativa IA. {{ page.description | escape }}">
-<meta name="twitter:image" content="{{ social_image | strip }}">
-<meta name="twitter:image:alt" content="Copertina illustrativa realizzata o modificata con IA: {{ page.title | escape }}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/menu.css">
-<link rel="stylesheet" href="/comments.css?v=20260930-2">
-<script src="/menu.js" defer></script>
-<style>
-*{box-sizing:border-box}body{margin:0;background:#050a11;color:#f4f8fc;font:16px/1.7 'DM Sans',Arial,sans-serif}a{color:#72c6ff}header{border-bottom:1px solid #213247;background:#081321}header .wrap{max-width:1050px;margin:auto;padding:22px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px}header a{text-decoration:none}.brand{font:900 36px/1 'Barlow Condensed',sans-serif;color:white}.brand span{color:#087ff5}.small{font-size:12px;font-weight:700}main{max-width:900px;margin:40px auto 80px;padding:0 20px}.back{font-size:12px;font-weight:800;text-decoration:none}h1{font:900 clamp(46px,7vw,82px)/.98 'Barlow Condensed',Impact,sans-serif;margin:22px 0}.lead{font-size:20px;color:#b8c7d5;line-height:1.5}.meta{border-block:1px solid #213247;padding:13px 0;color:#95a7b9;font-size:11px;font-weight:800;letter-spacing:.05em;margin:26px 0}.cover{width:100%;height:auto;display:block;background:#050a11;border:1px solid #213247;border-radius:5px;margin:28px 0}article p{margin:0 0 23px;font-size:17px;line-height:1.85}article a{overflow-wrap:anywhere}footer{border-top:1px solid #213247;color:#8193a5;font-size:11px;padding:25px 20px;text-align:center}@media(max-width:650px){main{margin-top:25px}.lead{font-size:18px}article p{font-size:16px}.brand{font-size:30px}}
-.reaction-section{margin:46px 0 10px;padding:24px 0;border-top:1px solid #213247}.reaction-section h2{font:800 28px/1.1 'Barlow Condensed',Impact,sans-serif;margin:0 0 18px}.reaction-section .WebReactionz{color:#f4f8fc}
-.reaction-section .WebReactionz .emoji{font-family:'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',sans-serif;font-style:normal;font-weight:normal;font-size:28px;line-height:1.2}.reaction-section .WebReactionz .reaction{min-width:45px;min-height:45px;display:inline-flex;align-items:center;justify-content:center}.reaction-section:has(.emojis:empty){display:none}
-.related{margin:38px 0 48px;border-top:1px solid #213247;padding-top:26px}.related h2{font:800 34px/1 'Barlow Condensed',sans-serif;margin:0 0 9px}.related-intro{color:#aab9c8;font-size:14px;margin:0 0 20px}.related-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.related-grid a{display:block;color:#f4f8fc;text-decoration:none;background:#0b131e;border:1px solid #213247;border-radius:5px;overflow:hidden;font:800 24px/1.1 'Barlow Condensed',sans-serif}.related-grid a:hover,.related-grid a:focus-visible{border-color:#087ff5;outline:2px solid #087ff5}.related-grid a:first-child{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;align-items:center}.related-grid a:first-child img{height:100%}.related-grid img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}.related-grid .related-copy{display:block;padding:16px}.related-grid .related-category{display:block;padding:0 0 8px;font:800 11px/1.3 'DM Sans',sans-serif;color:#72c6ff;text-transform:uppercase}.related-grid .related-title{display:block}.related-grid .related-cta{display:block;margin-top:14px;font:800 11px/1.3 'DM Sans',sans-serif;color:#72c6ff}.related-home{display:inline-block;margin-top:22px;font-size:13px;font-weight:800;text-decoration:none}@media(max-width:650px){.related-grid{grid-template-columns:1fr}.related-grid a:first-child{grid-column:auto;display:block}.related-grid a:first-child img{height:auto}}
-.cover-note{margin:-16px 0 28px;color:#aab9c8;font-size:12px;line-height:1.5}.related-credit{display:block;margin-top:9px;color:#9aabba;font:700 11px/1.45 'DM Sans',sans-serif}
-</style>
-</head>
-<body>
-<header><div class="wrap"><a class="site-brand-mark" href="/" aria-label="Nicklas News, torna alla home"><span class="site-logo-crop"><img src="/nicklas-news-logo.jpg.PNG" alt="Nicklas News" width="1254" height="1254"></span></a><a class="site-x-link" href="https://x.com/nicklasbahre" target="_blank" rel="noopener noreferrer" aria-label="Seguimi su X (apre una nuova scheda)">𝕏</a></div></header>
-<main>
-<a class="back" href="/">← TORNA ALLE NOTIZIE</a>
-<h1>{{ page.title | escape }}</h1>
-<p class="lead">{{ page.description | escape }}</p>
-<div class="meta">{{ page.category | escape }}{% unless page.category == 'Satira' %} · SATIRA{% endunless %} · DI {{ page.author | default: site.author | upcase | escape }} · {{ page.date | date: "%d/%m/%Y" }} · NOTIZIA E COMMENTO SATIRICO</div>
-<img class="cover" src="{{ page.image | relative_url }}" alt="Copertina: {{ page.title | escape }}" width="1600" height="900">
-<p class="cover-note">{{ page.cover_disclaimer | default: site.cover_disclaimer | escape }}</p>
-<article>{{ content }}</article>
+<!doctype html><html lang="it"><head>{% include head.html %}</head><body>
+{% include header.html %}
+<main id="contenuto" class="article-main">
+<a class="back-link" href="/#notizie">← TUTTE LE NOTIZIE</a>
+<header class="article-heading"><div class="article-kicker"><span class="category">{{ page.category | escape }}{% unless page.category == 'Satira' %} · Satira{% endunless %}</span><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%d.%m.%Y' }}</time></div><h1>{{ page.title | escape }}</h1><p class="article-lead">{{ page.description | escape }}</p><div class="article-byline"><span>Di <strong>{{ page.author | default: site.author | escape }}</strong></span><span>NOTIZIA E COMMENTO SATIRICO</span></div></header>
+{% include share.html %}
+<figure class="article-figure">{% capture cover_alt %}Copertina illustrativa IA: {{ page.title }}{% endcapture %}{% include image.html source=page.image alt=cover_alt eager=true class='article-cover' sizes='(max-width: 900px) calc(100vw - 32px), 860px' %}<figcaption>{{ page.cover_disclaimer | default: site.cover_disclaimer | escape }}</figcaption></figure>
+<article class="article-body">{{ content }}</article>
 {% include comments.html %}
-{% assign related = site.posts | where: "category", page.category %}
-<section class="related" aria-label="Altri articoli">
-<h2>CONTINUA A LEGGERE</h2>
-<p class="related-intro">Altre storie e commenti di Nicklas News.</p>
-<div class="related-grid">
+{% assign related = site.posts | where: 'category', page.category %}
+<section class="related" aria-label="Altri articoli" data-nosnippet><div class="section-heading"><h2>CONTINUA A LEGGERE</h2><span class="section-line"></span></div><div class="related-grid">
 {% assign shown = 0 %}
-{% for post in related %}{% if post.url != page.url and post.title != page.title and post.archived != true and shown < 3 %}
-<a href="{{ post.url | relative_url }}"><img src="{{ post.image | relative_url }}" alt="" loading="lazy" width="480" height="270"><span class="related-copy"><span class="related-category">{{ post.category | escape }}{% unless post.category == 'Satira' %} · Satira{% endunless %}</span><span class="related-title">{{ post.title | escape }}</span><span class="related-credit">Di {{ post.author | default: site.author | escape }} · Copertina IA</span><span class="related-cta">LEGGI L’ARTICOLO →</span></span></a>
-{% assign shown = shown | plus: 1 %}{% endif %}{% endfor %}
-{% if shown < 3 %}{% for post in site.posts %}{% if post.url != page.url and post.title != page.title and post.category != page.category and post.archived != true and shown < 3 %}
-<a href="{{ post.url | relative_url }}"><img src="{{ post.image | relative_url }}" alt="" loading="lazy" width="480" height="270"><span class="related-copy"><span class="related-category">{{ post.category | escape }}{% unless post.category == 'Satira' %} · Satira{% endunless %}</span><span class="related-title">{{ post.title | escape }}</span><span class="related-credit">Di {{ post.author | default: site.author | escape }} · Copertina IA</span><span class="related-cta">LEGGI L’ARTICOLO →</span></span></a>
-{% assign shown = shown | plus: 1 %}{% endif %}{% endfor %}{% endif %}
-</div>
-<a class="related-home" href="/#notizie">TUTTE LE NOTIZIE →</a>
-</section>
-{% if site.reactions_site_id != empty %}
-<section class="reaction-section" aria-label="Reazioni all'articolo">
-<h2>COME REAGISCI?</h2>
-<div id="article-reactions"></div>
-</section>
-{% endif %}
-
-</main>
-<footer>© 2026 NICKLAS NEWS · PROGETTO INDIPENDENTE E SATIRICO</footer>
-{% if site.reactions_site_id != empty %}
-<script async defer src="https://cdn.jsdelivr.net/gh/intersect-software/web-reactionz@1/public/setup.min.js" data-siteid="{{ site.reactions_site_id | escape }}" data-domselector="#article-reactions" data-position="bottom" data-prompt="" data-pageid="{{ page.reaction_id | default: page.url | escape }}"></script>
-{% endif %}
-{% if site.comments_enabled %}<script src="/comments.js?v=20260930-2" defer></script>{% endif %}
-<!-- Cloudflare Web Analytics -->
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"06d5384791564c34b6ef0d2d7763c9d2"}'></script>
-</body>
-</html>
+{% for post in related %}{% if post.url != page.url and post.title != page.title and post.archived != true and shown < 3 %}{% include card.html post=post sizes='(max-width: 650px) calc(100vw - 32px), 280px' %}{% assign shown = shown | plus: 1 %}{% endif %}{% endfor %}
+{% if shown < 3 %}{% for post in site.posts %}{% if post.url != page.url and post.title != page.title and post.category != page.category and post.archived != true and shown < 3 %}{% include card.html post=post sizes='(max-width: 650px) calc(100vw - 32px), 280px' %}{% assign shown = shown | plus: 1 %}{% endif %}{% endfor %}{% endif %}
+</div><a class="back-link related-home" href="/#notizie">TUTTE LE NOTIZIE →</a></section>
+</main>{% include footer.html %}
+{% if site.comments_enabled %}<script src="/comments.js?v=20260930-3" defer></script>{% endif %}
+</body></html>

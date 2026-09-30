@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /comments/admin.html
+Sitemap: https://nicklasnews.it/sitemap.xml

@@ -1,0 +1,60 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050a11">
+<meta name="color-scheme" content="dark">
+{% assign canonical_path = page.canonical_url | default: page.url %}
+{% assign canonical = canonical_path | absolute_url %}
+{% if include.home %}
+{% assign meta_title = 'Nicklas News — Il calcio spiegato da Bahre' %}
+{% assign meta_description = site.description %}
+{% assign social_image = '/assets/brand/nicklas-news-social.jpg' | absolute_url %}
+{% else %}
+{% assign meta_title = page.title | append: ' — Nicklas News' %}
+{% assign meta_description = page.description | default: page.excerpt | strip_html | normalize_whitespace %}
+{% assign cover_data = site.data.images[page.image] %}
+{% assign social_path = cover_data.social | default: page.image %}
+{% assign social_image = social_path | absolute_url %}
+{% endif %}
+<title>{{ meta_title | escape }}</title>
+<meta name="description" content="{{ meta_description | escape }}">
+<meta name="author" content="{{ page.author | default: site.author | escape }}">
+<meta name="robots" content="{% if page.archived %}noindex,follow{% else %}index,follow,max-image-preview:large{% endif %}">
+<link rel="canonical" href="{{ canonical }}">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="{% if include.home %}website{% else %}article{% endif %}">
+<meta property="og:site_name" content="Nicklas News">
+<meta property="og:locale" content="it_IT">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:title" content="{% if include.home %}{{ meta_title | escape }}{% else %}{{ page.title | escape }}{% endif %}">
+<meta property="og:description" content="{{ meta_description | escape }}{% unless include.home %} · Di Nicklas Bahre · Satira · Copertina illustrativa IA.{% endunless %}">
+<meta property="og:image" content="{{ social_image }}">
+<meta property="og:image:secure_url" content="{{ social_image }}">
+{% if include.home or cover_data %}<meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="600">{% endif %}
+<meta property="og:image:alt" content="{% if include.home %}Nicklas News: logo con serpente verde{% else %}Copertina illustrativa IA: {{ page.title | escape }}{% endif %}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@nicklasbahre">
+<meta name="twitter:creator" content="@nicklasbahre">
+<meta name="twitter:title" content="{{ meta_title | escape }}">
+<meta name="twitter:description" content="{{ meta_description | escape }}{% unless include.home %} · Satira · Copertina IA.{% endunless %}">
+<meta name="twitter:image" content="{{ social_image }}">
+<meta name="twitter:image:alt" content="{% if include.home %}Nicklas News: logo con serpente verde{% else %}Copertina illustrativa IA: {{ page.title | escape }}{% endif %}">
+{% unless include.home %}<meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}"><meta property="article:author" content="{{ page.author | default: site.author | escape }}">{% endunless %}
+<script type="application/ld+json">
+{% if include.home %}
+{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"{{ site.url }}/#website","url":{{ site.url | append: '/' | jsonify }},"name":"Nicklas News","alternateName":"Nicklas News — Il calcio spiegato da Bahre","description":{{ site.description | jsonify }},"inLanguage":"it-IT","publisher":{"@id":"{{ site.url }}/#organization"}},{"@type":"Organization","@id":"{{ site.url }}/#organization","name":"Nicklas News","url":{{ site.url | append: '/' | jsonify }},"logo":{"@type":"ImageObject","url":"{{ site.url }}/assets/brand/logo-384.png","width":384,"height":384},"sameAs":["https://x.com/nicklasbahre"]}]}
+{% else %}
+{"@context":"https://schema.org","@type":"BlogPosting","headline":{{ page.title | jsonify }},"description":{{ meta_description | jsonify }},"image":[{{ social_image | jsonify }}],"datePublished":{{ page.date | date_to_xmlschema | jsonify }},"author":{"@type":"Person","name":{{ page.author | default: site.author | jsonify }}},"publisher":{"@type":"Organization","name":"Nicklas News","logo":{"@type":"ImageObject","url":"{{ site.url }}/assets/brand/logo-384.png"}},"mainEntityOfPage":{{ canonical | jsonify }},"inLanguage":"it-IT","genre":"Satira e opinione"}
+{% endif %}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=20260930-3">
+<link rel="stylesheet" href="/menu.css?v=20260930-3">
+{% unless include.home %}<link rel="stylesheet" href="/comments.css?v=20260930-3">{% endunless %}
+<script src="/menu.js?v=20260930-3" defer></script>
+<script src="/assets/site.js?v=20260930-3" defer></script>

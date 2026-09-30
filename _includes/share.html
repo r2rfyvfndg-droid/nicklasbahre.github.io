@@ -1,0 +1,10 @@
+{% assign share_url = page.canonical_url | default: page.url | absolute_url %}
+{% assign share_text = page.title | append: ' ' | append: share_url %}
+<nav class="share-bar" aria-label="Condividi questo articolo" data-share-url="{{ share_url | escape }}" data-share-title="{{ page.title | escape }}">
+<span class="share-label">CONDIVIDI</span>
+<a href="https://twitter.com/intent/tweet?url={{ share_url | url_encode }}&amp;text={{ page.title | url_encode }}" target="_blank" rel="noopener noreferrer" aria-label="Condividi l’articolo su X">𝕏 <span>X</span></a>
+<a href="https://api.whatsapp.com/send?text={{ share_text | url_encode }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+<a href="https://www.facebook.com/sharer/sharer.php?u={{ share_url | url_encode }}" target="_blank" rel="noopener noreferrer">Facebook</a>
+<button type="button" data-copy-link>Copia link</button><button type="button" data-native-share hidden>Condividi…</button>
+<span class="share-status" role="status" aria-live="polite"></span>
+</nav>
