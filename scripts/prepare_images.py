@@ -4,7 +4,7 @@ from PIL import Image, ImageOps
 import hashlib, json, re, yaml
 ROOT=Path(__file__).resolve().parents[1]
 BG=(5,10,17)
-VERSION='v1'
+VERSION='v2-social-16x9'
 def framed(im,size):
     out=Image.new('RGB',size,BG)
     fit=ImageOps.contain(im,size,Image.Resampling.LANCZOS)
@@ -29,8 +29,8 @@ def main():
             if not target.exists():framed(im,(width,width*9//16)).save(target,'WEBP',quality=84,method=6)
             entries.append(f'{name} {width}w')
         social=f'{base}-social.jpg';target=ROOT/social.lstrip('/')
-        if not target.exists():framed(im,(1200,600)).save(target,'JPEG',quality=88,optimize=True,progressive=True)
-        images[source]={'src':f'{base}-960.webp','large':f'{base}-1600.webp','small':f'{base}-480.webp','srcset':', '.join(entries),'social':social,'width':1600,'height':900,'social_width':1200,'social_height':600,'social_type':'image/jpeg'}
+        if not target.exists():framed(im,(1200,675)).save(target,'JPEG',quality=88,optimize=True,progressive=True)
+        images[source]={'src':f'{base}-960.webp','large':f'{base}-1600.webp','small':f'{base}-480.webp','srcset':', '.join(entries),'social':social,'width':1600,'height':900,'social_width':1200,'social_height':675,'social_type':'image/jpeg'}
         original_bytes+=path.stat().st_size;optimized_bytes+=(ROOT/(base+'-960.webp').lstrip('/')).stat().st_size
     (ROOT/'_data').mkdir(exist_ok=True)
     (ROOT/'_data/images.json').write_text(json.dumps(images,ensure_ascii=False,indent=2)+'\n')
