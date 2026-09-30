@@ -35,7 +35,7 @@ layout: null
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/menu.css">
-<link rel="stylesheet" href="/comments.css">
+<link rel="stylesheet" href="/comments.css?v=20260930-2">
 <script src="/menu.js" defer></script>
 <style>
 *{box-sizing:border-box}
@@ -95,6 +95,7 @@ article p{font-size:16px}
 
 <p>È semplicemente scarso? Con 15 minuti a disposizione, sarebbe una sentenza ridicola. Il talento mostrato al Brugge non garantisce che diventi titolare nell’Inter, ma la panchina, da sola, non dimostra il contrario. Prima di decidere che non ha un ruolo, forse bisognerebbe lasciargliene giocare uno.</p>
 </article>
+{% include comments.html %}
 
 <div class="sources">
 Fonti:
@@ -102,22 +103,14 @@ Fonti:
 <a href="https://www.gazzetta.it/Calcio/Serie-A/Inter/23-09-2026/inter-stankovic-che-fine-ha-fatto-da-vice-calhanoglu-a-un-quarto-d-ora-in-6-partite.shtml">Gazzetta dello Sport</a>.
 Le opinioni sono di Nicklas Bahre.
 </div>
-{% if site.comments_enabled and site.comments_sitekey != empty %}
-<section class="comments" aria-label="Commenti" data-comments-article="/stankovic.html" data-comments-sitekey="{{ site.comments_sitekey | escape }}" data-comments-api="{{ site.comments_api | escape }}">
-<h2>COMMENTI</h2><p>Scegli un nickname: non serve registrarsi. I commenti compaiono subito e possono essere rimossi se non rispettano le regole.</p>
-<ul class="comment-list"></ul><p class="comment-status" role="status"></p>
-<form><label>Nickname<input name="nickname" minlength="2" maxlength="24" required></label>
-<label>Il tuo commento<textarea name="body" minlength="10" maxlength="1000" rows="5" required></textarea></label>
-<div class="comment-turnstile"></div><button type="submit">INVIA COMMENTO</button></form>
-</section>
-{% endif %}
+
 <section class="related" aria-label="Altri articoli"><h2>LEGGI ANCHE</h2><div class="related-grid">
 {% assign shown = 0 %}{% for post in site.posts %}{% if post.category == "Inter" and shown < 2 %}<a href="{{ post.url | relative_url }}"><img src="{{ post.image | relative_url }}" alt="" loading="lazy"><span>{{ post.title | escape }}</span></a>{% assign shown = shown | plus: 1 %}{% endif %}{% endfor %}
 </div></section>
 </main>
 
 <footer>© 2026 NICKLAS NEWS · PROGETTO INDIPENDENTE E SATIRICO</footer>
-{% if site.comments_enabled and site.comments_sitekey != empty %}<script src="/comments.js" defer></script>{% endif %}
+{% if site.comments_enabled %}<script src="/comments.js?v=20260930-2" defer></script>{% endif %}
 <!-- Cloudflare Web Analytics -->
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"06d5384791564c34b6ef0d2d7763c9d2"}'></script>
 </body>

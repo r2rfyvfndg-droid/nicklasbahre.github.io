@@ -1,20 +1,21 @@
 # Commenti Nicklas News
 
-Il sito rimane statico su GitHub Pages. Il Worker `nicklas-news-comments.5s8kgf529y.workers.dev` gestisce `/api/comments` e il database D1 `nicklas-news-comments` salva i commenti. I lettori scelgono un nickname senza account. I nuovi commenti compaiono subito; Nicklas può rimuoverli in `/comments/admin.html`.
+Il sito usa GitHub Pages e il Worker `nicklas-news-comments.5s8kgf529y.workers.dev` con D1.
 
-## Configurazione
+- Commenti inclusi subito dopo il testo tramite `_includes/comments.html`, nel layout di tutti i post e nella pagina storica Stanković.
+- Solo nickname e commento, nessuna email o registrazione; pubblicazione immediata.
+- Mi piace/non mi piace: un voto modificabile per browser e commento. Un identificatore casuale in localStorage ricorda il voto; non è un'identità verificata.
+- Testo reso con textContent, limite 1000 caratteri, nickname di 2–24 caratteri; nome della redazione riservato.
+- Antispam: campo esca, massimo 3 invii e 30 voti al minuto per IP. Le chiavi dei limiti sono hash temporanei eliminati dopo pochi minuti. Nessun CAPTCHA richiesto.
+- Paginazione dei commenti e del pannello di gestione.
+- `/comments/admin.html`: accesso con il secret esistente ADMIN_TOKEN, che rimane solo in memoria nella pagina; rimozione successiva alla pubblicazione.
 
-- Il widget Turnstile per `nicklasnews.it` è stato creato. La site key pubblica è in `_config.yml`.
-- Il database D1 ha la tabella `comments` e l'indice creati con `schema.sql`.
-- Il Worker è collegato a GitHub con root directory `/comments`, branch `main` e deploy command `npx wrangler deploy`. `wrangler.toml` contiene il binding D1 `DB` e il rate limiter `COMMENT_LIMITER`; le modifiche in questa cartella vengono distribuite dal build automatico.
-- Aggiungere nel pannello Worker i secret `TURNSTILE_SECRET` (chiave privata del widget) e `ADMIN_TOKEN` (token lungo e casuale). Non inserire i valori nel repository o in chat.
-- Il dominio `nicklasnews.it` rimane su GitHub Pages; l'API usa l'indirizzo `workers.dev` senza cambiare DNS.
+## Deploy
 
-## Verifica e attivazione
+Worker collegato al branch main, root `/comments`, comando `npx wrangler deploy`. Il binding DB è in wrangler.toml. Le tabelle aggiuntive di voti e limiti vengono create automaticamente e in modo idempotente all'avvio; i commenti esistenti sono preservati. La tabella originale comments è descritta in schema.sql.
 
-1. Verificare GET `https://nicklas-news-comments.5s8kgf529y.workers.dev/api/comments?article=/notizie/parma-ma-che-cazzo-fai/` e la risposta `{"comments":[]}`.
-2. Impostare in `_config.yml` `comments_enabled: true` e `comments_api: "https://nicklas-news-comments.5s8kgf529y.workers.dev/api/comments"` solo dopo che Worker, binding e secret sono pronti.
-3. Provare un invio da un articolo e verificare che compaia subito.
-4. Aprire `/comments/admin.html` per rimuovere i commenti indesiderati. Gli eventuali commenti creati prima di questa modifica e ancora in attesa possono essere pubblicati da lì. Il token amministratore va inserito solo lì e non viene salvato nel browser.
+Turnstile non è più necessario. Conservare ADMIN_TOKEN come secret del Worker, mai nel repository. Il pannello amministratore rifiuta sempre le operazioni se il secret non è configurato.
 
-Il Worker verifica origine, token Turnstile sul server, lunghezza del testo e limite di invii. Visualizza i commenti pubblicati e consente di rimuoverli in seguito. Le pagine non interpretano HTML nei commenti.
+## Verifica
+
+GET `/api/comments?article=/notizie/parma-ma-che-cazzo-fai/` deve riportare `version: 2026-09-30-comments-v2` e i conteggi. Verificare invio, visibilità da un altro browser, cambio voto e rimozione con token amministratore.

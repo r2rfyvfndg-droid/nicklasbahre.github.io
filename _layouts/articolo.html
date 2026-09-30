@@ -37,7 +37,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/menu.css">
-<link rel="stylesheet" href="/comments.css">
+<link rel="stylesheet" href="/comments.css?v=20260930-2">
 <script src="/menu.js" defer></script>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#050a11;color:#f4f8fc;font:16px/1.7 'DM Sans',Arial,sans-serif}a{color:#72c6ff}header{border-bottom:1px solid #213247;background:#081321}header .wrap{max-width:1050px;margin:auto;padding:22px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px}header a{text-decoration:none}.brand{font:900 36px/1 'Barlow Condensed',sans-serif;color:white}.brand span{color:#087ff5}.small{font-size:12px;font-weight:700}main{max-width:900px;margin:40px auto 80px;padding:0 20px}.back{font-size:12px;font-weight:800;text-decoration:none}h1{font:900 clamp(46px,7vw,82px)/.98 'Barlow Condensed',Impact,sans-serif;margin:22px 0}.lead{font-size:20px;color:#b8c7d5;line-height:1.5}.meta{border-block:1px solid #213247;padding:13px 0;color:#95a7b9;font-size:11px;font-weight:800;letter-spacing:.05em;margin:26px 0}.cover{width:100%;height:auto;display:block;background:#050a11;border:1px solid #213247;border-radius:5px;margin:28px 0}article p{margin:0 0 23px;font-size:17px;line-height:1.85}article a{overflow-wrap:anywhere}footer{border-top:1px solid #213247;color:#8193a5;font-size:11px;padding:25px 20px;text-align:center}@media(max-width:650px){main{margin-top:25px}.lead{font-size:18px}article p{font-size:16px}.brand{font-size:30px}}
@@ -57,6 +57,7 @@
 <img class="cover" src="{{ page.image | relative_url }}" alt="Copertina: {{ page.title | escape }}" width="1600" height="900">
 <p class="cover-note">{{ page.cover_disclaimer | default: site.cover_disclaimer | escape }}</p>
 <article>{{ content }}</article>
+{% include comments.html %}
 {% assign related = site.posts | where: "category", page.category %}
 <section class="related" aria-label="Altri articoli">
 <h2>CONTINUA A LEGGERE</h2>
@@ -78,21 +79,13 @@
 <div id="article-reactions"></div>
 </section>
 {% endif %}
-{% if site.comments_enabled and site.comments_sitekey != empty %}
-<section class="comments" aria-label="Commenti" data-comments-article="{{ page.url | escape }}" data-comments-sitekey="{{ site.comments_sitekey | escape }}" data-comments-api="{{ site.comments_api | escape }}">
-<h2>COMMENTI</h2><p>Scegli un nickname: non serve registrarsi. I commenti compaiono subito e possono essere rimossi se non rispettano le regole.</p>
-<ul class="comment-list"></ul><p class="comment-status" role="status"></p>
-<form><label>Nickname<input name="nickname" minlength="2" maxlength="24" required autocomplete="nickname"></label>
-<label>Il tuo commento<textarea name="body" minlength="10" maxlength="1000" rows="5" required></textarea></label>
-<div class="comment-turnstile"></div><button type="submit">INVIA COMMENTO</button></form>
-</section>
-{% endif %}
+
 </main>
 <footer>© 2026 NICKLAS NEWS · PROGETTO INDIPENDENTE E SATIRICO</footer>
 {% if site.reactions_site_id != empty %}
 <script async defer src="https://cdn.jsdelivr.net/gh/intersect-software/web-reactionz@1/public/setup.min.js" data-siteid="{{ site.reactions_site_id | escape }}" data-domselector="#article-reactions" data-position="bottom" data-prompt="" data-pageid="{{ page.reaction_id | default: page.url | escape }}"></script>
 {% endif %}
-{% if site.comments_enabled and site.comments_sitekey != empty %}<script src="/comments.js" defer></script>{% endif %}
+{% if site.comments_enabled %}<script src="/comments.js?v=20260930-2" defer></script>{% endif %}
 <!-- Cloudflare Web Analytics -->
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"06d5384791564c34b6ef0d2d7763c9d2"}'></script>
 </body>
