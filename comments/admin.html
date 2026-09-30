@@ -1,5 +1,6 @@
 ---
 layout: null
+permalink: /comments/admin.html
 ---
 <!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Moderazione commenti — Nicklas News</title><style>body{margin:0 auto;max-width:760px;padding:30px 18px;background:#050a11;color:#f4f8fc;font:16px/1.5 Arial,sans-serif}input,button{padding:12px;font:inherit}input{width:min(100%,440px)}li{padding:18px 0;border-bottom:1px solid #29415a}button{margin:5px;cursor:pointer}a{color:#8bdcff}</style></head><body><h1>Moderazione commenti</h1><p>Inserisci il token amministratore. Rimane solo in questa pagina finché è aperta.</p><label>Token <input id="token" type="password" autocomplete="off"></label><button id="load" type="button">Carica commenti</button><p id="status" role="status"></p><ul id="comments"></ul><button id="more" type="button" hidden>Carica altri commenti</button><script>
 const token=document.getElementById('token'), list=document.getElementById('comments'), status=document.getElementById('status');

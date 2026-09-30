@@ -10,3 +10,10 @@ reactions_site_id: ""
 comments_enabled: true
 comments_sitekey: "0x4AAAAAAFJQr29nTz14eL1g"
 comments_api: "https://nicklas-news-comments.5s8kgf529y.workers.dev/api/comments"
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: articolo
