@@ -11,8 +11,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-{% capture social_version %}{{ page.social_version | default: page.date | date: '%Y%m%d%H%M%S' }}{% endcapture %}
-{% capture social_image %}{{ page.image | absolute_url }}?v={{ social_version | strip }}{% endcapture %}
+{% capture social_image %}{{ page.image | absolute_url }}{% endcapture %}
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Nicklas News">
 <meta property="og:locale" content="it_IT">
@@ -28,6 +27,8 @@
 <meta property="og:image:alt" content="Copertina illustrativa realizzata o modificata con IA: {{ page.title | escape }}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@nicklasbahre">
+<meta name="twitter:domain" content="nicklasnews.it">
+<meta name="twitter:url" content="{{ page.url | absolute_url }}">
 <meta name="twitter:title" content="{{ page.title | escape }}">
 <meta name="twitter:description" content="Di {{ page.author | default: site.author | escape }} · Satira. Copertina illustrativa IA. {{ page.description | escape }}">
 <meta name="twitter:image" content="{{ social_image | strip }}">
