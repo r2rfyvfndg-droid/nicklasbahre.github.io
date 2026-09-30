@@ -3,6 +3,7 @@ layout: articolo
 title: "NON FACCIAMOCI INFINOCCHIARE DAI FRANCESI"
 date: 2026-09-30 18:35:00 +0200
 category: "Satira"
+permalink: /notizie/italia-francia-nicklas/
 image: "/italiafrancia.PNG"
 excerpt: "Mancini mi hai ascoltato una volta e hai vinto. Ora fallo di nuovo: la mia Italia per affrontare la Francia."
 description: "Italia-Francia, la formazione che schiererebbe Nicklas Bahre: 4-3-1-2 con Sebastiano Esposito dietro Kean e Pio Esposito."
