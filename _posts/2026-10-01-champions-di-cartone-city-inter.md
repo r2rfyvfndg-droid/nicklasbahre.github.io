@@ -4,7 +4,7 @@ title: "CI DANNO LA CHAMPIONS DI CARTONE? NO. PERÒ…"
 description: "Dopo la decisione sul Manchester City, il pensiero torna alla finale di Istanbul: l'Inter arrivò a centimetri dalla Champions."
 category: Inter
 date: 2026-10-01 19:27:00 +0200
-image: /city-inter.PNG
+image: /city-inter2.PNG
 permalink: /notizie/champions-di-cartone-city-inter/
 ---
 
