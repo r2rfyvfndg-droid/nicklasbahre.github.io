@@ -1,5 +1,6 @@
 ---
 layout: articolo
+topics: [Nazionali]
 title: "MANCINI MI HA ASCOLTATO!"
 date: 2026-09-28 22:45:00 +0200
 category: "Satira"

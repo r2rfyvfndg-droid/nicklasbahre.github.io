@@ -1,0 +1,25 @@
+name: Verifica sito e commenti
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+      - run: python -m pip install Pillow==11.3.0 PyYAML==6.0.2 beautifulsoup4==4.13.5
+      - run: node tests/comments.mjs
+      - run: node --check comments.js && node --check assets/site.js && node --check menu.js
+      - run: python scripts/prepare_images.py && python scripts/check_covers.py
+      - run: bundle exec jekyll build --strict_front_matter --trace
+      - run: python scripts/check_site.py _site

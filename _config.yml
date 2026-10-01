@@ -8,7 +8,6 @@ timezone: Europe/Rome
 markdown: kramdown
 reactions_site_id: ""
 comments_enabled: true
-comments_sitekey: "0x4AAAAAAFJQr29nTz14eL1g"
 comments_api: "https://nicklas-news-comments.5s8kgf529y.workers.dev/api/comments"
 
 defaults:
@@ -17,10 +16,16 @@ defaults:
       type: posts
     values:
       layout: articolo
+      satire: true
 
 description: "Nicklas News: notizie, opinioni e satira sul calcio di Nicklas Bahre. Inter, Serie A e Nazionali raccontate con ironia e passione nerazzurra."
 exclude:
   - scripts
+  - tests
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
   - comments/README.md
   - comments/worker.js
   - comments/schema.sql

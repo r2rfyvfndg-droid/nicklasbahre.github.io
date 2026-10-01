@@ -19,3 +19,5 @@ CREATE TABLE IF NOT EXISTS comment_limits (
   bucket INTEGER NOT NULL,
   count INTEGER NOT NULL
 );
+
+CREATE INDEX IF NOT EXISTS comments_article_page ON comments(article,status,id);

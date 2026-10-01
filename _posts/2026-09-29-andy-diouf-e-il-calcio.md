@@ -1,5 +1,6 @@
 ---
 layout: articolo
+topics: [Inter, Nazionali]
 title: "ANDY DIOUF È IL CALCIO"
 date: 2026-09-29 21:05:00 +0200
 category: "Satira"

@@ -9,7 +9,7 @@
     const entries=stories.map(node=>({node,text:normalize(node.dataset.search||'')}));
     function update(){
       const words=normalize(input.value.trim()).split(/\s+/).filter(Boolean);let matches=0,cardMatches=0;
-      entries.forEach(({node,text})=>{const match=(category==='tutte'||node.dataset.category===category)&&words.every(word=>text.includes(word));if(match){matches++;if(!node.classList.contains('feature-card'))cardMatches++;}node.hidden=!match||matches>limit;});
+      entries.forEach(({node,text})=>{const match=(category==='tutte'||node.dataset.category===category||(node.dataset.topics||'').split('|').includes(category)||(category==='satira'&&node.dataset.satire==='true'))&&words.every(word=>text.includes(word));if(match){matches++;if(!node.classList.contains('feature-card'))cardMatches++;}node.hidden=!match||matches>limit;});
       const featured=document.querySelector('.feature-card');const topHeading=document.querySelector('#notizie>.section-heading');if(topHeading)topHeading.hidden=!featured||featured.hidden;
       document.querySelector('.latest-heading').hidden=cardMatches===0;
       more.hidden=matches<=limit;empty.hidden=matches!==0;
@@ -17,7 +17,7 @@
     }
     input.addEventListener('input',()=>{limit=9;update();});
     filters.forEach(button=>button.addEventListener('click',()=>{category=button.dataset.filter;limit=9;filters.forEach(item=>item.setAttribute('aria-pressed',String(item===button)));update();}));
-    more.addEventListener('click',()=>{limit+=8;update();});update();
+    more.addEventListener('click',()=>{const previous=new Set(stories.filter(node=>!node.hidden));limit+=8;update();const firstNew=stories.find(node=>!node.hidden&&!previous.has(node));if(firstNew)firstNew.focus({preventScroll:true});});update();
   }
   document.querySelectorAll('[data-share-url]').forEach(bar=>{
     const url=bar.dataset.shareUrl,title=bar.dataset.shareTitle,status=bar.querySelector('.share-status'),copy=bar.querySelector('[data-copy-link]'),native=bar.querySelector('[data-native-share]');

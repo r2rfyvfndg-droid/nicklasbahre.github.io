@@ -1,9 +1,9 @@
 {% assign card = include.post %}
-<a class="story-card{% if include.feature %} feature-card{% endif %}" href="{{ card.url | relative_url }}" data-story data-category="{{ card.category | downcase | escape }}" data-search="{{ card.title | escape }} {{ card.description | escape }} {{ card.category | escape }}">
-<div class="story-media">{% include image.html source=card.image eager=include.feature sizes=include.sizes %}<span class="media-note">COPERTINA IA</span></div>
+<a class="story-card{% if include.feature %} feature-card{% endif %}" href="{{ card.url | relative_url }}" data-story data-category="{{ card.category | downcase | escape }}" data-topics="{{ card.topics | join: '|' | downcase | escape }}" data-satire="{% if card.satire == false %}false{% else %}true{% endif %}" data-search="{{ card.title | escape }} {{ card.description | escape }} {{ card.category | escape }}">
+<div class="story-media">{% include image.html source=card.image eager=include.feature sizes=include.sizes %}</div>
 <div class="story-copy">
-<div class="story-meta"><span class="category">{{ card.category | escape }}{% unless card.category == 'Satira' %}<span class="satira-tag"> · Satira</span>{% endunless %}</span><time datetime="{{ card.date | date_to_xmlschema }}">{{ card.date | date: '%d.%m.%Y' }}</time></div>
+<div class="story-meta"><span class="category">{{ card.category | escape }}{% unless card.category == 'Satira' or card.satire == false %}<span class="satira-tag"> · Satira</span>{% endunless %}</span><time datetime="{{ card.date | date_to_xmlschema }}">{{ card.date | date: '%d.%m.%Y' }}</time></div>
 <h2>{{ card.title | escape }}</h2>
 <p>{{ card.description | escape }}</p>
-<div class="story-bottom"><span>Di {{ card.author | default: site.author | escape }}</span><span class="read-link">LEGGI <span aria-hidden="true">↗</span></span></div>
+<div class="story-bottom"><span>Di {{ site.author | escape }}<span class="cover-label">Copertina illustrativa IA</span></span><span class="read-link">LEGGI <span aria-hidden="true">↗</span></span></div>
 </div></a>

@@ -1,5 +1,6 @@
 ---
 layout: articolo
+topics: [Nazionali]
 title: "VINCENZO, VAI A FARE IL KEBABBARO!"
 date: 2026-09-29 09:05:00 +0200
 category: "Satira"

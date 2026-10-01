@@ -1,4 +1,5 @@
 ---
+topics: [Inter]
 layout: "articolo"
 title: "Lautaro rimonta la Roma. Il primo tempo dell’Inter è ancora disperso"
 description: "Primo tempo disastroso, il capitano conquista il pareggio."
