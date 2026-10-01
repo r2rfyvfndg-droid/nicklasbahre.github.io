@@ -23,6 +23,18 @@
     "social_height": 675,
     "social_type": "image/jpeg"
   },
+  "/city-inter.PNG": {
+    "src": "/assets/covers/city-inter-b94f84a65d04-960.webp",
+    "large": "/assets/covers/city-inter-b94f84a65d04-1600.webp",
+    "small": "/assets/covers/city-inter-b94f84a65d04-480.webp",
+    "srcset": "/assets/covers/city-inter-b94f84a65d04-480.webp 480w, /assets/covers/city-inter-b94f84a65d04-960.webp 960w, /assets/covers/city-inter-b94f84a65d04-1600.webp 1600w",
+    "social": "/assets/covers/city-inter-b94f84a65d04-social.jpg",
+    "width": 1600,
+    "height": 900,
+    "social_width": 1200,
+    "social_height": 675,
+    "social_type": "image/jpeg"
+  },
   "/deco-pagliaccio-satira.png": {
     "src": "/assets/covers/deco-pagliaccio-satira-b8037ad5d9a3-960.webp",
     "large": "/assets/covers/deco-pagliaccio-satira-b8037ad5d9a3-1600.webp",
