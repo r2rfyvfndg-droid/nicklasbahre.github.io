@@ -19,3 +19,5 @@
 button:active,.button:active{filter:brightness(.9)}
 @media(max-width:360px){.story-copy,.feature-card .story-copy{padding:16px}.home-intro h1{font-size:33px}.article-heading h1{font-size:36px}.comments h2{font-size:26px}.comment-form-bottom button{width:100%}}
 @media(orientation:landscape) and (max-height:500px){.site-header{position:relative}}
+/* White labels meet AA contrast on primary controls. */
+.button:not(.button-outline),.filters button[aria-pressed=true]{background:#086bd3;border-color:#086bd3}
