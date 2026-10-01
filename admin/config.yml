@@ -18,8 +18,10 @@ collections:
     fields:
       - { label: Titolo, name: title, widget: string }
       - { label: Riassunto, name: description, widget: text, hint: "Compare nella homepage e nell'anteprima su X." }
-      - { label: Categoria, name: category, widget: select, options: [Inter, Serie A] }
+      - { label: Categoria, name: category, widget: select, options: [Inter, Serie A, Nazionali, Satira] }
       - { label: Data, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: false, format: YYYY-MM-DD }
-      - { label: Copertina, name: image, widget: image, hint: "Immagine orizzontale 16:9, consigliati almeno 1200 × 675 pixel." }
+      - { label: Copertina, name: image, widget: image, hint: "Immagine orizzontale 16:9, consigliati 1600 × 900 pixel. Le versioni WebP e social 1200 × 675 vengono generate automaticamente senza tagli." }
+      - { label: Autore, name: author, widget: hidden, default: "Nicklas Bahre" }
+      - { label: Contenuto satirico, name: satire, widget: boolean, default: true }
       - { label: Articolo, name: body, widget: markdown }
       - { label: Layout, name: layout, widget: hidden, default: articolo }

@@ -1,5 +1,6 @@
 ---
 layout: articolo
+topics: [Nazionali]
 title: "NON FACCIAMOCI INFINOCCHIARE DAI FRANCESI"
 date: 2026-09-30 18:35:00 +0200
 category: "Satira"

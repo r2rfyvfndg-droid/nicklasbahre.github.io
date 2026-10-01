@@ -24,7 +24,7 @@ permalink: /
 <aside class="sidebar">
 <section class="side-panel" id="da-leggere" data-nosnippet><div class="section-heading"><h2>ULTIMI ARTICOLI</h2></div><ol class="latest-list">{% for post in posts limit:5 %}<li><span class="list-number">0{{ forloop.index }}</span><div><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%d.%m.%Y' }}</time></div></li>{% endfor %}</ol></section>
 <section class="side-panel about-panel" id="chi-siamo"><p class="eyebrow">LA VOCE DI NICKLAS NEWS</p><h2>IL CALCIO È SERIO.<br>NOI, NON SEMPRE.</h2><p>Opinioni senza giri di parole, ironia e passione nerazzurra. A firmarle, Nicklas Bahre.</p><a class="button" href="https://x.com/nicklasbahre" target="_blank" rel="noopener noreferrer">SEGUIMI SU X ↗</a></section>
-<section class="side-panel contact-panel"><h2>PARLIAMONE.</h2><p>Segnalazioni, idee o collaborazioni?</p><a href="mailto:nicklasbahre@gmail.com">nicklasbahre@gmail.com ↗</a></section>
+<section class="side-panel contact-panel" id="contatti"><h2>PARLIAMONE.</h2><p>Segnalazioni, idee o collaborazioni? Per proposte editoriali e pubblicitarie, contattaci via email.</p><p><a href="/chi-siamo/">Scopri il progetto e chi lo firma →</a></p><a href="mailto:nicklasbahre@gmail.com">nicklasbahre@gmail.com ↗</a></section>
 </aside></div></main>
 {% include footer.html %}
 </body></html>

@@ -1,4 +1,5 @@
 ---
+topics: [Inter]
 layout: "articolo"
 title: "Juventus, spalle a Mazzola: il minuto di silenzio dura meno del rispetto"
 description: "Una parte della Curva Sud si gira durante il ricordo della leggenda dell’Inter. Cori nel minuto di raccoglimento e 10.000 euro di multa alla Juventus."

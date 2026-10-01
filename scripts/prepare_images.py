@@ -10,15 +10,31 @@ def framed(im,size):
     fit=ImageOps.contain(im,size,Image.Resampling.LANCZOS)
     out.paste(fit,((size[0]-fit.width)//2,(size[1]-fit.height)//2))
     return out
+def valid_image(path,size):
+    try:
+        with Image.open(path) as image:
+            if image.size!=size:return False
+            image.load()
+        return True
+    except (OSError,ValueError):return False
+
 def main():
     images={}; original_bytes=0; optimized_bytes=0
     (ROOT/'assets/covers').mkdir(parents=True,exist_ok=True)
+    sources=set()
     for post in sorted((ROOT/'_posts').glob('*.md')):
         data=yaml.safe_load(post.read_text().split('---',2)[1]) or {}
         source=data.get('image','')
-        if not source or source in images:continue
+        if source:sources.add(source)
+    # Prepare new uploads even before they are attached to an article.
+    for folder in [ROOT,ROOT/'images']:
+        candidates=folder.iterdir() if folder==ROOT else folder.rglob('*')
+        for path in candidates:
+            if path.is_file() and path.suffix.lower() in {'.png','.jpg','.jpeg','.webp','.avif'} and not path.name.startswith(('favicon','apple-touch-icon','nicklas-news-logo')):
+                sources.add('/'+path.relative_to(ROOT).as_posix())
+    for source in sorted(sources):
         path=(ROOT/source.lstrip('/')).resolve()
-        if not path.is_relative_to(ROOT) or not path.is_file():raise ValueError(f'Missing cover: {source} ({post.name})')
+        if not path.is_relative_to(ROOT) or not path.is_file():raise ValueError(f'Missing cover: {source} ')
         digest=hashlib.sha256(path.read_bytes()+VERSION.encode()).hexdigest()[:12]
         stem=re.sub(r'[^a-z0-9-]+','-',path.stem.lower()).strip('-')
         base=f'/assets/covers/{stem}-{digest}'
@@ -26,10 +42,10 @@ def main():
         entries=[]
         for width in (480,960,1600):
             name=f'{base}-{width}.webp';target=ROOT/name.lstrip('/')
-            if not target.exists():framed(im,(width,width*9//16)).save(target,'WEBP',quality=84,method=6)
+            if not valid_image(target,(width,width*9//16)):framed(im,(width,width*9//16)).save(target,'WEBP',quality=84,method=6)
             entries.append(f'{name} {width}w')
         social=f'{base}-social.jpg';target=ROOT/social.lstrip('/')
-        if not target.exists():framed(im,(1200,675)).save(target,'JPEG',quality=88,optimize=True,progressive=True)
+        if not valid_image(target,(1200,675)):framed(im,(1200,675)).save(target,'JPEG',quality=88,optimize=True,progressive=True)
         images[source]={'src':f'{base}-960.webp','large':f'{base}-1600.webp','small':f'{base}-480.webp','srcset':', '.join(entries),'social':social,'width':1600,'height':900,'social_width':1200,'social_height':675,'social_type':'image/jpeg'}
         original_bytes+=path.stat().st_size;optimized_bytes+=(ROOT/(base+'-960.webp').lstrip('/')).stat().st_size
     (ROOT/'_data').mkdir(exist_ok=True)
@@ -43,6 +59,6 @@ def main():
     for size in (48,192,512):framed(logo,(size,size)).save(ROOT/f'favicon-{size}x{size}.png',optimize=True)
     framed(logo,(180,180)).save(ROOT/'apple-touch-icon.png',optimize=True)
     framed(logo,(48,48)).save(ROOT/'favicon.ico',sizes=[(16,16),(32,32),(48,48)])
-    framed(logo,(1200,600)).save(brand/'nicklas-news-social.jpg','JPEG',quality=90,optimize=True)
+    framed(logo,(1200,675)).save(brand/'nicklas-news-social.jpg','JPEG',quality=90,optimize=True)
     print(f'{len(images)} copertine: originali {original_bytes/1e6:.1f} MB, versioni 960px {optimized_bytes/1e6:.1f} MB ({100*(1-optimized_bytes/original_bytes):.0f}% in meno).')
 if __name__=='__main__':main()
