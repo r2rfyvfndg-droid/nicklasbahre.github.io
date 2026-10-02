@@ -1,6 +1,6 @@
 ---
 title: "GRANDE ITALIA: CINQUE PENSIERI A CALDO"
-date: 2026-10-02 22:45:00 +0200
+date: 2026-10-02 22:30:00 +0200
 category: Nazionali
 image: /italia-kean.PNG
 description: "Donnarumma salva tutto, Frattesi domina, Bastoni rinasce. Pio Esposito scompare e Kean si presenta con gli scarponi: cinque pensieri a caldo su Francia-Italia."
