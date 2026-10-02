@@ -1,4 +1,4 @@
 <!doctype html><html lang="it"><head>{% include head.html info=true %}</head><body>
 {% include header.html %}
-<main id="contenuto" class="article-main"><a class="back-link" href="/">← NICKLAS NEWS</a><header class="article-heading"><p class="eyebrow">IL PROGETTO</p><h1>{{ page.title | escape }}</h1><p class="article-lead">{{ page.description | escape }}</p></header><article class="article-body">{{ content }}</article></main>
+<main id="contenuto" class="article-main"><a class="back-link" href="/">← NICKLAS NEWS</a><header class="article-heading"><p class="eyebrow">{{ page.eyebrow | default: 'IL PROGETTO' | escape }}</p><h1>{{ page.title | escape }}</h1><p class="article-lead">{{ page.description | escape }}</p></header><article class="article-body">{{ content }}</article></main>
 {% include footer.html %}</body></html>

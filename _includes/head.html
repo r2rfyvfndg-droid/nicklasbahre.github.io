@@ -23,7 +23,7 @@
 <title>{{ meta_title | escape }}</title>
 <meta name="description" content="{{ meta_description | escape }}">
 <meta name="author" content="{{ site.author | escape }}">
-<meta name="robots" content="{% if page.archived %}noindex,follow{% else %}index,follow,max-image-preview:large{% endif %}">
+<meta name="robots" content="{% if page.archived or page.noindex %}noindex,follow{% else %}index,follow,max-image-preview:large{% endif %}">
 <link rel="canonical" href="{{ canonical }}">
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
@@ -52,7 +52,7 @@
 {% if include.home %}
 {"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"{{ site.url }}/#website","url":{{ site.url | append: '/' | jsonify }},"name":"Nicklas News","alternateName":"Nicklas News — Il calcio spiegato da Bahre","description":{{ site.description | jsonify }},"inLanguage":"it-IT","publisher":{"@id":"{{ site.url }}/#organization"}},{"@type":"Organization","@id":"{{ site.url }}/#organization","name":"Nicklas News","url":{{ site.url | append: '/' | jsonify }},"logo":{"@type":"ImageObject","url":"{{ site.url }}/assets/brand/logo-384.png","width":384,"height":384},"sameAs":["https://x.com/nicklasbahre"]}]}
 {% elsif include.info %}
-{"@context":"https://schema.org","@type":"AboutPage","name":{{ page.title | jsonify }},"url":{{ canonical | jsonify }},"description":{{ meta_description | jsonify }},"mainEntity":{"@type":"Person","name":"Nicklas Bahre","url":"{{ site.url }}/chi-siamo/"}}
+{"@context":"https://schema.org","@type":{{ page.schema_type | default: 'AboutPage' | jsonify }},"name":{{ page.title | jsonify }},"url":{{ canonical | jsonify }},"description":{{ meta_description | jsonify }},"mainEntity":{"@type":"Person","name":"Nicklas Bahre","url":"{{ site.url }}/chi-siamo/"}}
 {% else %}
 {"@context":"https://schema.org","@type":"BlogPosting","headline":{{ page.title | jsonify }},"description":{{ meta_description | jsonify }},"image":[{{ social_image | jsonify }}],"datePublished":{{ page.date | date_to_xmlschema | jsonify }},"author":{"@type":"Person","name":{{ site.author | jsonify }},"url":"{{ site.url }}/chi-siamo/"},"publisher":{"@type":"Organization","name":"Nicklas News","logo":{"@type":"ImageObject","url":"{{ site.url }}/assets/brand/logo-384.png"}},"mainEntityOfPage":{{ canonical | jsonify }},"inLanguage":"it-IT","articleSection":{{ page.category | jsonify }},"genre":"{% if page.satire == false %}Notizie e opinioni{% else %}Satira e opinione{% endif %}"}
 {% endif %}
@@ -61,8 +61,8 @@
 <link rel="preload" href="/assets/fonts/barlow-condensed-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/assets/site.css?v=20261001-1">
-<link rel="stylesheet" href="/menu.css?v=20261001-1">
-{% if is_article and site.comments_enabled %}<link rel="stylesheet" href="/comments.css?v=20261001-1">{% endif %}
-<script src="/menu.js?v=20261001-1" defer></script>
-<script src="/assets/site.js?v=20261001-1" defer></script>
+<link rel="stylesheet" href="/assets/site.css?v=20261002-1">
+<link rel="stylesheet" href="/menu.css?v=20261002-1">
+{% if is_article and site.comments_enabled %}<link rel="stylesheet" href="/comments.css?v=20261002-1">{% endif %}
+<script src="/menu.js?v=20261002-1" defer></script>
+<script src="/assets/site.js?v=20261002-1" defer></script>

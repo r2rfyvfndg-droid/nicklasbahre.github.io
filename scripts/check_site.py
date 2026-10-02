@@ -4,7 +4,7 @@ from urllib.parse import urlsplit,unquote
 import sys,json
 from bs4 import BeautifulSoup
 root=Path(sys.argv[1] if len(sys.argv)>1 else '_site')
-files=[root/'index.html',root/'chi-siamo/index.html',*root.glob('notizie/*/index.html'),root/'stankovic.html']
+files=[root/'index.html',root/'chi-siamo/index.html',root/'404.html',*root.glob('notizie/*/index.html'),root/'stankovic.html']
 checked=0
 for file in files:
     text=file.read_text(); soup=BeautifulSoup(text,'html.parser')
@@ -41,3 +41,21 @@ for file in files:
 home=BeautifulSoup((root/'index.html').read_text(),'html.parser')
 assert home.select_one('meta[name="description"]')['content']=='Nicklas News: notizie, opinioni e satira sul calcio di Nicklas Bahre. Inter, Serie A e Nazionali raccontate con ironia e passione nerazzurra.'
 print(f'PASS: {checked} pages, metadata, JSON-LD, canonical, local images, internal links, headings, comments')
+
+error=BeautifulSoup((root/'404.html').read_text(),'html.parser')
+assert error.select_one('meta[name="robots"]')['content']=='noindex,follow'
+assert error.select_one('a[href="/#argomenti"]')
+from xml.etree import ElementTree as ET
+sitemap=ET.parse(root/'sitemap.xml')
+locations=[node.text for node in sitemap.findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
+assert len(locations)==len(set(locations)), 'Duplicate sitemap URL'
+assert 'https://nicklasnews.it/404.html' not in locations
+for url in locations:
+    path=urlsplit(url).path
+    target=root/path.lstrip('/')
+    if path.endswith('/'):target=target/'index.html'
+    assert target.is_file(), ('Broken sitemap URL',url)
+    page=BeautifulSoup(target.read_text(),'html.parser')
+    assert 'noindex' not in page.select_one('meta[name="robots"]')['content'],url
+    assert page.select_one('link[rel="canonical"]')['href']==url,url
+print(f'PASS: custom 404, noindex and {len(locations)} unique canonical sitemap URLs')

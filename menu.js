@@ -31,7 +31,16 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.body.append(backdrop,panel);
   const closeButton=panel.querySelector('.site-menu-close');
   const background=[...document.body.children].filter(el=>!['SCRIPT','LINK'].includes(el.tagName)&&el!==panel&&el!==backdrop);
-  function close(){background.forEach(el=>el.inert=false);panel.hidden=true;backdrop.hidden=true;document.body.classList.remove('site-menu-open');toggle.setAttribute('aria-expanded','false');toggle.focus()}
+  let scrollPosition=0;
+  const inertBefore=new Map();
+  function close(){
+    background.forEach(el=>el.inert=inertBefore.get(el)||false);
+    inertBefore.clear();panel.hidden=true;backdrop.hidden=true;
+    document.body.classList.remove('site-menu-open');
+    document.body.style.removeProperty('--menu-scroll-y');
+    window.scrollTo({top:scrollPosition,behavior:'instant'});
+    toggle.setAttribute('aria-expanded','false');toggle.focus({preventScroll:true});
+  }
   let latestLoaded=false;
   async function loadLatest(){
     if(latestLoaded)return;
@@ -52,7 +61,13 @@ document.addEventListener('DOMContentLoaded',()=>{
       latestLoaded=true;
     }catch(error){/* Il link a tutte le notizie rimane disponibile. */}
   }
-  function open(){background.forEach(el=>el.inert=true);panel.hidden=false;backdrop.hidden=false;document.body.classList.add('site-menu-open');toggle.setAttribute('aria-expanded','true');closeButton.focus();loadLatest()}
+  function open(){
+    scrollPosition=window.scrollY;
+    background.forEach(el=>{inertBefore.set(el,el.inert);el.inert=true});
+    document.body.style.setProperty('--menu-scroll-y',`-${scrollPosition}px`);
+    panel.hidden=false;backdrop.hidden=false;document.body.classList.add('site-menu-open');
+    toggle.setAttribute('aria-expanded','true');closeButton.focus({preventScroll:true});loadLatest();
+  }
   toggle.addEventListener('click',open);
   closeButton.addEventListener('click',close);
   backdrop.addEventListener('click',close);
