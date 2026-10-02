@@ -155,6 +155,18 @@
     "social_height": 675,
     "social_type": "image/jpeg"
   },
+  "/italia-kean2.PNG": {
+    "src": "/assets/covers/italia-kean2-a8d2de9c81ef-960.webp",
+    "large": "/assets/covers/italia-kean2-a8d2de9c81ef-1600.webp",
+    "small": "/assets/covers/italia-kean2-a8d2de9c81ef-480.webp",
+    "srcset": "/assets/covers/italia-kean2-a8d2de9c81ef-480.webp 480w, /assets/covers/italia-kean2-a8d2de9c81ef-960.webp 960w, /assets/covers/italia-kean2-a8d2de9c81ef-1600.webp 1600w",
+    "social": "/assets/covers/italia-kean2-a8d2de9c81ef-social.jpg",
+    "width": 1600,
+    "height": 900,
+    "social_width": 1200,
+    "social_height": 675,
+    "social_type": "image/jpeg"
+  },
   "/italiafrancia.PNG": {
     "src": "/assets/covers/italiafrancia-a6e7596bdacf-960.webp",
     "large": "/assets/covers/italiafrancia-a6e7596bdacf-1600.webp",
