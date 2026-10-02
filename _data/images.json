@@ -287,6 +287,18 @@
     "social_height": 675,
     "social_type": "image/jpeg"
   },
+  "/pullman-italia.PNG": {
+    "src": "/assets/covers/pullman-italia-dc9a1fd05b3a-960.webp",
+    "large": "/assets/covers/pullman-italia-dc9a1fd05b3a-1600.webp",
+    "small": "/assets/covers/pullman-italia-dc9a1fd05b3a-480.webp",
+    "srcset": "/assets/covers/pullman-italia-dc9a1fd05b3a-480.webp 480w, /assets/covers/pullman-italia-dc9a1fd05b3a-960.webp 960w, /assets/covers/pullman-italia-dc9a1fd05b3a-1600.webp 1600w",
+    "social": "/assets/covers/pullman-italia-dc9a1fd05b3a-social.jpg",
+    "width": 1600,
+    "height": 900,
+    "social_width": 1200,
+    "social_height": 675,
+    "social_type": "image/jpeg"
+  },
   "/roma-inter.jpeg.PNG": {
     "src": "/assets/covers/roma-inter-jpeg-3854a4ad0351-960.webp",
     "large": "/assets/covers/roma-inter-jpeg-3854a4ad0351-1600.webp",
