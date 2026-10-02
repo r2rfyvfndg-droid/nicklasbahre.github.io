@@ -17,7 +17,7 @@
 {% assign meta_title = page.title | append: ' — Nicklas News' %}
 {% assign meta_description = page.description | default: page.excerpt | strip_html | normalize_whitespace %}
 {% assign cover_data = site.data.images[page.image] %}
-{% assign social_path = cover_data.social | default: page.image %}
+{% assign social_path = page.social_image | default: cover_data.social | default: page.image %}
 {% assign social_image = social_path | absolute_url %}
 {% endif %}
 <title>{{ meta_title | escape }}</title>
@@ -38,7 +38,7 @@
 <meta property="og:description" content="{{ meta_description | escape }}">
 <meta property="og:image" content="{{ social_image }}">
 <meta property="og:image:secure_url" content="{{ social_image }}">
-{% unless is_article %}<meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="675">{% else %}{% if cover_data %}<meta property="og:image:type" content="{{ cover_data.social_type | default: 'image/jpeg' }}"><meta property="og:image:width" content="{{ cover_data.social_width | default: 1200 }}"><meta property="og:image:height" content="{{ cover_data.social_height | default: 675 }}">{% endif %}{% endunless %}
+{% unless is_article %}<meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="675">{% else %}<meta property="og:image:type" content="{{ page.social_image_type | default: cover_data.social_type | default: 'image/png' }}"><meta property="og:image:width" content="{{ page.social_image_width | default: cover_data.social_width | default: 1536 }}"><meta property="og:image:height" content="{{ page.social_image_height | default: cover_data.social_height | default: 864 }}">{% endunless %}
 <meta property="og:image:alt" content="{% unless is_article %}Nicklas News: logo con serpente verde{% else %}Copertina illustrativa IA: {{ page.title | escape }}{% endunless %}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@nicklasbahre">
