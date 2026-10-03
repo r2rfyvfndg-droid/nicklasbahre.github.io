@@ -3,7 +3,7 @@ title: "MANCINI SI CHIUDE E FA BENE: GRANDE ITALIA!"
 date: 2026-10-03 10:15:00 +0200
 category: Nazionali
 image: /mancini-zidane.PNG
-social_image: /mancini-zidane.PNG
+social_image: /mancini-zidane.PNG?v=3
 social_image_type: image/png
 social_image_width: 1536
 social_image_height: 864
