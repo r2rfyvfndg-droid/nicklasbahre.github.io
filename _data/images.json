@@ -394,5 +394,17 @@
     "social_width": 1200,
     "social_height": 675,
     "social_type": "image/jpeg"
+  },
+  "/zizou.PNG": {
+    "src": "/assets/covers/zizou-2c9a3e01329d-960.webp",
+    "large": "/assets/covers/zizou-2c9a3e01329d-1600.webp",
+    "small": "/assets/covers/zizou-2c9a3e01329d-480.webp",
+    "srcset": "/assets/covers/zizou-2c9a3e01329d-480.webp 480w, /assets/covers/zizou-2c9a3e01329d-960.webp 960w, /assets/covers/zizou-2c9a3e01329d-1600.webp 1600w",
+    "social": "/assets/covers/zizou-2c9a3e01329d-social.jpg",
+    "width": 1600,
+    "height": 900,
+    "social_width": 1200,
+    "social_height": 675,
+    "social_type": "image/jpeg"
   }
 }
