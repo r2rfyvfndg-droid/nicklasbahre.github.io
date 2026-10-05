@@ -1,0 +1,28 @@
+{%- comment -%}
+Insert at build time, after the third paragraph and outside enclosing blocks.
+Short articles receive the banner at the end. No client-side layout shifts.
+{%- endcomment -%}
+{%- assign affiliate_parts = include.body | append: ' ' | split: '</p>' -%}
+{%- assign affiliate_inserted = false -%}
+{%- assign affiliate_prefix = '' -%}
+{%- assign affiliate_containers = 'blockquote,ul,ol,div,section,table,aside,details,figure,pre' | split: ',' -%}
+{%- for affiliate_part in affiliate_parts -%}
+  {{- affiliate_part -}}
+  {%- unless forloop.last -%}</p>{%- endunless -%}
+  {%- assign affiliate_prefix = affiliate_prefix | append: affiliate_part -%}
+  {%- if forloop.index >= 3 and affiliate_inserted == false and forloop.last == false -%}
+    {%- assign affiliate_boundary = true -%}
+    {%- for affiliate_tag in affiliate_containers -%}
+      {%- assign affiliate_open = '<' | append: affiliate_tag -%}
+      {%- assign affiliate_close = '</' | append: affiliate_tag | append: '>' -%}
+      {%- assign affiliate_opens = affiliate_prefix | split: affiliate_open | size -%}
+      {%- assign affiliate_closes = affiliate_prefix | split: affiliate_close | size -%}
+      {%- if affiliate_opens != affiliate_closes -%}{%- assign affiliate_boundary = false -%}{%- endif -%}
+    {%- endfor -%}
+    {%- if affiliate_boundary -%}
+      {%- include affiliate-banner.html -%}
+      {%- assign affiliate_inserted = true -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- unless affiliate_inserted -%}{%- include affiliate-banner.html -%}{%- endunless -%}

@@ -20,3 +20,7 @@ Dipendenze Python: Pillow, PyYAML, beautifulsoup4. Il workflow **Verifica sito e
 Font Barlow Condensed e DM Sans serviti localmente in WOFF2, con licenze OFL in `assets/fonts/`. Le copertine hanno dimensioni dichiarate, srcset e caricamento differito; la principale usa priorità alta. La cache HTTP di produzione è gestita da GitHub Pages. Non vengono dichiarati risultati Core Web Vitals senza misure reali.
 
 Commenti e moderazione: `comments/README.md`. Nessun segreto deve essere inserito nel frontend; il token pubblico Cloudflare Web Analytics non è un token amministrativo.
+
+## Banner Tacchettee
+
+`_includes/affiliate-banner.html` contiene il link affiliato esatto e il testo comuni. La home lo mostra dopo il primo articolo; il layout `articolo` lo inserisce in fase di build dopo il terzo paragrafo, al primo confine esterno ai blocchi annidati (oppure in fondo agli articoli brevi). Vale anche per articoli esistenti e futuri, senza JavaScript né richieste a Tacchettee prima del clic. Per cambiare destinazione aggiornare solo l’href nel componente, preservando tutti gli eventuali parametri di tracking.

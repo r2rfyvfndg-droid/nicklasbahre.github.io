@@ -16,6 +16,7 @@ permalink: /
 </section>
 <div id="notizie" data-nosnippet>
 {% assign latest = posts.first %}{% if latest %}<div class="section-heading"><span class="eyebrow">IN PRIMO PIANO</span><span class="section-line"></span></div>{% include card.html post=latest feature=true sizes='(max-width: 980px) calc(100vw - 32px), 840px' %}{% endif %}
+{% include affiliate-banner.html %}
 <div class="section-heading latest-heading"><h2>LE ALTRE NOTIZIE</h2><span class="section-line"></span></div>
 <div class="story-grid">{% for post in posts offset:1 %}{% include card.html post=post sizes='(max-width: 650px) calc(100vw - 32px), (max-width: 980px) 45vw, 410px' %}{% endfor %}</div>
 <button id="load-stories" class="button button-outline" type="button" hidden>CARICA ALTRI ARTICOLI ↓</button>

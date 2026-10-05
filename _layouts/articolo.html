@@ -5,7 +5,7 @@
 <header class="article-heading"><div class="article-kicker"><span class="category">{{ page.category | escape }}{% unless page.category == 'Satira' or page.satire == false %} · Satira{% endunless %}</span><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%d.%m.%Y' }}</time></div><h1>{{ page.title | escape }}</h1><p class="article-lead">{{ page.description | escape }}</p><div class="article-byline"><span>Di <strong>{{ site.author | escape }}</strong></span><span>{% if page.satire == false %}NOTIZIE E OPINIONI{% else %}NOTIZIA E COMMENTO SATIRICO{% endif %}</span></div></header>
 {% include share.html %}
 <figure class="article-figure">{% capture cover_alt %}Copertina illustrativa IA: {{ page.title }}{% endcapture %}{% include image.html source=page.image alt=cover_alt eager=true class='article-cover' sizes='(max-width: 900px) calc(100vw - 32px), 860px' %}<figcaption>{{ page.cover_disclaimer | default: site.cover_disclaimer | escape }}</figcaption></figure>
-<article class="article-body">{{ content }}</article>
+<article class="article-body">{% include article-with-affiliate.html body=content %}</article>
 {% include share.html %}
 {% include comments.html %}
 {% assign related = site.posts | where: 'category', page.category %}
