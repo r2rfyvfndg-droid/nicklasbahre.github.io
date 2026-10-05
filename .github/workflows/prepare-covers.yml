@@ -3,7 +3,6 @@ on:
   push:
     branches: [main]
     paths:
-      - '_posts/**'
       - 'images/**'
       - '*.PNG'
       - '*.png'
@@ -15,17 +14,21 @@ on:
       - '*.WEBP'
       - '*.avif'
       - 'scripts/prepare_images.py'
+      - 'scripts/check_covers.py'
       - '.github/workflows/prepare-covers.yml'
   workflow_dispatch:
+
 permissions:
   contents: write
-  pages: write
+
 concurrency:
   group: prepare-covers
-  cancel-in-progress: false
+  cancel-in-progress: true
+
 jobs:
   images:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:
@@ -38,10 +41,7 @@ jobs:
         run: python scripts/prepare_images.py
       - name: Controlla formati e manifest
         run: python scripts/check_covers.py
-      - name: Salva copertine e aggiorna il sito
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GH_REPO: ${{ github.repository }}
+      - name: Salva copertine ottimizzate
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
@@ -50,4 +50,3 @@ jobs:
           git commit -m 'Ottimizza copertine e anteprime social automaticamente'
           git pull --rebase origin main
           git push origin HEAD:main
-          gh api --method POST "repos/$GH_REPO/pages/builds"
