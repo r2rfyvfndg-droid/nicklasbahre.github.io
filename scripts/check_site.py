@@ -3,6 +3,7 @@ from pathlib import Path
 from urllib.parse import urlsplit,unquote
 import sys,json
 from bs4 import BeautifulSoup
+from PIL import Image
 root=Path(sys.argv[1] if len(sys.argv)>1 else '_site')
 files=[root/'index.html',root/'chi-siamo/index.html',root/'404.html',*root.glob('notizie/*/index.html'),root/'stankovic.html']
 checked=0
@@ -20,8 +21,14 @@ for file in files:
         item=soup.find('meta',attrs={'property':prop}) or soup.find('meta',attrs={'name':prop})
         assert item['content'].startswith('https://nicklasnews.it/'),(file,prop)
         assert (root/urlsplit(item['content']).path.lstrip('/')).is_file(),(file,prop)
-    assert soup.select_one('meta[property="og:image:width"]')['content']=='1200',file
-    assert soup.select_one('meta[property="og:image:height"]')['content']=='675',file
+    social_url=soup.select_one('meta[property="og:image"]')['content']
+    social_file=root/unquote(urlsplit(social_url).path).lstrip('/')
+    with Image.open(social_file) as social_cover:
+        actual_width,actual_height=social_cover.size
+    declared_width=int(soup.select_one('meta[property="og:image:width"]')['content'])
+    declared_height=int(soup.select_one('meta[property="og:image:height"]')['content'])
+    assert (declared_width,declared_height)==(actual_width,actual_height),(file,'Incorrect social dimensions')
+    assert actual_width*9==actual_height*16,(file,'Social cover must be 16:9')
     for script in soup.select('script[type="application/ld+json"]'):json.loads(script.string)
     for item in soup.select('a[href],img[src],script[src],link[href]'):
         url=item.get('href',item.get('src',''));parsed=urlsplit(url)
