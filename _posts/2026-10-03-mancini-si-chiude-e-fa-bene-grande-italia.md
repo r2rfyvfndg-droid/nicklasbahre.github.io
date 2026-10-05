@@ -5,8 +5,8 @@ category: Nazionali
 image: /mancini-zidane.PNG
 social_image: /mancini-zidane.PNG?v=3
 social_image_type: image/png
-social_image_width: 1536
-social_image_height: 864
+social_image_width: 1672
+social_image_height: 940
 description: "Le pagelle di Francia-Italia: Donnarumma mostruoso, Bastoni decisivo e Mancini tatticamente perfetto. Il bel gioco lasciamolo ai francesi: noi ci prendiamo il risultato."
 author: Nicklas Bahre
 satire: true

@@ -7,8 +7,8 @@ topics: [Calcio, Satira, Juventus, Francia]
 image: /zizou.PNG
 social_image: /zizou.PNG?v=1
 social_image_type: image/png
-social_image_width: 1536
-social_image_height: 864
+social_image_width: 1672
+social_image_height: 941
 description: "Dal Mondiale del 1998 alla testata a Materazzi, dalla Juventus al Real Madrid fino al suo aspetto di oggi: la carriera di Zinedine Zidane raccontata in pieno stile Nicklas News."
 excerpt: "Campione del mondo, Pallone d’Oro, fenomeno del Real Madrid e protagonista della testata più famosa del calcio: la parabola di Zizou, in versione satirica."
 author: Nicklas Bahre

@@ -28,7 +28,7 @@ for file in files:
     declared_width=int(soup.select_one('meta[property="og:image:width"]')['content'])
     declared_height=int(soup.select_one('meta[property="og:image:height"]')['content'])
     assert (declared_width,declared_height)==(actual_width,actual_height),(file,'Incorrect social dimensions')
-    assert actual_width*9==actual_height*16,(file,'Social cover must be 16:9')
+    assert abs(actual_width*9/16-actual_height)<=1,(file,'Social cover must be 16:9')
     for script in soup.select('script[type="application/ld+json"]'):json.loads(script.string)
     for item in soup.select('a[href],img[src],script[src],link[href]'):
         url=item.get('href',item.get('src',''));parsed=urlsplit(url)

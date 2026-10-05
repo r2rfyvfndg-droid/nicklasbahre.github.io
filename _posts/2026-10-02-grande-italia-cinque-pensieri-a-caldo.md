@@ -5,8 +5,8 @@ category: Nazionali
 image: /italia-kean2.PNG
 social_image: /italia-kean2.PNG?v=2
 social_image_type: image/png
-social_image_width: 1536
-social_image_height: 864
+social_image_width: 1672
+social_image_height: 940
 description: "Donnarumma salva tutto, Frattesi domina, Bastoni rinasce. Pio Esposito scompare e Kean si presenta con gli scarponi: cinque pensieri a caldo su Francia-Italia."
 author: Nicklas Bahre
 satire: true
