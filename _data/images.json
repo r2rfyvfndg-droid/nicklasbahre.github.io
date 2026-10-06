@@ -23,6 +23,18 @@
     "social_height": 675,
     "social_type": "image/jpeg"
   },
+  "/calafiori.PNG": {
+    "src": "/assets/covers/calafiori-0cff4f3d35c3-960.webp",
+    "large": "/assets/covers/calafiori-0cff4f3d35c3-1600.webp",
+    "small": "/assets/covers/calafiori-0cff4f3d35c3-480.webp",
+    "srcset": "/assets/covers/calafiori-0cff4f3d35c3-480.webp 480w, /assets/covers/calafiori-0cff4f3d35c3-960.webp 960w, /assets/covers/calafiori-0cff4f3d35c3-1600.webp 1600w",
+    "social": "/assets/covers/calafiori-0cff4f3d35c3-social.jpg",
+    "width": 1600,
+    "height": 900,
+    "social_width": 1200,
+    "social_height": 675,
+    "social_type": "image/jpeg"
+  },
   "/city-inter.PNG": {
     "src": "/assets/covers/city-inter-b94f84a65d04-960.webp",
     "large": "/assets/covers/city-inter-b94f84a65d04-1600.webp",
@@ -329,6 +341,18 @@
     "small": "/assets/covers/pullman-italia-dc9a1fd05b3a-480.webp",
     "srcset": "/assets/covers/pullman-italia-dc9a1fd05b3a-480.webp 480w, /assets/covers/pullman-italia-dc9a1fd05b3a-960.webp 960w, /assets/covers/pullman-italia-dc9a1fd05b3a-1600.webp 1600w",
     "social": "/assets/covers/pullman-italia-dc9a1fd05b3a-social.jpg",
+    "width": 1600,
+    "height": 900,
+    "social_width": 1200,
+    "social_height": 675,
+    "social_type": "image/jpeg"
+  },
+  "/quarti.PNG": {
+    "src": "/assets/covers/quarti-6102b7f19839-960.webp",
+    "large": "/assets/covers/quarti-6102b7f19839-1600.webp",
+    "small": "/assets/covers/quarti-6102b7f19839-480.webp",
+    "srcset": "/assets/covers/quarti-6102b7f19839-480.webp 480w, /assets/covers/quarti-6102b7f19839-960.webp 960w, /assets/covers/quarti-6102b7f19839-1600.webp 1600w",
+    "social": "/assets/covers/quarti-6102b7f19839-social.jpg",
     "width": 1600,
     "height": 900,
     "social_width": 1200,
