@@ -143,6 +143,18 @@
     "social_height": 675,
     "social_type": "image/jpeg"
   },
+  "/infermeria.PNG": {
+    "src": "/assets/covers/infermeria-ec7c695265db-960.webp",
+    "large": "/assets/covers/infermeria-ec7c695265db-1600.webp",
+    "small": "/assets/covers/infermeria-ec7c695265db-480.webp",
+    "srcset": "/assets/covers/infermeria-ec7c695265db-480.webp 480w, /assets/covers/infermeria-ec7c695265db-960.webp 960w, /assets/covers/infermeria-ec7c695265db-1600.webp 1600w",
+    "social": "/assets/covers/infermeria-ec7c695265db-social.jpg",
+    "width": 1600,
+    "height": 900,
+    "social_width": 1200,
+    "social_height": 675,
+    "social_type": "image/jpeg"
+  },
   "/inter-convocati.jpeg.PNG": {
     "src": "/assets/covers/inter-convocati-jpeg-258199a6a094-960.webp",
     "large": "/assets/covers/inter-convocati-jpeg-258199a6a094-1600.webp",
