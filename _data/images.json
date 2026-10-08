@@ -191,6 +191,18 @@
     "social_height": 675,
     "social_type": "image/jpeg"
   },
+  "/luish.PNG": {
+    "src": "/assets/covers/luish-672e60907620-960.webp",
+    "large": "/assets/covers/luish-672e60907620-1600.webp",
+    "small": "/assets/covers/luish-672e60907620-480.webp",
+    "srcset": "/assets/covers/luish-672e60907620-480.webp 480w, /assets/covers/luish-672e60907620-960.webp 960w, /assets/covers/luish-672e60907620-1600.webp 1600w",
+    "social": "/assets/covers/luish-672e60907620-social.jpg",
+    "width": 1600,
+    "height": 900,
+    "social_width": 1200,
+    "social_height": 675,
+    "social_type": "image/jpeg"
+  },
   "/mancini-donne.PNG": {
     "src": "/assets/covers/mancini-donne-7a52150c3e7e-960.webp",
     "large": "/assets/covers/mancini-donne-7a52150c3e7e-1600.webp",
