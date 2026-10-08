@@ -119,6 +119,18 @@
     "social_height": 675,
     "social_type": "image/jpeg"
   },
+  "/ibra.PNG": {
+    "src": "/assets/covers/ibra-e15d86da7922-960.webp",
+    "large": "/assets/covers/ibra-e15d86da7922-1600.webp",
+    "small": "/assets/covers/ibra-e15d86da7922-480.webp",
+    "srcset": "/assets/covers/ibra-e15d86da7922-480.webp 480w, /assets/covers/ibra-e15d86da7922-960.webp 960w, /assets/covers/ibra-e15d86da7922-1600.webp 1600w",
+    "social": "/assets/covers/ibra-e15d86da7922-social.jpg",
+    "width": 1600,
+    "height": 900,
+    "social_width": 1200,
+    "social_height": 675,
+    "social_type": "image/jpeg"
+  },
   "/il-maranza-ha-costanza.webp": {
     "src": "/assets/covers/il-maranza-ha-costanza-0c885495950e-960.webp",
     "large": "/assets/covers/il-maranza-ha-costanza-0c885495950e-1600.webp",
