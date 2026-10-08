@@ -1,6 +1,6 @@
 ---
 title: "IBRAHIMOVIĆ: DA DIO DEL CALCIO A DIO DELLE CAZZATE. SETTE CAPITOLI DI UNA CARRIERA"
-date: 2026-10-08 15:00:00 +0200
+date: 2026-10-08 12:00:00 +0200
 category: Calcio
 tags: [Ibrahimovic, Inter, Milan, Barcellona, satira]
 image: /ibra.PNG
