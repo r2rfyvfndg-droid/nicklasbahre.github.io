@@ -323,6 +323,18 @@
     "social_height": 675,
     "social_type": "image/jpeg"
   },
+  "/ossessione-marotta.png": {
+    "src": "/assets/covers/ossessione-marotta-9ec2f6c9638f-960.webp",
+    "large": "/assets/covers/ossessione-marotta-9ec2f6c9638f-1600.webp",
+    "small": "/assets/covers/ossessione-marotta-9ec2f6c9638f-480.webp",
+    "srcset": "/assets/covers/ossessione-marotta-9ec2f6c9638f-480.webp 480w, /assets/covers/ossessione-marotta-9ec2f6c9638f-960.webp 960w, /assets/covers/ossessione-marotta-9ec2f6c9638f-1600.webp 1600w",
+    "social": "/assets/covers/ossessione-marotta-9ec2f6c9638f-social.jpg",
+    "width": 1600,
+    "height": 900,
+    "social_width": 1200,
+    "social_height": 675,
+    "social_type": "image/jpeg"
+  },
   "/pavard-effetto-theo.PNG": {
     "src": "/assets/covers/pavard-effetto-theo-b8a0148339c2-960.webp",
     "large": "/assets/covers/pavard-effetto-theo-b8a0148339c2-1600.webp",
