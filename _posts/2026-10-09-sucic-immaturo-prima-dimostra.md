@@ -2,6 +2,7 @@
 title: "SUČIĆ, CHE IMMATURITÀ! PRIMA DIMOSTRA DI VALERE, POI PRETENDI"
 date: 2026-10-09 16:50:00 +0200
 category: Inter
+image: /sucic-dimostra.png
 tags: [Inter, Petar Sučić, Chivu, calciomercato, satira]
 description: "Sučić lascia aperto il discorso sul suo futuro all'Inter: per Nicklas Bahre, prima di chiedere più spazio e riconoscimenti deve dimostrare molto di più."
 author: Nicklas Bahre
