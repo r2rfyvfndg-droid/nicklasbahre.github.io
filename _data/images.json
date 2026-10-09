@@ -443,6 +443,18 @@
     "social_height": 675,
     "social_type": "image/jpeg"
   },
+  "/sucic-dimostra.png": {
+    "src": "/assets/covers/sucic-dimostra-34774c00bce7-960.webp",
+    "large": "/assets/covers/sucic-dimostra-34774c00bce7-1600.webp",
+    "small": "/assets/covers/sucic-dimostra-34774c00bce7-480.webp",
+    "srcset": "/assets/covers/sucic-dimostra-34774c00bce7-480.webp 480w, /assets/covers/sucic-dimostra-34774c00bce7-960.webp 960w, /assets/covers/sucic-dimostra-34774c00bce7-1600.webp 1600w",
+    "social": "/assets/covers/sucic-dimostra-34774c00bce7-social.jpg",
+    "width": 1600,
+    "height": 900,
+    "social_width": 1200,
+    "social_height": 675,
+    "social_type": "image/jpeg"
+  },
   "/thuram-treccine-copertina.webp": {
     "src": "/assets/covers/thuram-treccine-copertina-524833b91280-960.webp",
     "large": "/assets/covers/thuram-treccine-copertina-524833b91280-1600.webp",
