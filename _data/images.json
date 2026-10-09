@@ -119,6 +119,18 @@
     "social_height": 675,
     "social_type": "image/jpeg"
   },
+  "/goat.PNG": {
+    "src": "/assets/covers/goat-392f13f432a0-960.webp",
+    "large": "/assets/covers/goat-392f13f432a0-1600.webp",
+    "small": "/assets/covers/goat-392f13f432a0-480.webp",
+    "srcset": "/assets/covers/goat-392f13f432a0-480.webp 480w, /assets/covers/goat-392f13f432a0-960.webp 960w, /assets/covers/goat-392f13f432a0-1600.webp 1600w",
+    "social": "/assets/covers/goat-392f13f432a0-social.jpg",
+    "width": 1600,
+    "height": 900,
+    "social_width": 1200,
+    "social_height": 675,
+    "social_type": "image/jpeg"
+  },
   "/ibra.PNG": {
     "src": "/assets/covers/ibra-e15d86da7922-960.webp",
     "large": "/assets/covers/ibra-e15d86da7922-1600.webp",
