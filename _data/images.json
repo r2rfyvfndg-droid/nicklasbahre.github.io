@@ -479,6 +479,18 @@
     "social_height": 675,
     "social_type": "image/jpeg"
   },
+  "/sucic-water.PNG": {
+    "src": "/assets/covers/sucic-water-029450187ccf-960.webp",
+    "large": "/assets/covers/sucic-water-029450187ccf-1600.webp",
+    "small": "/assets/covers/sucic-water-029450187ccf-480.webp",
+    "srcset": "/assets/covers/sucic-water-029450187ccf-480.webp 480w, /assets/covers/sucic-water-029450187ccf-960.webp 960w, /assets/covers/sucic-water-029450187ccf-1600.webp 1600w",
+    "social": "/assets/covers/sucic-water-029450187ccf-social.jpg",
+    "width": 1600,
+    "height": 900,
+    "social_width": 1200,
+    "social_height": 675,
+    "social_type": "image/jpeg"
+  },
   "/thuram-treccine-copertina.webp": {
     "src": "/assets/covers/thuram-treccine-copertina-524833b91280-960.webp",
     "large": "/assets/covers/thuram-treccine-copertina-524833b91280-1600.webp",
