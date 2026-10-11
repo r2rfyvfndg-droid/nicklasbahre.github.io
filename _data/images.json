@@ -491,6 +491,18 @@
     "social_height": 675,
     "social_type": "image/jpeg"
   },
+  "/thuram-mostro.PNG": {
+    "src": "/assets/covers/thuram-mostro-e3c282dd700a-960.webp",
+    "large": "/assets/covers/thuram-mostro-e3c282dd700a-1600.webp",
+    "small": "/assets/covers/thuram-mostro-e3c282dd700a-480.webp",
+    "srcset": "/assets/covers/thuram-mostro-e3c282dd700a-480.webp 480w, /assets/covers/thuram-mostro-e3c282dd700a-960.webp 960w, /assets/covers/thuram-mostro-e3c282dd700a-1600.webp 1600w",
+    "social": "/assets/covers/thuram-mostro-e3c282dd700a-social.jpg",
+    "width": 1600,
+    "height": 900,
+    "social_width": 1200,
+    "social_height": 675,
+    "social_type": "image/jpeg"
+  },
   "/thuram-treccine-copertina.webp": {
     "src": "/assets/covers/thuram-treccine-copertina-524833b91280-960.webp",
     "large": "/assets/covers/thuram-treccine-copertina-524833b91280-1600.webp",
