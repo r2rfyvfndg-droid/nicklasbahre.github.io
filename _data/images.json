@@ -35,6 +35,18 @@
     "social_height": 675,
     "social_type": "image/jpeg"
   },
+  "/chivu-lavoro.PNG": {
+    "src": "/assets/covers/chivu-lavoro-909cf46df2ef-960.webp",
+    "large": "/assets/covers/chivu-lavoro-909cf46df2ef-1600.webp",
+    "small": "/assets/covers/chivu-lavoro-909cf46df2ef-480.webp",
+    "srcset": "/assets/covers/chivu-lavoro-909cf46df2ef-480.webp 480w, /assets/covers/chivu-lavoro-909cf46df2ef-960.webp 960w, /assets/covers/chivu-lavoro-909cf46df2ef-1600.webp 1600w",
+    "social": "/assets/covers/chivu-lavoro-909cf46df2ef-social.jpg",
+    "width": 1600,
+    "height": 900,
+    "social_width": 1200,
+    "social_height": 675,
+    "social_type": "image/jpeg"
+  },
   "/city-inter.PNG": {
     "src": "/assets/covers/city-inter-b94f84a65d04-960.webp",
     "large": "/assets/covers/city-inter-b94f84a65d04-1600.webp",
