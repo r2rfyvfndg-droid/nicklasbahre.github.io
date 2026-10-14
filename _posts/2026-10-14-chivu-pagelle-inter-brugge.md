@@ -2,7 +2,7 @@
 title: "CHIVU NON È UN ALLENATORE: LE PAGELLE DEL DISASTRO CONTRO IL BRUGGE"
 date: 2026-10-14 12:15:00 +0200
 category: Inter
-image: /chivu-lavoro.PNG
+image: /chivu-patentino.PNG
 tags: [Inter, Club Brugge, pagelle, Chivu, Josep Martinez, Champions League, satira]
 description: "Inter-Club Brugge 3-4: tutte le pagelle di Nicklas Bahre. Chivu 3, Josep Martínez 3,5, Barella e Akanji 4,5. Una notte europea da dimenticare."
 author: Nicklas Bahre
