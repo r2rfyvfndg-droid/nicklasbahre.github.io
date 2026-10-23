@@ -503,6 +503,18 @@
     "social_height": 675,
     "social_type": "image/jpeg"
   },
+  "/spence.PNG": {
+    "src": "/assets/covers/spence-ea4bbc64f2be-960.webp",
+    "large": "/assets/covers/spence-ea4bbc64f2be-1600.webp",
+    "small": "/assets/covers/spence-ea4bbc64f2be-480.webp",
+    "srcset": "/assets/covers/spence-ea4bbc64f2be-480.webp 480w, /assets/covers/spence-ea4bbc64f2be-960.webp 960w, /assets/covers/spence-ea4bbc64f2be-1600.webp 1600w",
+    "social": "/assets/covers/spence-ea4bbc64f2be-social.jpg",
+    "width": 1600,
+    "height": 900,
+    "social_width": 1200,
+    "social_height": 675,
+    "social_type": "image/jpeg"
+  },
   "/stankovic.jpeg.PNG": {
     "src": "/assets/covers/stankovic-jpeg-eaf4d092ed45-960.webp",
     "large": "/assets/covers/stankovic-jpeg-eaf4d092ed45-1600.webp",
