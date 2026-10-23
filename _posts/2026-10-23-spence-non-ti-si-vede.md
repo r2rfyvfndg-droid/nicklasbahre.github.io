@@ -2,6 +2,7 @@
 title: "SPENCE NON TI SI VEDE, NEMMENO NELL'OSCURITÀ"
 date: 2026-10-23 15:30:00 +0200
 category: Inter
+image: /spence.PNG
 tags: [Inter, Spence, calciomercato, opinioni, satira]
 description: "Djed Spence corre, accelera e divora la fascia. Ma quando arriva il momento di giocare il pallone, i dubbi aumentano. L'editoriale di Nicklas Bahre."
 author: Nicklas Bahre
