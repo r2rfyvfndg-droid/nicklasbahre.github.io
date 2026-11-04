@@ -21,6 +21,16 @@ Font Barlow Condensed e DM Sans serviti localmente in WOFF2, con licenze OFL in 
 
 Commenti e moderazione: `comments/README.md`. Nessun segreto deve essere inserito nel frontend; il token pubblico Cloudflare Web Analytics non è un token amministrativo.
 
-## Banner Tacchettee
+## Affiliazione Sorare
 
-`_includes/affiliate-banner.html` contiene il link affiliato esatto e il testo comuni. La home lo mostra dopo il primo articolo; il layout `articolo` lo inserisce in fase di build dopo il terzo paragrafo, al primo confine esterno ai blocchi annidati (oppure in fondo agli articoli brevi). Vale anche per articoli esistenti e futuri, senza JavaScript né richieste a Tacchettee prima del clic. Per cambiare destinazione aggiornare solo l’href nel componente, preservando tutti gli eventuali parametri di tracking.
+Configurazione unica: `_data/sorare.yml`. Modificare URL, titolo, descrizione, pulsante, immagine o `enabled`, poi pubblicare la modifica con una nuova build Jekyll. Per rimuovere tutti i moduli impostare `enabled: false`. Il link Impact viene utilizzato esattamente come configurato.
+
+`_includes/affiliate-banner.html` genera HTML statico, senza JavaScript o richieste a Impact/Sorare prima del clic. La homepage lo include dopo il primo articolo. `_layouts/articolo.html` lo include una sola volta dopo il contenuto editoriale, prima di condivisione, commenti e correlati. Vale anche per tutti i nuovi post creati dal CMS (`admin/config.yml`) o direttamente in `_posts/`, grazie al layout predefinito in `_config.yml`. Nessun inserimento intermedio.
+
+La creatività generale Stellar Nights è derivata dall'originale fornito, senza ritaglio, in WebP 320×400 e 640×800. Non sono attive le creatività da 150 €: termini e contratto Impact dell'account non verificati. Commissioni e attribuzione non sono promesse ai lettori.
+
+### Campagne temporanee
+
+`promotion` è disattivata. Per attivarla occorrono `enabled: true`, `verified: true`, `starts_at`, `ends_at`, `terms_url` e un oggetto `image` completo (src, width, height, alt ed eventualmente srcset). Impostare titolo e descrizione con le condizioni effettivamente verificate. Le date ISO includono il fuso (es. `+01:00`). Fuori dall'intervallo si usa la creatività generale. **La scadenza è valutata durante la build: programmare una nuova build alla scadenza o disattivare e ripubblicare prima di allora.** Non è un timer nel browser. Per disattivare solo l'offerta: `promotion.enabled: false` e nuova build.
+
+Verifica automatica: `python scripts/check_sorare.py _site`. `python scripts/test_sorare_build.py` verifica anche un nuovo articolo temporaneo e gli stati disattivato/scaduto; i file di prova sono rimossi dopo il test.
