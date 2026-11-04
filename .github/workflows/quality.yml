@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
@@ -22,13 +24,14 @@ jobs:
       - run: node --check comments.js && node --check assets/site.js && node --check menu.js
       - run: python scripts/prepare_images.py && python scripts/check_covers.py
       - run: bundle exec jekyll build --strict_front_matter --trace
-      - run: python scripts/check_site.py _site
       - run: python scripts/check_sorare.py _site
       - run: python scripts/test_sorare_build.py
-      - name: Anteprima statica verificata (nessun deploy)
+      - run: python scripts/check_sorare_regression.py
+      - name: Anteprima statica Sorare (nessun deploy)
         if: github.ref != 'refs/heads/main'
         uses: actions/upload-artifact@v4
         with:
           name: nicklasnews-preview
           path: _site/
           retention-days: 7
+      - run: python scripts/check_site.py _site
