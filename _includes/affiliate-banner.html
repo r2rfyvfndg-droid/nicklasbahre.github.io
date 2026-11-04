@@ -1,10 +1,26 @@
-<aside class="affiliate-banner" aria-label="Pubblicità Tacchettee" data-nosnippet>
-  <a class="affiliate-banner-link" href="https://www.tacchettee.it/nicklasbahre" rel="sponsored noopener" target="_blank">
-    <span class="affiliate-banner-copy">
-      <span class="affiliate-banner-label">TACCHETTEE · LINK AFFILIATO</span>
-      <strong class="affiliate-banner-title">LE MIGLIORI MAGLIE A TEMA CALCIO</strong>
-      <span class="affiliate-banner-url">https://www.tacchettee.it/nicklasbahre</span>
-    </span>
-    <span class="affiliate-banner-cta">SCOPRI LE MAGLIE <span aria-hidden="true">↗</span></span>
-  </a>
+{%- assign sorare = site.data.sorare -%}
+{%- if sorare.enabled -%}
+  {%- assign campaign = sorare -%}
+  {%- assign promo = sorare.promotion -%}
+  {%- assign now = site.time | date: '%s' | plus: 0 -%}
+  {%- if promo.enabled and promo.verified and promo.starts_at and promo.ends_at and promo.terms_url and promo.image.src -%}
+    {%- assign starts = promo.starts_at | date: '%s' | plus: 0 -%}
+    {%- assign ends = promo.ends_at | date: '%s' | plus: 0 -%}
+    {%- if now >= starts and now < ends -%}{%- assign campaign = promo -%}{%- endif -%}
+  {%- endif -%}
+<aside class="sorare-banner" aria-label="Pubblicità Sorare" data-nosnippet>
+  <div class="sorare-banner-grid">
+    <a class="sorare-image-link" href="{{ sorare.url | escape }}" rel="sponsored noopener noreferrer" target="_blank" aria-label="Scopri Sorare (link affiliato, si apre in una nuova scheda)">
+      <img src="{{ campaign.image.src | relative_url }}"{% if campaign.image.srcset %} srcset="{{ campaign.image.srcset | escape }}" sizes="(max-width: 650px) 280px, 260px"{% endif %} width="{{ campaign.image.width }}" height="{{ campaign.image.height }}" alt="{{ campaign.image.alt | escape }}" loading="lazy" decoding="async">
+    </a>
+    <div class="sorare-copy">
+      <span class="sorare-label">{{ sorare.label | escape }}</span>
+      <h2 class="sorare-title">{{ campaign.title | default: sorare.title | escape }}</h2>
+      <p class="sorare-description">{{ campaign.description | default: sorare.description | escape }}</p>
+      <a class="sorare-cta" href="{{ sorare.url | escape }}" rel="sponsored noopener noreferrer" target="_blank" aria-label="{{ sorare.button | escape }} (link affiliato, si apre in una nuova scheda)">{{ sorare.button | escape }} <span aria-hidden="true">↗</span></a>
+      {% if campaign.terms_url %}<a class="sorare-terms" href="{{ campaign.terms_url | escape }}" target="_blank" rel="noopener noreferrer">Termini dell’offerta ↗</a>{% endif %}
+    </div>
+  </div>
+  <p class="sorare-disclosure">{{ sorare.disclosure | escape }}</p>
 </aside>
+{%- endif -%}
