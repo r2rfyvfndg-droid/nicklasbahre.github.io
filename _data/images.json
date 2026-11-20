@@ -23,6 +23,18 @@
     "social_height": 675,
     "social_type": "image/jpeg"
   },
+  "/assets/sorare/stellar-nights-640.webp": {
+    "src": "/assets/covers/stellar-nights-640-bc6d10046080-960.webp",
+    "large": "/assets/covers/stellar-nights-640-bc6d10046080-1600.webp",
+    "small": "/assets/covers/stellar-nights-640-bc6d10046080-480.webp",
+    "srcset": "/assets/covers/stellar-nights-640-bc6d10046080-480.webp 480w, /assets/covers/stellar-nights-640-bc6d10046080-960.webp 960w, /assets/covers/stellar-nights-640-bc6d10046080-1600.webp 1600w",
+    "social": "/assets/covers/stellar-nights-640-bc6d10046080-social.jpg",
+    "width": 1600,
+    "height": 900,
+    "social_width": 1200,
+    "social_height": 675,
+    "social_type": "image/jpeg"
+  },
   "/calafiori.PNG": {
     "src": "/assets/covers/calafiori-0cff4f3d35c3-960.webp",
     "large": "/assets/covers/calafiori-0cff4f3d35c3-1600.webp",
@@ -593,6 +605,18 @@
     "small": "/assets/covers/transfermarkt-spiegato-juventini-2737c180cf18-480.webp",
     "srcset": "/assets/covers/transfermarkt-spiegato-juventini-2737c180cf18-480.webp 480w, /assets/covers/transfermarkt-spiegato-juventini-2737c180cf18-960.webp 960w, /assets/covers/transfermarkt-spiegato-juventini-2737c180cf18-1600.webp 1600w",
     "social": "/assets/covers/transfermarkt-spiegato-juventini-2737c180cf18-social.jpg",
+    "width": 1600,
+    "height": 900,
+    "social_width": 1200,
+    "social_height": 675,
+    "social_type": "image/jpeg"
+  },
+  "/violi.storia.PNG": {
+    "src": "/assets/covers/violi-storia-7623eaa28df7-960.webp",
+    "large": "/assets/covers/violi-storia-7623eaa28df7-1600.webp",
+    "small": "/assets/covers/violi-storia-7623eaa28df7-480.webp",
+    "srcset": "/assets/covers/violi-storia-7623eaa28df7-480.webp 480w, /assets/covers/violi-storia-7623eaa28df7-960.webp 960w, /assets/covers/violi-storia-7623eaa28df7-1600.webp 1600w",
+    "social": "/assets/covers/violi-storia-7623eaa28df7-social.jpg",
     "width": 1600,
     "height": 900,
     "social_width": 1200,
