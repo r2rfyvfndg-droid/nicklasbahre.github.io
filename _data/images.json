@@ -215,6 +215,18 @@
     "social_height": 675,
     "social_type": "image/jpeg"
   },
+  "/inganna.PNG": {
+    "src": "/assets/covers/inganna-826c2bbfe3ba-960.webp",
+    "large": "/assets/covers/inganna-826c2bbfe3ba-1600.webp",
+    "small": "/assets/covers/inganna-826c2bbfe3ba-480.webp",
+    "srcset": "/assets/covers/inganna-826c2bbfe3ba-480.webp 480w, /assets/covers/inganna-826c2bbfe3ba-960.webp 960w, /assets/covers/inganna-826c2bbfe3ba-1600.webp 1600w",
+    "social": "/assets/covers/inganna-826c2bbfe3ba-social.jpg",
+    "width": 1600,
+    "height": 900,
+    "social_width": 1200,
+    "social_height": 675,
+    "social_type": "image/jpeg"
+  },
   "/inter-convocati.jpeg.PNG": {
     "src": "/assets/covers/inter-convocati-jpeg-258199a6a094-960.webp",
     "large": "/assets/covers/inter-convocati-jpeg-258199a6a094-1600.webp",
