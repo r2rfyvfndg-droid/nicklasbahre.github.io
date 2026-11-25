@@ -347,6 +347,18 @@
     "social_height": 675,
     "social_type": "image/jpeg"
   },
+  "/maradroga.PNG": {
+    "src": "/assets/covers/maradroga-e0a4cccf4c57-960.webp",
+    "large": "/assets/covers/maradroga-e0a4cccf4c57-1600.webp",
+    "small": "/assets/covers/maradroga-e0a4cccf4c57-480.webp",
+    "srcset": "/assets/covers/maradroga-e0a4cccf4c57-480.webp 480w, /assets/covers/maradroga-e0a4cccf4c57-960.webp 960w, /assets/covers/maradroga-e0a4cccf4c57-1600.webp 1600w",
+    "social": "/assets/covers/maradroga-e0a4cccf4c57-social.jpg",
+    "width": 1600,
+    "height": 900,
+    "social_width": 1200,
+    "social_height": 675,
+    "social_type": "image/jpeg"
+  },
   "/mazzola.jpeg.PNG": {
     "src": "/assets/covers/mazzola-jpeg-9886af3508a0-960.webp",
     "large": "/assets/covers/mazzola-jpeg-9886af3508a0-1600.webp",
